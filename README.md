@@ -6,5 +6,4 @@ using gh as a database with gh api and actions
   - auth with github api
   - send in issue
   - gh actions will commit based on the issue
-
 - app
