@@ -1,0 +1,38 @@
+<html>
+<head>
+  <script type="module">
+    import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+    
+    const octokit = new Octokit({ auth: "***" });
+    octokit.request('GET /repos/:owner/:repo/releases/latest', {
+      owner: "skparab1",
+      repo: "images"
+    }).then(response => console.log(response.data))
+    async function start() {
+      return await Octokit.request('POST /repos/skparab1/images/issues', {
+          owner: 'skparab1',
+          repo: 'images',
+          title: 'test'
+        })
+    };
+    console.log((function () {})());
+    
+  </script>    
+  <script type="module">
+    import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+
+
+//     export const sendVerificationEmail = async () =>
+// response => await octokit.request('POST /repos/skparab1/images/issues', {
+//   owner: 'skparab1',
+//   repo: 'images',
+//   title: 'test'
+// })
+
+    
+    </script>
+</head>
+
+<body>
+</body>
+</html>
