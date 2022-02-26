@@ -8,4 +8,4 @@ using gh as a database with gh api and actions
   - gh actions will commit based on the issue
 - applications
   - act as a server ( a relatevely mediocre one
-  - act as a databsed
+  - act as a database
