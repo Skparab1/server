@@ -10,4 +10,4 @@ using gh as a database with gh api and actions
   - act as a server (a relatevely mediocre one)
   - act as a database
   - specific uses
-  - 
+    - url shortener (to make redirects)
