@@ -11,4 +11,4 @@ using gh as a database with gh api and actions
   - act as a database
   - specific uses
     - url shortener (to make redirects)
-    - chat app
+    - chat app (but idk)
