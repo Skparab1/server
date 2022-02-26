@@ -5,4 +5,4 @@ using gh as a database with gh api and actions
 - process
   - auth with github api
   - send in issue
-  - gh actions will
+  - gh actions will commit based on the issue
