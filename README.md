@@ -9,3 +9,5 @@ using gh as a database with gh api and actions
 - applications
   - act as a server (a relatevely mediocre one)
   - act as a database
+  - specific uses
+  - 
