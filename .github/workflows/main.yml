@@ -29,8 +29,8 @@ jobs:
       - name: manifest Version
         uses: deef0000dragon1/json-edit-action/@v1
         env:
-          KEY: version
-          VALUE: v0.1.1
+          KEY: data
+          VALUE: world
           FILE: data.json
           
       - name: Commit files
