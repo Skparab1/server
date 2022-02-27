@@ -30,3 +30,10 @@ jobs:
           file: data.json
           field: data
           value: world
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "docs(): bumping release ${{ steps.semantic_release_info.outputs.git_tag }}"
+          git tag ${{ steps.semantic_release_info.outputs.git_tag }}
