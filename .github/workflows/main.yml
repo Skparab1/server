@@ -18,8 +18,10 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Update data.json description
         uses: jossef/action-set-json-field@v1
+        
         with:
           file: data.json
           field: data
