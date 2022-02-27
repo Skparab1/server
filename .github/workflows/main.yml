@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps
       - name: Update data.json description
-        uses: jossef/action-set-json-field@v1, actions/checkout@v2
+        uses: jossef/action-set-json-field@v1
         with:
           file: data.json
           field: data
