@@ -18,16 +18,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v1
-        - name: switching from HTTPS to SSH
-          run: git remote add upstream https://github.com/skparab1/server
-        - name: check for changes
-          run: git status
-        - name: stage changed files
-          run: git add .
-        - name: commit changed files
-          run: git commit -m "Auto updating index.html"
-        - name: fetch from master
-          run: git fetch origin master
-        - name: push code to master
-          run: git push origin HEAD:master
+      - name: Update my-file.json description
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: my-file.json
+          field: description
+          value: my custom data
