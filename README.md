@@ -1,7 +1,7 @@
 # server
 using gh as a database with gh api and actions
 
-- use js
+- use js to send 
 
 - process
   - auth with github api
