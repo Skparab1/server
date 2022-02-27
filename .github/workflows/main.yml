@@ -21,7 +21,7 @@ jobs:
       - name: Update data.json description
         uses: jossef/action-set-json-field@v1
         with:
-          file: data.json
+          file: main/data.json
           field: data
           value: world
       - name: Commit files
