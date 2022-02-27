@@ -3,7 +3,7 @@ using gh as a database with gh api and actions
 
 - use js to send issue using github api
   - works!
-- github
+- github actions
 
 - process
   - auth with github api
