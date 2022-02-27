@@ -17,7 +17,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    steps
+    steps:
       - name: Update data.json description
         uses: jossef/action-set-json-field@v1
         with:
