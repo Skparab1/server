@@ -26,6 +26,12 @@ jobs:
         run: cat data.json
       - name: save changes with pull request
         run: git switch -c changes
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update the data!"
+          commit_user_name: skparab1
+          commit_user_email: skparab1@gmail.com
+          commit_author: skparab1 <skparab1@gmail.com>
         
       - uses: actions/checkout@v2
       - name: Update data.json description
