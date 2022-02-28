@@ -27,6 +27,12 @@ jobs:
       - name: save changes with pull request
         run: git switch -c changes
       - uses: actions/checkout@v2
+        with:
+          ref: $changes
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm run test
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Bot] Update all the things!"
@@ -42,13 +48,6 @@ jobs:
           field: data
           value: world
           
-      - uses: actions/checkout@v2
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[Bot] Update all the things!"
-          commit_user_name: 'skparab1'
-          commit_user_email: 'skparab1'
-          commit_author: 'skparab1'
           
       - name: manifest Version
         uses: deef0000dragon1/json-edit-action/@v1
@@ -57,13 +56,6 @@ jobs:
           VALUE: world
           FILE: data.json
           
-      - uses: actions/checkout@v2
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[Bot] Update all the things!"
-          commit_user_name: 'skparab1'
-          commit_user_email: 'skparab1'
-          commit_author: 'skparab1'
           
       - name: Commit files
         run: |
@@ -72,11 +64,3 @@ jobs:
           git add -A
           git commit -m "docs(): bumping release ${{ steps.semantic_release_info.outputs.git_tag }}"
           git tag ${{ steps.semantic_release_info.outputs.git_tag }}
-      
-      - uses: actions/checkout@v2
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[Bot] Update all the things!"
-          commit_user_name: 'skparab1'
-          commit_user_email: 'skparab1'
-          commit_author: 'skparab1'
