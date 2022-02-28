@@ -27,8 +27,6 @@ jobs:
       - name: save changes with pull request
         run: git switch -c changes
       - uses: actions/checkout@v2
-        with:
-          ref: $changes
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Bot] Update all the things!"
