@@ -30,8 +30,8 @@ jobs:
         with:
           commit_message: "[Bot] Update all the things!"
           commit_user_name: 'skparab1'
-          commit_user_email: 'skparab1'
-          commit_author: 'skparab1'
+          commit_user_email: 'skparab1@gmail.com'
+          commit_author: 'skparab1 <skparab1@gmail.com>'
         
       - uses: actions/checkout@v2
       - name: Update data.json description
