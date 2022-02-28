@@ -27,8 +27,6 @@ jobs:
       - name: save changes with pull request
         run: git switch -c changes
       - uses: actions/checkout@v2
-        with:
-          ref: $
       - name: Install dependencies
         run: npm install
       - name: Run tests
