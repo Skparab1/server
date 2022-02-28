@@ -29,10 +29,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: $changes
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm run test
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Bot] Update all the things!"
