@@ -1,6 +1,13 @@
 {
-  "query": {
-    "numbers": [0, 1, 2, 3],
-    "data": ["test", "hello"]
-  }
+   "version":"1",
+   "message":[
+      {
+         "id":"test"
+      }
+   ],
+   "secondArray":[
+      {
+         "secondId":"2"
+      }
+   ]
 }
