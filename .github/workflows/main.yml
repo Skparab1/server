@@ -26,12 +26,19 @@ jobs:
         run: cat data.json
       - name: save changes with pull request
         run: git switch -c changes
+      - uses: actions/checkout@v2
+        with:
+          ref: $
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm run test
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "[Bot] Update the data!"
-          commit_user_name: "skparab1"
-          commit_user_email: "skparab1@gmail.com"
-          commit_author: "skparab1 <skparab1@gmail.com>"
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: Ian Malcolm
+          commit_user_email: ian@example.com
+          commit_author: Ian Malcolm <ian@example.com>
         
       - uses: actions/checkout@v2
       - name: Update data.json description
