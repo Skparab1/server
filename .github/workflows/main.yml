@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Update data.json
         run: echo "`jq '.message[0].id="5"' data.json`" > data.json
       - name: read data.json
@@ -42,12 +42,28 @@ jobs:
           field: data
           value: world
           
+      - uses: actions/checkout@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: 'skparab1'
+          commit_user_email: 'skparab1'
+          commit_author: 'skparab1'
+          
       - name: manifest Version
         uses: deef0000dragon1/json-edit-action/@v1
         env:
           KEY: data
           VALUE: world
           FILE: data.json
+          
+      - uses: actions/checkout@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: 'skparab1'
+          commit_user_email: 'skparab1'
+          commit_author: 'skparab1'
           
       - name: Commit files
         run: |
@@ -56,3 +72,11 @@ jobs:
           git add -A
           git commit -m "docs(): bumping release ${{ steps.semantic_release_info.outputs.git_tag }}"
           git tag ${{ steps.semantic_release_info.outputs.git_tag }}
+      
+      - uses: actions/checkout@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: 'skparab1'
+          commit_user_email: 'skparab1'
+          commit_author: 'skparab1'
