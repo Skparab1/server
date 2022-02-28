@@ -24,6 +24,8 @@ jobs:
         run: echo "`jq '.message[0].id="5"' data.json`" > data.json
       - name: read data.json
         run: cat data.json
+      - name: save changes with pull request
+        run: git switch -c changes
         
       - uses: actions/checkout@v2
       - name: Update data.json description
