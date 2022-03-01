@@ -23,11 +23,11 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Update data.json
-        run: echo "`jq '.message[0].id="5"' data.json`" > data.json
+        run: echo "`jq '.data[0].content="hello world"' data.json`" > data.json
       - name: read data.json
         run: cat data.json
       - name: Commit
         uses: EndBug/add-and-commit@v7
         with:
-          message: 'changing files'
+          message: 'updating data'
           add: "data.json"
