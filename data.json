@@ -1,13 +1,13 @@
 {
-   "version":"1",
-   "message":[
-      {
-         "id":"test"
-      }
-   ],
-   "secondArray":[
-      {
-         "secondId":"2"
-      }
-   ]
+  "version": "1",
+  "message": [
+    {
+      "id": "5"
+    }
+  ],
+  "secondArray": [
+    {
+      "secondId": "2"
+    }
+  ]
 }
