@@ -20,14 +20,12 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
       - name: Update data.json
         run: echo "`jq '.message[0].id="5"' data.json`" > data.json
       - name: read data.json
         run: cat data.json
-    
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
       - name: Commit
         uses: EndBug/add-and-commit@v7
         with:
