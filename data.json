@@ -1,8 +1,8 @@
 {
   "version": "1",
-  "message": [
+  "data": [
     {
-      "id": "5"
+      "content": "5"
     }
   ],
   "secondArray": [
