@@ -1,1 +1,81 @@
+# This is a basic workflow to help you get started with Actions
 
+name: Issue data pusher
+
+# Controls when the workflow will run
+  # Triggers the workflow when issue is opened
+on:
+  issues:
+    types: [opened]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update data.json
+        run: echo "`jq '.message[0].id="5"' data.json`" > data.json
+      - name: read data.json
+        run: cat data.json
+      - name: save changes with pull request
+        run: git switch -c changes
+      - uses: actions/checkout@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: 'skparab1'
+          commit_user_email: 'skparab1@gmail.com'
+          commit_author: 'skparab1 <skparab1@gmail.com>'
+      - name: Commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'changing files'
+          add: "data.json"
+        
+      - uses: actions/checkout@v2
+      - name: Update data.json description
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: data.json
+          field: data
+          value: world
+          
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - uses: actions/checkout@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: 'skparab1'
+          commit_user_email: 'skparab1@gmail.com'
+          commit_author: 'skparab1 <skparab1@gmail.com>'
+      - name: Commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'changing files'
+          add: "data.json"
+          
+          
+      - name: manifest Version
+        uses: deef0000dragon1/json-edit-action/@v1
+        env:
+          KEY: data
+          VALUE: world
+          FILE: data.json
+          
+          
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "docs(): bumping release ${{ steps.semantic_release_info.outputs.git_tag }}"
+          git tag ${{ steps.semantic_release_info.outputs.git_tag }}
