@@ -47,6 +47,22 @@ jobs:
           field: data
           value: world
           
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - uses: actions/checkout@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Bot] Update all the things!"
+          commit_user_name: 'skparab1'
+          commit_user_email: 'skparab1@gmail.com'
+          commit_author: 'skparab1 <skparab1@gmail.com>'
+      - name: Commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'changing files'
+          add: "data.json"
+          
           
       - name: manifest Version
         uses: deef0000dragon1/json-edit-action/@v1
@@ -63,21 +79,3 @@ jobs:
           git add -A
           git commit -m "docs(): bumping release ${{ steps.semantic_release_info.outputs.git_tag }}"
           git tag ${{ steps.semantic_release_info.outputs.git_tag }}
-  update_list:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
-      - uses: actions/checkout@v2
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[Bot] Update all the things!"
-          commit_user_name: 'skparab1'
-          commit_user_email: 'skparab1@gmail.com'
-          commit_author: 'skparab1 <skparab1@gmail.com>'
-      - name: Commit
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: 'changing files'
-          add: "data.json"
