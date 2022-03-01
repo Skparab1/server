@@ -33,12 +33,11 @@ jobs:
           commit_user_name: 'skparab1'
           commit_user_email: 'skparab1@gmail.com'
           commit_author: 'skparab1 <skparab1@gmail.com>'
-            - name: Commit
-      - uses: EndBug/add-and-commit@v7
+      - name: Commit
+        uses: EndBug/add-and-commit@v7
         with:
-          message: 'trying'
+          message: 'changing files'
           add: "data.json"
-          add: "readme.md"
         
       - uses: actions/checkout@v2
       - name: Update data.json description
