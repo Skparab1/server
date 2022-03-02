@@ -1,1 +1,13 @@
- echo github.event.issue.title lol
+  {
+   "version":"1",
+   "data":[
+      {
+         "content":"1"
+      }
+   ],
+   "secondArray":[
+      {
+         "secondId":"2"
+      }
+   ]
+}
