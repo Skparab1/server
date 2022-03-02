@@ -23,7 +23,7 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Update data.json
-        run: echo "`jq '.data[0].content=github.event.issue.title' data.json`" > data.json
+        run: echo "`jq '.data[0].content=${{ github.event.issue.title }}' data.json`" > data.json
       - name: read data.json
         run: cat data.json
       - name: Commit
