@@ -26,6 +26,7 @@ jobs:
         env:
           issue_data: github.event.issue.title
         run: echo "`jq '.data[0].content=$issue_data' data.json`" > data.json
+            echo "$issue_data lol"
       - name: read data.json
         run: cat data.json
       - name: Commit
