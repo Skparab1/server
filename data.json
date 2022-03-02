@@ -1,13 +1,13 @@
-  {
-   "version":"1",
-   "data":[
-      {
-         "content":"1"
-      }
-   ],
-   "secondArray":[
-      {
-         "secondId":"2"
-      }
-   ]
+{
+  "version": "1",
+  "data": [
+    {
+      "content": "it works"
+    }
+  ],
+  "secondArray": [
+    {
+      "secondId": "2"
+    }
+  ]
 }
