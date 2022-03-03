@@ -2,9 +2,9 @@
   "version": "1",
   "data": [
     {
-      "content": "test+message%3A+hello+world"
+      "name": "hello+world",
+      "message": "lol"
     }
-    
   ],
   "secondArray": [
     {
