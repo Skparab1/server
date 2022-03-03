@@ -25,7 +25,7 @@ jobs:
       - name: Update data.json
         env:
           issue_data: github.event.issue.title
-        run: echo "`jq '.data[1].content="${{ github.event.issue.body+github.event.issue.body }}"' data.json`" > data.json
+        run: echo "`jq '.data[1].content="${{ github.event.issue.body }}"' data.json`" > data.json
       - name: read data.json
         run: cat data.json
       - name: Commit
