@@ -2,21 +2,8 @@
   "version": "1",
   "data": [
     {
-      "name": "ideally%2C+this+server+will+be+good",
-      "message": "lol"
-    }
-  ],
-  "secondArray": [
-    {
-      "secondId": "2"
-    }
-  ]
-} echo {
-  "version": "1",
-  "data": [
-    {
       "name": "hello+world",
-      "message": "ideally%2C+this+server+will+be+good"
+      "message": "lol"
     }
   ],
   "secondArray": [
