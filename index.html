@@ -1,7 +1,9 @@
 <html>
 <head>
   <script>
-    fetch('./data.json').then(r => r.json()).then(data => console.log(data.data[0]))
+    var olddata;
+    fetch('./data.json').then(r => r.json()).then(data => olddata = data.data[0]))
+    console.log(olddata);
    </script>
 </head>
 
