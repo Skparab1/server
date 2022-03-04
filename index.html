@@ -1,9 +1,10 @@
 <html>
 <head>
   <script>
-    var olddata;
-    fetch('./data.json').then(r => r.json()).then(data => olddata = data.data[0])
-    console.log(olddata);
+    (async () => {
+      const data = await fetch('./data.json').then(r => r.json());
+      console.log(data);
+    })();
    </script>
 </head>
 
