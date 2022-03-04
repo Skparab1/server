@@ -1,16 +1,1 @@
-{
-  "version": "1",
-  "data": [
-    {
-      "name": "hello+world"
-    }
-    {
-      "message": "lol"
-    }
-  ],
-  "secondArray": [
-    {
-      "secondId": "2"
-    }
-  ]
-}
+ echo 
