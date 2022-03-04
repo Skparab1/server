@@ -3,7 +3,18 @@
   <script>
     (async () => {
       const data = await fetch('./data.json').then(r => r.json());
-      console.log(data);
+      var oldusernames = data.data[0]
+      var oldmessages = data.data[1]
+      
+      var sendname = 'skparab1';
+      var sendmessage = 'hello world';
+      
+      oldusernames = oldusernames + '&nextentry&' + sendname;
+      oldmessages = oldmessages + '&nextentry&' + sendmessage;
+      
+      console.log(oldusernames);
+      console.log(oldmessages);
+      
     })();
    </script>
 </head>
