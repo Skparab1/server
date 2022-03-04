@@ -1,9 +1,7 @@
 <html>
 <head>
-  <base href="/">
-  <script type="module">
-    import { "./data.json" as data } from "./server"
-      console.log(data.json)
+  <script>
+    fetch('./data.json').then(r => r.json()).then(data => console.log(data))
    </script>
 </head>
 
