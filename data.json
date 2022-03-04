@@ -2,8 +2,11 @@
   "version": "1",
   "data": [
     {
-      "name": "hello+world",
+      "name": "this+is+the+name",
       "message": "lol"
+    },
+    {
+      "message": "this+is+the+message"
     }
   ],
   "secondArray": [
