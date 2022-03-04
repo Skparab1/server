@@ -2,11 +2,9 @@
   "version": "1",
   "data": [
     {
-      "name": "hello+world",
-      "message": "lol"
+      "name": "hello+world"
     }
     {
-      "name": "hello+world",
       "message": "lol"
     }
   ],
