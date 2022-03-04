@@ -3,8 +3,11 @@
   <script>
     (async () => {
       const data = await fetch('./data.json').then(r => r.json());
-      var oldusernames = String(data.data[0]);
-      var oldmessages = String(data.data[1]);
+      var oldusernames = data.data[0];
+      var oldmessages = data.data[1];
+      
+      JSON.stringify(oldusernames);
+      JSON.stringify(oldmessages);
       
       var sendname = 'skparab1';
       var sendmessage = 'hello world';
