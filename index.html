@@ -9,6 +9,11 @@
       oldusernames = JSON.stringify(oldusernames);
       oldmessages = JSON.stringify(oldmessages);
       
+      oldusernames = oldusernames.replace('{"name":"','');
+      oldusernames = oldusernames.replace('"}','');
+      oldmessages = oldmessages.replace('{"message":"','');
+      oldmessages = oldmessages.replace('"}','');     
+      
       var sendname = 'skparab1';
       var sendmessage = 'hello world';
       
