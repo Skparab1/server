@@ -31,8 +31,8 @@
     var message = data[1].replace('message=','');
 
           
-    sendusernames = oldusernames + '&nextentry&' + username;
-    sendmessages = oldmessages + '&nextentry&' + message;
+    var sendusernames = oldusernames + '&nextentry&' + username;
+    var sendmessages = oldmessages + '&nextentry&' + message;
     
     const octokit = new Octokit({ auth: "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" }); // you shouldnt hardcode this
     octokit.request('GET /repos/:owner/:repo', {
