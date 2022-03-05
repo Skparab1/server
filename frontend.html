@@ -90,8 +90,8 @@
       while (i > 0){
         document.write('<div style="width: 100%;">');
         document.write('<div style="width: 50%; height: 150px; float: left; background: lightblue;" class="center">');
-        var dispname = usernames[i].split('&rname=')
-        var dispmessage = messages[i].split('&currenttime=')
+        var dispname = usernames[i].split('&rname=');
+        var dispmessage = messages[i].split('&currenttime=');
         var timeanddate = dispmessage[2].split(' at ');
         var today = new Date();
         var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
