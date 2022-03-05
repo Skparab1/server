@@ -46,13 +46,20 @@
       oldmessages = oldmessages.replace('{"message":"','');
       oldmessages = oldmessages.replace('"}','');
 
+      while (oldusernames.includes('+')){
+        oldusernames = oldusernames.replace('+',' ');
+      }
+      while (oldmessages.includes('+')){
+        oldmessages = oldmessages.replace('+',' ');
+      }
+
       var usernames = oldusernames.split('&nextentry&')
       var messages = oldmessages.split('&nextentry&')
 
       let i = 0;
       while (i < usernames.length){
-        document.write('<h1>'+usernames[i].replace('+','')+'</h1>');
-        document.write('<h2>'+messages[i].replace('+','')+'</h2>');
+        document.write('<h1>'+usernames[i]+'</h1>');
+        document.write('<h2>'+messages[i]+'</h2>');
         document.write('<br>');
         document.write('<br>');
         i += 1;
