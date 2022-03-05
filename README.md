@@ -10,8 +10,9 @@ Using Github as a database and server for my projects. Sample project here:
 - however, the average workflow takes about 20 seconds to complete, and given that the gh api request limit is 5000/hr, this probably can't be used as a live server
 
 - applications
-  - act as a server (a relatevely mediocre one)
+  - act as a slow server
   - act as a database
   - specific uses
     - url shortener (to make redirects)
-    - chat app (but idk)
+    - forum (already done)
+    - make accounts for something
