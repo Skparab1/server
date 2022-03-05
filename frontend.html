@@ -69,13 +69,13 @@
 
       document.write('<h1>Skparab1 server Frontend</h1>');
       document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
-      let i = 0;
+      let i = usernames.length-1;
 
-      while (i < usernames.length){
+      while (i > 0){
         document.write('<h2>'+usernames[i]+'</h2>');
         document.write('<h3>'+messages[i]+'</h3>');
         document.write('<br>');
-        i += 1;
+        i -= 1;
       }
 
     })();
