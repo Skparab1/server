@@ -2,12 +2,15 @@
 <head>
   <script type="module">
     import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+
+    var oldusernames;
+    var oldmessages;
     
     // getting the current data
     (async () => {
       const data = await fetch('./data.json').then(r => r.json());
-      var oldusernames = data.data[0];
-      var oldmessages = data.data[1];
+      oldusernames = data.data[0];
+      oldmessages = data.data[1];
       
       oldusernames = JSON.stringify(oldusernames);
       oldmessages = JSON.stringify(oldmessages);
