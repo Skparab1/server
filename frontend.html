@@ -1,0 +1,69 @@
+<html>
+<head>
+  <style>
+    .button {
+      background-color: #6e6b67;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      width: 49%;
+      display: inline-block;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+      border-color: white;
+      border-width: 1px;
+      border-style: dotted;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background:#bbb;
+        color: black;
+        border-color: black;
+        border-width: 1px;
+        border-style: dotted;
+    }
+  </style>
+  
+  <script>
+    document.write('hello');
+    document.write('<br>');
+    document.write('<h2>hello</h2>');
+
+    (async () => {
+      const data1 = await fetch('./data.json').then(r => r.json());
+      oldusernames = data1.data[0];
+      oldmessages = data1.data[1];
+      
+      oldusernames = JSON.stringify(oldusernames);
+      oldmessages = JSON.stringify(oldmessages);
+      
+      oldusernames = oldusernames.replace('{"name":"','');
+      oldusernames = oldusernames.replace('"}','');
+      oldmessages = oldmessages.replace('{"message":"','');
+      oldmessages = oldmessages.replace('"}','');
+
+      document.write('<h2>'+oldusernames+'</h2>');
+      document.write('<br>');
+      document.write('<h2>hello</h2>');
+
+    })();
+  </script>    
+</head>
+
+<body>
+
+  <h1>Skparab1 forum message sender </h1>
+
+  <form action="https://skparab1.github.io/server/sendmsg.html">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="message">Message:</label><br>
+    <input type="text" id="message" name="message"><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
