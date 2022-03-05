@@ -26,7 +26,7 @@
       // ?name=skparab1&message=t
       var loc = window.location.href; //get the url
       var data;
-      data = loc.replace('https://skparab1.github.io/sendmsg.html?',''); //extract the metadata
+      data = loc.replace('https://skparab1.github.io/server/sendmsg.html?',''); //extract the metadata
       data = data.replace('file:///Users/homemac/Desktop/Programming/Other%20programs/server/ui/sender.html?',''); // this is for test
       data = data.split('&');
       var username = data[0].replace('name=','');
