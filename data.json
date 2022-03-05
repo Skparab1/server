@@ -2,10 +2,10 @@
   "version": "1",
   "data": [
     {
-      "name": "&nextentry&Skparab1"
+      "name": "&nextentry&Skparab1&nextentry&Skparab2"
     },
     {
-      "message": "&nextentry&hello+world+test+message"
+      "message": "&nextentry&hello+world+test+message&nextentry&Second+message"
     }
   ],
   "secondArray": [
