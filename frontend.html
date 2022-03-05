@@ -51,8 +51,8 @@
 
       let i = 0;
       while (i < usernames.length){
-        document.write('<h1>'+usernames[i]+'</h1>');
-        document.write('<h2>'+messages[i]+'</h2>');
+        document.write('<h1>'+usernames[i].replace('+','')+'</h1>');
+        document.write('<h2>'+messages[i].replace('+','')+'</h2>');
         document.write('<br>');
         document.write('<br>');
         i += 1;
