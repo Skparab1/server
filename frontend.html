@@ -59,6 +59,18 @@
       document.write('<h1>Skparab1 server Frontend</h1>');
       document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
       let i = 0;
+
+      sent = localStorage.getItem('sent');
+      if (sent == null){
+        sent = 'false';
+        localStorage.setItem('sent','false');
+      }
+
+      if (sent == 'true'){
+        document.write('<h2 style="color:rgb(255, 166, 0);">'+'Your message has been sent. It should appear in a less than a minute. You will need to refresh for it to appear.'+'</h2>');
+      }
+      localStorage.setItem('sent','false');
+
       while (i < usernames.length){
         document.write('<h2>'+usernames[i]+'</h2>');
         document.write('<h3>'+messages[i]+'</h3>');
