@@ -92,16 +92,16 @@
         document.write('<div style="width: 50%; height: 150px; float: left; background: lightblue;" class="center">');
         var dispname = usernames[i].split('&rname=');
         var dispmessage = messages[i].split('&currenttime=');
-        var timeanddate = dispmessage[2].split(' at ');
+        var timeanddate = dispmessage[1].split(' at ');
         var today = new Date();
         var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-        if (date == timeanddate[1]){
-          timeanddate[1] = 'Today';
+        if (date == timeanddate[0]){
+          timeanddate[0] = 'Today';
         } else {
-          timeanddate[1] = 'On'+timeanddate[1];
+          timeanddate[0] = 'On'+timeanddate[0];
         }
-        document.write('<h2>'+dispname[1]+'&nbsp&nbsp&nbsp&nbsp'+timeanddate[1]+' at '+timeanddate[2]+'</h2>');
-        document.write('<h3>'+dispmessage[1]+'</h3>');
+        document.write('<h2>'+dispname[0]+'&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'</h2>');
+        document.write('<h3>'+dispmessage[0]+'</h3>');
         document.write('</div>');
         document.write('<div style="margin-left: 50%; width: 49%; height: 150px; background: lightcoral;">');
         document.write('<h2>'+usernames[i-1]+'</h2>');
