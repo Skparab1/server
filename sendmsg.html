@@ -30,10 +30,20 @@
       data = data.split('&');
       var username = data[0].replace('name=','');
       var message = data[1].replace('message=','');
+      var rname = data[2].replace('rname=','');
 
             
       var sendusernames = oldusernames + '&nextentry&' + username;
       var sendmessages = oldmessages + '&nextentry&' + message;
+
+      var today = new Date();
+      var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var datetime = date+' at '+time;
+
+      var sendusernames = sendusernames + '&rname='+rname;
+
+      sendmessages = sendmessages + '&currenttime='+datetime;
       
       (async () => {
         const octokit = new Octokit({ auth: "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" }); // you shouldnt hardcode this
