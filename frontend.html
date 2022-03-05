@@ -46,6 +46,17 @@
       oldmessages = oldmessages.replace('{"message":"','');
       oldmessages = oldmessages.replace('"}','');
 
+      var usernames = oldusernames.split('&nextentry&')
+      var messages = messages.split('&nextentry&')
+
+      let i = 0;
+      while (i < usernames.length){
+        document.write('<h1>'+usernames[i]+'</h1>');
+        document.write('<h2>'+messages[i]+'</h2>');
+        document.write('<br>');
+        document.write('<br>');
+      }
+
       document.write('<h2>'+oldusernames+'</h2>');
       document.write('<br>');
       document.write('<h2>hello</h2>');
