@@ -2,10 +2,10 @@
   "version": "1",
   "data": [
     {
-      "name": "&nextentry&Skparab1&rname=Shubham+Parab"
+      "name": "&nextentry&Skparab1&rname=Shubham+Parab&nextentry&This+is+cool&rname=Shubham+Parab"
     },
     {
-      "message": "&nextentry&hello+world&currenttime=2022/3/5 at 15:39:48"
+      "message": "&nextentry&hello+world&currenttime=2022/3/5 at 15:39:48&nextentry&now+records+message&currenttime=2022/3/5 at 15:56:52"
     }
   ],
   "secondArray": [
