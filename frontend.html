@@ -56,10 +56,12 @@
       var usernames = oldusernames.split('&nextentry&')
       var messages = oldmessages.split('&nextentry&')
 
+      document.write('<h1>Skparab1 server Frontend</h1>');
+      document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
       let i = 0;
       while (i < usernames.length){
-        document.write('<h1>'+usernames[i]+'</h1>');
-        document.write('<h2>'+messages[i]+'</h2>');
+        document.write('<h2>'+usernames[i]+'</h2>');
+        document.write('<h3>'+messages[i]+'</h3>');
         document.write('<br>');
         document.write('<br>');
         i += 1;
