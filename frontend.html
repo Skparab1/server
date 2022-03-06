@@ -91,7 +91,7 @@
         document.write('<div style="width: 100%;">');
 
         var bgcolor;
-        if ((i) % 4 == 0){ bgcolor = 'lightblue';} else if ((i) % 4 == 1){ bgcolor = 'lightcoral';} else if ((i) % 4 == 0){ bgcolor = 'lightgreen';} else if ((i) % 4 == 0){ bgcolor = 'lightyellow';}
+        if ((i) % 4 == 0){ bgcolor = 'lightblue';} else if ((i) % 4 == 1){ bgcolor = 'lightcoral';} else if ((i) % 4 == 2){ bgcolor = 'lightgreen';} else if ((i) % 4 == 3){ bgcolor = 'lightyellow';}
         document.write('<div style="width: 50%; height: 150px; float: left; background: '+bgcolor+'"" class="center">');
         var dispname = usernames[i].split('&rname=');
         var dispmessage = messages[i].split('&currenttime=');
@@ -107,7 +107,7 @@
         document.write('<h3>'+dispmessage[0]+'</h3>');
         document.write('</div>');
 
-        if ((i-1) % 4 == 0){ bgcolor = 'lightblue';} else if ((i-1) % 4 == 1){ bgcolor = 'lightcoral';} else if ((i-1) % 4 == 0){ bgcolor = 'lightgreen';} else if ((i-1) % 4 == 0){ bgcolor = 'lightyellow';}
+        if ((i-1) % 4 == 0){ bgcolor = 'lightblue';} else if ((i-1) % 4 == 1){ bgcolor = 'lightcoral';} else if ((i-1) % 4 == 2){ bgcolor = 'lightgreen';} else if ((i-1) % 4 == 3){ bgcolor = 'lightyellow';}
         document.write('<div style="margin-left: 50%; width: 49%; height: 150px; background: '+bgcolor+'; ">');
 
         var dispname = usernames[i-1].split('&rname=');
