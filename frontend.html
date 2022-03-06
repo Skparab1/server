@@ -121,7 +121,7 @@
 
         document.write('<div style="clear: both">')
         document.write('<h2 style="float: left">'+''+'</h2>')
-        document.write('<h3 style="float: right">'+timeanddate[0]+' at '+timeanddate[1]+'</h3>')
+        document.write('<h4 style="float: left">'+timeanddate[0]+' at '+timeanddate[1]+'</h4>')
         document.write('</div>')
 
 
@@ -144,9 +144,13 @@
         } else {
           timeanddate[0] = 'On '+timeanddate[0];
         }
-        document.write('<h2 style="float: left">'+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>'); 
-        document.write('<h4>'+timeanddate[0]+' at '+timeanddate[1]+'</h4><hr>')
+        document.write('<div style="clear: both">')
+        document.write('<h2 style="float: left">'+''+'</h2>')
+        document.write('<h4 style="float: left">'+timeanddate[0]+' at '+timeanddate[1]+'</h4>')
+        document.write('</div>')
 
+
+        document.write('<h2>'+dispname[0]+'</h2>'); 
         document.write('<h3 style="float: left">'+dispmessage[0]+'</h3>');
         document.write('</div>');
         document.write('</div>');
