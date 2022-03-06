@@ -148,10 +148,12 @@
       }
 
       const sleep = ms => new Promise(res => setTimeout(res, ms)); 
-      setTimeout(() => { (async () => {
-        let j = 0;
+      let j = 0;
+      while (j < 1000){
+        setTimeout(() => { (async () => {
         window.location.reload();
-      })(); }, 30000);
+      })(); }, 10000);
+      }
 
     })();
   </script>    
