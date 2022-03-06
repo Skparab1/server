@@ -1,5 +1,14 @@
 <html>
 <head>
+  <style>
+    body {
+      background-color: rgb(0, 0, 0);
+    }
+
+    h1 {
+      color: white;
+    }
+  </style>
   <script type="module">
     import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
 
@@ -91,7 +100,7 @@
 
         localStorage.setItem('sent','true');
       })();
-      setTimeout(function(){window.open('https://skparab1.github.io/server/frontend.html',"_self");},500);
+      setTimeout(function(){window.open('https://skparab1.github.io/server/frontend.html',"_self");},1000);
     })();
 
     //var redirect = setTimeout(window.open('https://skparab1.github.io/ui',"_self")[3000]);
@@ -101,6 +110,8 @@
 <body>
 
   <h1>Sending ur message...</h1>
+  <img src="loading.jpg" alt="loading" style="width: 66%; text-align: center;">
+  <h1>If you are not redirected within a few seconds click <a href="https://skparab1.github.io/server/frontend.html">here</a></h1>
 
 </body>
 </html>

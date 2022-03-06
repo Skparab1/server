@@ -147,12 +147,7 @@
         i -= 2;
       }
 
-      const sleep = ms => new Promise(res => setTimeout(res, ms)); 
-      let j = 0;
-      setTimeout(() => { (async () => {
-      window.location.reload();
-      })(); }, 10000);
-
+      setTimeout(function(){location.reload(true)},1*60000);
     })();
   </script>    
 </head>

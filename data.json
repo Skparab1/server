@@ -2,10 +2,10 @@
   "version": "1",
   "data": [
     {
-      "name": "&nextentry&Skparab1&rname=Shubham&nextentry&Shubham&rname=Shubham&nextentry&skparab1&rname=shubham&nextentry&Skparab2&rname=shubham&nextentry&Shubham&rname=Shubham&nextentry&Skparab1&rname=Shubham&nextentry&Shubham+Parab&rname=Shubham&nextentry&Skparab1&rname=Shubham&nextentry&Shubham&rname=Shubham&nextentry&Skparab1&rname=Shubham&nextentry&Skparab1&rname=Shubham&nextentry&Skparab1&rname=Shubham&nextentry&Shubham+Parab&rname=Shubham"
+      "name": "hello+world"
     },
     {
-      "message": "&nextentry&Hello+world&currenttime=2022/3/6 at 9:34:59&nextentry&Second+message&currenttime=2022/3/6 at 9:39:0&nextentry&format+isnt+that+good+yet&currenttime=2022/3/6 at 9:52:15&nextentry&Format+looks+better&currenttime=2022/3/6 at 10:1:5&nextentry&ahhh+much+nicer+looking+now%0D%0Abut+still+kinda+ugly+ngl&currenttime=2022/3/6 at 10:9:17&nextentry&Should+now+send+with+nicer+timing&currenttime=2022/3/6 at 10:18:24&nextentry&Now+it+should+auto+refresh+after+100+seconds&currenttime=2022/3/6 at 10:44:05 AM&nextentry&Sent+another+message+should+now+refresh+after+30+seconds&currenttime=2022/3/6 at 10:47:18 AM&nextentry&reverted+to+old+auto+refresh&currenttime=2022/3/6 at 10:50:56 AM&nextentry&hm+i+think+i+got+auto+refresh+now+pretty+cool&currenttime=2022/3/6 at 10:55:11 AM&nextentry&for+some+reason+it+didnt+work+for+manav+but+i+think+i+fixed+the+problem+now&currenttime=2022/3/6 at 11:08:56 AM&nextentry&hmm+the+message+seems+to+not+be+sending+somethings&currenttime=2022/3/6 at 11:35:21 AM&nextentry&I+think+that+problem+might+be+fixed&currenttime=2022/3/6 at 11:37:50 AM"
+      "message": "this+is+the+message"
     }
   ],
   "secondArray": [
