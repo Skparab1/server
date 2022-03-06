@@ -147,10 +147,15 @@
         i -= 2;
       }
 
-      let j = 0;
-      while (j < 1000){
-        setTimeout(function(){location.reload(true)},1*60000);
-      }
+      const sleep = ms => new Promise(res => setTimeout(res, ms)); 
+      setTimeout(() => { (async () => {
+        let j = 0;
+        while (j < 1000){
+          window.location.reload();
+          sleep(10000);
+          j += 1;
+        }
+      })(); }, 1000);
 
     })();
   </script>    
