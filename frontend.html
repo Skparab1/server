@@ -44,6 +44,13 @@
   
   <script>
 
+    function truncby4(number){
+      while (number >= 4){
+        number = number - 4;
+      }
+      return number
+    }
+
     (async () => {
       const data1 = await fetch('./data.json').then(r => r.json());
       oldusernames = data1.data[0];
@@ -99,7 +106,7 @@
         document.write('<div style="width: 100%;">');
 
         var bgcolor;
-        if ((i) % 4 == 0+(messages.length%4)){ bgcolor = 'lightblue';} else if ((i) % 4 == 1+(messages.length%4)){ bgcolor = 'lightcoral';} else if ((i) % 4 == 2+(messages.length%4)){ bgcolor = 'lightgreen';} else if ((i) % 4 == 3+(messages.length%4)){ bgcolor = 'yellow';}
+        if ((i) % 4 == truncby4(messages.length)){ bgcolor = 'lightblue';} else if ((i) % 4 == truncby4(messages.length+1)){ bgcolor = 'lightcoral';} else if ((i) % 4 == truncby4(messages.length+2)){ bgcolor = 'lightgreen';} else if ((i) % 4 == truncby4(messages.length+3)){ bgcolor = 'yellow';}
         document.write('<div style="width: 50%; height: 150px; float: left; background: '+bgcolor+'"" class="center">');
         var dispname = usernames[i].split('&rname=');
         var dispmessage = messages[i].split('&currenttime=');
