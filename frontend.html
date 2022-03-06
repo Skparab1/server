@@ -106,7 +106,7 @@
         document.write('<div style="width: 100%;">');
 
         var bgcolor;
-        if ((i) % 4 == truncby4(messages.length)){ bgcolor = 'lightblue';} else if ((i) % 4 == truncby4(messages.length+1)){ bgcolor = 'lightcoral';} else if ((i) % 4 == truncby4(messages.length+2)){ bgcolor = 'lightgreen';} else if ((i) % 4 == truncby4(messages.length+3)){ bgcolor = 'yellow';}
+        if ((i) % 4 == truncby4(messages.length)){ bgcolor = 'lightblue';} else if ((i) % 4 == truncby4(messages.length)){ bgcolor = 'lightcoral';} else if ((i) % 4 == truncby4(messages.length)){ bgcolor = 'lightgreen';} else if ((i) % 4 == truncby4(messages.length)){ bgcolor = 'yellow';}
         document.write('<div style="width: 50%; height: 150px; float: left; background: '+bgcolor+'"" class="center">');
         var dispname = usernames[i].split('&rname=');
         var dispmessage = messages[i].split('&currenttime=');
