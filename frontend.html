@@ -111,6 +111,7 @@
         document.write('<div style="margin-left: 50%; width: 49%; height: 150px; background: "'+bgcolor+'"";>');
 
         var dispname = usernames[i-1].split('&rname=');
+        console.log(dispmessage);
         var dispmessage = messages[i-1].split('&currenttime=');
         var timeanddate = dispmessage[1].split(' at ');
         var today = new Date();
