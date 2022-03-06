@@ -69,7 +69,11 @@
       var usernames = oldusernames.split('&nextentry&')
       var messages = oldmessages.split('&nextentry&')
 
-
+      sent = localStorage.getItem('sent');
+      if (sent == null){
+        sent = 'false';
+        localStorage.setItem('sent','false');
+      }
       var currentmsgcount = usernames.length;
       newmsg = localStorage.getItem('newmsg');
       if (newmsg == null){
