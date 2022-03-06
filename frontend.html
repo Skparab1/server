@@ -118,7 +118,10 @@
         } else {
           timeanddate[0] = 'On '+timeanddate[0];
         }
-        document.write('<h2>'+dispname[0]+'<h4>'+timeanddate[0]+' at '+timeanddate[1]+'</h4>');
+        
+        document.write('<div style="clear: both">');
+        document.write('<h2 style="float: left">'+dispname[0]+'<h4 style="float: right">'+timeanddate[0]+' at '+timeanddate[1]+'</h4>');
+        document.write('</div>');
         document.write('<h3>'+dispmessage[0]+'</h3>');
         document.write('</div>');
 
@@ -137,8 +140,10 @@
         } else {
           timeanddate[0] = 'On '+timeanddate[0];
         }
-        document.write('<h2>'+dispname[0]);
-        document.write('<h2>'+dispname[0]+'<h4>'+timeanddate[0]+' at '+timeanddate[1]+'</h4>');
+        document.write('<div style="clear: both">');
+        document.write('<h2 style="float: left">'+dispname[0]+'<h4 style="float: right">'+timeanddate[0]+' at '+timeanddate[1]+'</h4>');
+        document.write('</div>');
+        document.write('<h3>'+dispmessage[0]+'</h3>');
         document.write('</div>');
         document.write('</div>');
         document.write('<br>');
