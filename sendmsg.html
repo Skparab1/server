@@ -38,7 +38,33 @@
 
       var today = new Date();
       var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var hour = parseInt(today.getHours());
+      var suffix;
+      if (hour > 12){
+        hour = hour - 12;
+        suffix = 'PM';
+      } else if (hour == 12){
+        suffix = 'PM';
+      } else {
+        suffix = 'AM';
+      }
+
+      hour = String(hour);
+      if (hour.length == 1){
+        hour = '0'+hour;
+      }
+
+      var minute = String(today.getMinutes());
+      if (minute.length == 1){
+        minute = '0'+minute;
+      }
+
+      var second = String(today.getSeconds());
+      if (second.length == 1){
+        second = '0'+second;
+      }
+
+      var time = hour + ":" + minute + ":" + second;
       var datetime = date+' at '+time;
 
       var sendusernames = sendusernames + '&rname='+rname;
