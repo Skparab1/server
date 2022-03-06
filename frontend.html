@@ -83,9 +83,9 @@
       newmsg = localStorage.getItem('newmsg');
       if (newmsg == null){
         newmsg = '0';
-        localStorage.setItem('newmsg',currentmsgcount);
       }
 
+      localStorage.setItem('newmsg',currentmsgcount);
       console.log(currentmsgcount,parseInt(newmsg));
       if (currentmsgcount != parseInt(newmsg)){
         document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <h3 style="color:rgb(255,255,255);">You have '+String(currentmsgcount-parseInt(newmsg))+'new messages.</h3> </div>');
@@ -141,6 +141,8 @@
         document.write('<br>');
         i -= 2;
       }
+
+      setTimeout(function(){location.reload(true)},1*60000)
 
     })();
   </script>    
