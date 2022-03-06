@@ -104,8 +104,19 @@
         document.write('<h3>'+dispmessage[0]+'</h3>');
         document.write('</div>');
         document.write('<div style="margin-left: 50%; width: 49%; height: 150px; background: lightcoral;">');
-        document.write('<h2>'+usernames[i-1]+'</h2>');
-        document.write('<h3>'+messages[i-1]+'</h3>');
+
+        var dispname = usernames[i-1].split('&rname=');
+        var dispmessage = messages[i-1].split('&currenttime=');
+        var timeanddate = dispmessage[1].split(' at ');
+        var today = new Date();
+        var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+        if (date == timeanddate[0]){
+          timeanddate[0] = 'Today';
+        } else {
+          timeanddate[0] = 'On'+timeanddate[0];
+        }
+        document.write('<h2>'+dispname[0]+'&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'</h2>');
+        document.write('<h3>'+dispmessage[0]+'</h3>');
         document.write('</div>');
         document.write('</div>');
         document.write('<hl>');
