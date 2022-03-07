@@ -71,6 +71,7 @@
       while (c < rawchars.length){
         while (str.includes(htmlchars[c])){
           str = str.replace(htmlchars[c],rawchars[c]);
+          console.log(str);
         }
         c += 1;
       }
