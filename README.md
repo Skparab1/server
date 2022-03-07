@@ -105,3 +105,19 @@ jobs:
   ]
  }
 ````
+
+### Reading the data
+- reading the data is easy - just load it, yoink the content, and then parse it
+````
+(async () => {
+  const data1 = await fetch('./data.json').then(r => r.json());
+  oldusernames = data1.data[0];
+  oldmessages = data1.data[1];
+
+  oldusernames = JSON.stringify(oldusernames);
+  oldmessages = JSON.stringify(oldmessages);
+ })();
+````
+
+## Closing
+Wow you have reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html !
