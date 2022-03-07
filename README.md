@@ -85,4 +85,23 @@ jobs:
           message: 'updating data'
           add: "data.json"
       # done!
-          ````
+````
+- But you will need to have a file named data.json formatted like this
+````
+{
+  "version": "1",
+  "data": [
+    {
+      "name": "THIS IS WHERE ISSUE TITLE DATA GOES"
+    },
+    {
+      "message": "THIS IS WHERE THE ISSUE BODY DATA GOES"
+    }
+  ],
+  "secondArray": [
+    {
+      "secondId": "2"
+    }
+  ]
+ }
+````
