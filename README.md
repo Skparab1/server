@@ -1,4 +1,4 @@
-# server
+# Server
 ## About
 This is a template for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It useally processes writes in less than a minute, but can cause overwrite problems if multiple writes are requested at the same time. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html).
 
