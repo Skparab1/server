@@ -44,6 +44,13 @@
             
       var sendusernames = oldusernames + '&nextentry&' + username;
       var sendmessages = oldmessages + '&nextentry&' + message;
+      
+      if (sendusernames.length > 256){
+        sendusernames = sendusernames.substring(sendusernames.length-256,sendusernames.length)
+      }
+      if (sendmessages.length > 256){
+        sendmessages = sendmessages.substring(sendmessages.length-256,sendmessages.length)
+      }
 
       var today = new Date();
       var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
