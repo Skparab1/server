@@ -39,3 +39,50 @@ When used, this can present many limitations, which make it less reliable than a
   start();
 })();
 ````
+
+### Make Github Actions push isssue data
+- This snippet takes the issue data and adds it to two different arrays of the json
+````
+name: Issue data pusher
+
+# Triggers the workflow when issue is opened
+on:
+  issues:
+    types: [opened]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      # checkout the repo so that you can access files
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      # yoink the contents of the issue and modify data.json
+      - name: Update name in data.json
+        env:
+          issue_data: github.event.issue.title
+        run: echo "`jq '.data[0].name="${{ github.event.issue.title }}"' data.json`" > data.json
+      - name: Update message in data.json
+        run: echo "`jq '.data[1].message="${{ github.event.issue.body }}"' data.json`" > data.json
+      # close issue but this doesnt work rn
+      - name: Close issue
+        run: echo "github.event.issue.close"
+      # read the file (not really needed but useful for debugging
+      - name: read data.json
+        run: cat data.json
+      # commit changes
+      - name: Commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'updating data'
+          add: "data.json"
+      # done!
+          ````
