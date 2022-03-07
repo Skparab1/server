@@ -69,7 +69,9 @@
 
       let c = 0;
       while (containscharcodes(str)){
-        str = str.replace(htmlchars[c],rawchars[c]);
+        if (str.contains(htmlchars[c])){
+          str = str.replace(htmlchars[c],rawchars[c]);
+        }
         c += 1;
         if (c > rawchars.length - 1){
           c = 0
