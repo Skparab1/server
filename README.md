@@ -1,6 +1,6 @@
 # Server
 ## About
-This is a template and tutorial for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It usually processes writes requests in less than a minute, but can cause overwrite problems if multiple writes are requested at the same time. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html). I made this because despite lots of searches about using github as a database, I didn't really find anything that seemed easy to use and implement. So I ended up yoinking lost of code snippents from different websites, and, with the help of @r2dev2, I ended up with [this](https://skparab1.github.io/server/frontend.html) cool working product which is functional, although ugly.
+This is a template and tutorial for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It usually processes writes requests in less than a minute, but can cause overwrite problems if multiple writes are requested at the same time. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html). I made this because despite lots of searches about using Github as a database, I didn't really find anything that seemed easy to use and implement. So I ended up yoinking lost of code snippents from different websites, and, with the help of @r2dev2, I ended up with [this](https://skparab1.github.io/server/frontend.html) cool working product which is functional, although ugly.
 
 ## How it works
 To load content from GitHub, the webpage will just to the json and parse its content. To write to back to the database, the webpage will use GitHub API for opening an Issue and Actions to stage a Commit and push changes. First, the webpage first uses Github API to open an issue with data to be commited in issue title and body. Then, the issue triggers a Github Actions workflow that extracts the title and body data of the issue and then commits the content into the json. The entire process takes an average of 30 seconds to complete, and usually completes in less than a minute.
@@ -21,7 +21,7 @@ When used, this can present many limitations, which make it less reliable than a
 
 ## Now let me explain how each part works...
 ### Sending an issue with Github API
-- To send an issue, I used octokit. The docs are [here](https://docs.github.com/en/rest/reference/issues#create-an-issue), but the following snippet sends an issue to the repo.
+- To send an issue, I used Octokit. The docs are [here](https://docs.github.com/en/rest/reference/issues#create-an-issue), but the following snippet sends an issue to the repo.
 ````
 (async () => {
   const octokit = new Octokit({ auth: "YOUR TOKEN" }); // ideally you shouldnt hardcode this
