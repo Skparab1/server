@@ -69,8 +69,8 @@
 
       let c = 0;
       while (c < rawchars.length){
-        while (str.includes(htmlchars[i])){
-          str = str.replace(htmlchars[i],rawchars[i]);
+        while (str.includes(htmlchars[c])){
+          str = str.replace(htmlchars[c],rawchars[c]);
         }
         c += 1;
       }
