@@ -98,8 +98,6 @@
         oldmessages = oldmessages.replace('+',' ');
       }
 
-      document.write()
-
       var usernames = oldusernames.split('&nextentry&')
       var messages = oldmessages.split('&nextentry&')
 
@@ -113,6 +111,8 @@
       if (newmsg == null){
         newmsg = '0';
       }
+
+      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">Star</a>');
 
       localStorage.setItem('newmsg',currentmsgcount);
       console.log(currentmsgcount,parseInt(newmsg));
