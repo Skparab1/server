@@ -24,7 +24,7 @@ When used, this can present many limitations, which make it less reliable than a
 - To send an issue, I used Octokit. The docs are [here](https://docs.github.com/en/rest/reference/issues#create-an-issue), but the following snippet sends an issue to the repo.
 ````
 (async () => {
-  const octokit = new Octokit({ auth: "YOUR TOKEN" }); // ideally you shouldnt hardcode this
+  const octokit = new Octokit({ auth: "YOUR TOKEN" }); // you shouldnt hardcode this
   
   octokit.request('GET /repos/:owner/:repo', {        // you dont really need this but its good for debugging and making sure that it finds the repo
     owner: "OWNER OF THE REPO",
@@ -123,5 +123,5 @@ jobs:
  })();
 ````
 
-## Closing
-Wow you have reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html !
+## End
+Wow you've reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html !
