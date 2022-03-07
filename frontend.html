@@ -114,8 +114,6 @@
         newmsg = '0';
       }
 
-      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">Star</a><br>');
-
       localStorage.setItem('newmsg',currentmsgcount);
       console.log(currentmsgcount,parseInt(newmsg));
       if (currentmsgcount != parseInt(newmsg)){
@@ -129,6 +127,7 @@
 
       document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: gray; class="center"> <h2 style="color:rgb(255, 166, 0);">Skparab1 message forum</h1> </div>');
       document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
+      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">GitHub</a><br>');
       let i = usernames.length-1;
 
       while (i > 0){
