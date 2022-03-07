@@ -15,6 +15,10 @@ When used, this can present many limitations, which make it less reliable than a
 - Original idea (of using Github issues and actions) by @KentoNishi
 - Massive thanks to @R2dev2 for advice
 
+## Testimonies
+<img width="189" alt="Screen Shot 2022-03-06 at 9 01 41 PM" src="https://user-images.githubusercontent.com/96956561/156971003-0fc59a45-4f46-4343-9101-fb4ef4bace39.png"><img width="171" alt="Screen Shot 2022-03-06 at 9 02 45 PM" src="https://user-images.githubusercontent.com/96956561/156971095-8e160a9f-ae52-4cd4-bd66-424c16529247.png">
+
+
 ## Now let me explain how each part works...
 ### Sending an issue with Github API
 - To send an issue, I used octokit. The docs are [here](https://docs.github.com/en/rest/reference/issues#create-an-issue), but the following snippet sends an issue to the repo.
