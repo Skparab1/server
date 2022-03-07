@@ -51,6 +51,33 @@
       return number
     }
 
+    function containscharcodes(str){
+      var htmlchars = ['%7E','%21','%40','%23','%24','%25','%5E','%26*','%28','%29_','%2B','%60-','%3D','%7B','%7D','%0D','%0A','%7C','%5B','%5D','%5C','%3A','%22','%3B','%27','%3C','%3E','%3F','%2C.','%2F']
+      let c = 0;
+      while (c < htmlchars.length){
+        if (str.includes(htmlchars[c])){
+          return true
+        }
+        c += 1;
+      }
+      return false
+    }
+
+    function convertchars(str){
+      var rawchars = ['~','!','@','#','$','%','^','&','*','(',')','_','+','`','-','=','{','}',' ','|','[',']','\ ',':','"',';',"'",'<','>','?',',','.','/']
+      var htmlchars = ['%7E','%21','%40','%23','%24','%25','%5E','%26*','%28','%29_','%2B','%60-','%3D','%7B','%7D','%0D','%0A','%7C','%5B','%5D','%5C','%3A','%22','%3B','%27','%3C','%3E','%3F','%2C.','%2F']
+
+      let c = 0;
+      while (containscharcodes(str)){
+        str = str.replace(htmlchars[c],rawchars[c]);
+        c += 1;
+        if (c > rawchars.length - 1){
+          c = 0
+        }
+      }
+      return str
+    }
+
     (async () => {
       const data1 = await fetch('./data.json').then(r => r.json());
       oldusernames = data1.data[0];
