@@ -146,8 +146,8 @@
           timeanddate[0] = 'On '+timeanddate[0];
         }
 
-        document.write('<h2>'+convertchars(dispname[0])+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'</h2>'); 
-        document.write('<h3 style="float: left">'+convertchars(dispmessage[0])+'</h3>');
+        document.write('<h2>'+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'</h2>'); 
+        document.write('<h3 style="float: left">'+dispmessage[0]+'</h3>');
         document.write('</div>');
 
         // based on what number post it is, decide the color.
@@ -167,7 +167,8 @@
         }
 
         document.write('<h2>'+convertchars(dispname[0])+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'</h2>'); 
-        document.write('<h3 style="float: left">'+convertchars(dispmessage[0])+'</h3>');
+        document.write('<h3 style="float: left">'+dispmessage[0]+'</h3>');
+        console.log(dispmessage[0]);
         document.write('</div>');
         document.write('</div>');
         document.write('<hr>');
