@@ -24,10 +24,13 @@ jobs:
           submodules: 'recursive'
       - name: Update name in data.json
         run: echo "`jq '.data[0].name="${{ github.event.issue.title }}"' data.json`" > data.json
-      - name: read data
-        env:
-          json_data: cat data.json
-        run: cat env.json_data.data[0]
+      - name: get version
+          id: version
+          uses: notiz-dev/github-action-json-property@release
+          with: 
+              path: 'package.json'
+              prop_path: 'version'
+          run: echo ${{steps.version.data}} 
       - name: Update message in data.json
         run: echo "`jq '.data[1].message="${{ github.event.issue.body }}"' data.json`" > data.json
       - name: Close issue
