@@ -102,7 +102,7 @@
                   body: sendmessages,
                   tags: 'serverdata'
                 })
-            } catch {
+            } catch(error) {
               localStorage.setItem('sent',error);
             }
           };
