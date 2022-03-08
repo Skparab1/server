@@ -32,6 +32,8 @@ jobs:
             prop_path: 'version'
       - name: get data
         run: echo ${{steps.version.data[0]}} 
+      - name: read data.json
+        run: cat (data.json).data
       - name: Update message in data.json
         run: echo "`jq '.data[1].message="${{ github.event.issue.body }}"' data.json`" > data.json
       - name: Close issue
