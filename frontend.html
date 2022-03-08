@@ -103,6 +103,8 @@
       var usernames = oldusernames.split('&nextentry&')
       var messages = oldmessages.split('&nextentry&')
 
+      var refreshtime = 60000;
+
       sent = localStorage.getItem('sent');
       if (sent == null){
         sent = 'false';
@@ -122,11 +124,14 @@
       localStorage.setItem('newmsg',currentmsgcount);
       console.log(currentmsgcount,parseInt(newmsg));
       if (currentmsgcount > parseInt(newmsg)){
-        document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <h3 style="color:rgb(255,255,255);">You have '+String(currentmsgcount-parseInt(newmsg))+' new messages.</h3> <a href="https://skparab1.github.io/server/frontend">Mark as read</a></div>');
+        document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <h3 style="color:rgb(255,255,255);">You have '+String(currentmsgcount-parseInt(newmsg))+' new messages.</h3>');
+        document.write('<a href="https://skparab1.github.io/server/frontend">Mark as read</a></div>');
+        refreshtime = refreshtime*2;
       }
 
       if (sent == 'true'){
         document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: green; class="center"> <h3 style="color:rgb(255, 166, 0);">Your message has been sent. It should appear in a less than a minute. You will need to refresh for it to appear.</h3> </div>');
+        refreshtime = refreshtime/2;
       }
       localStorage.setItem('sent','false');
 
