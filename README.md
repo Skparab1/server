@@ -21,7 +21,7 @@ When used, this can present many limitations, which make it less reliable than a
 
 ## Now let me explain how each part works...
 ### Sending an issue with Github API
-- To send an issue, I used Octokit. The docs are [here](https://docs.github.com/en/rest/reference/issues#create-an-issue), but the following snippet sends an issue to the repo.
+- To send an issue, I used Octokit. The docs are [here](https://docs.github.com/en/rest/reference/issues#create-an-issue), but they are a bit complex. The following snippet sends an issue to the repo.
 - Note: if you do want to use this for an app hosted on Github, then you can't make the Repo public, because Github will revoke the token (Because well duh you shouldn't be sharing your token, and i learned it the hard way). To bypass this, i made a seperate private repo which contains the token to actually send the message.
 ````
 (async () => {
