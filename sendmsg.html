@@ -83,35 +83,12 @@
         var time = hour + ":" + minute + ":" + second + ' '+suffix;
         var datetime = date+' at '+time;
 
-        var sendusernames = sendusernames + '&rname='+rname;
+        sendusernames = sendusernames + '&rname='+rname;
 
         sendmessages = sendmessages + '&currenttime='+datetime;
         
-        (async () => {
-          const octokit = new Octokit({ auth: "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" }); // you shouldnt hardcode this
-          octokit.request('GET /repos/:owner/:repo', {
-            owner: "skparab1",
-            repo: "server"
-          }).then(response => console.log(response.data))
-          async function start() {
-            try {
-              return await octokit.request('POST /repos/skparab1/server/issues', {
-                  owner: 'skparab1',
-                  repo: 'server',
-                  title: sendusernames,
-                  body: sendmessages,
-                  tags: 'serverdata'
-                })
-            } catch(error) {
-              localStorage.setItem('sent',error);
-            }
-          };
-          
-          start();
-
-          localStorage.setItem('sent','true');
-        })();
-        setTimeout(function(){window.open('https://skparab1.github.io/server/frontend.html',"_self");},1000);
+        window.open(('https://skparab1.github.io/sendmsg?'+sendusernames+'&NEXT='+sendmessages),'_self');
+        
       })();
     } catch (error) {
       localStorage.setItem('sent',error);
