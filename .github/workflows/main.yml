@@ -30,6 +30,7 @@ jobs:
         with: 
             path: 'package.json'
             prop_path: 'version'
+      - name: get data
         run: echo ${{steps.version.data}} 
       - name: Update message in data.json
         run: echo "`jq '.data[1].message="${{ github.event.issue.body }}"' data.json`" > data.json
