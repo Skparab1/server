@@ -94,13 +94,17 @@
             repo: "server"
           }).then(response => console.log(response.data))
           async function start() {
-            return await octokit.request('POST /repos/skparab1/server/issues', {
-                owner: 'skparab1',
-                repo: 'server',
-                title: sendusernames,
-                body: sendmessages,
-                tags: 'serverdata'
-              })
+            try {
+              return await octokit.request('POST /repos/skparab1/server/issues', {
+                  owner: 'skparab1',
+                  repo: 'server',
+                  title: sendusernames,
+                  body: sendmessages,
+                  tags: 'serverdata'
+                })
+            } catch {
+              localStorage.setItem('sent',error);
+            }
           };
           
           start();
