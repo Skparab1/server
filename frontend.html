@@ -121,7 +121,7 @@
 
       localStorage.setItem('newmsg',currentmsgcount);
       console.log(currentmsgcount,parseInt(newmsg));
-      if (currentmsgcount != parseInt(newmsg)){
+      if (currentmsgcount > parseInt(newmsg)){
         document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <h3 style="color:rgb(255,255,255);">You have '+String(currentmsgcount-parseInt(newmsg))+' new messages.</h3> <a href="https://skparab1.github.io/server/frontend">Mark as read</a></div>');
       }
 
