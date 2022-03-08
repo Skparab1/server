@@ -28,7 +28,7 @@ jobs:
         id: version
         uses: notiz-dev/github-action-json-property@release
         with: 
-            path: 'package.json'
+            path: 'data.json'
             prop_path: 'version'
       - name: get data
         run: echo ${{steps.version.data}} 
