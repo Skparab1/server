@@ -124,7 +124,7 @@
       localStorage.setItem('newmsg',currentmsgcount);
       console.log(currentmsgcount,parseInt(newmsg));
       if (currentmsgcount > parseInt(newmsg)){
-        document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <a href="https://skparab1.github.io/server/frontend">You have '+String(currentmsgcount-parseInt(newmsg))+' new messages. Mark as read</a></div>');
+        document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <a href="https://skparab1.github.io/server/frontend"><h3>You have '+String(currentmsgcount-parseInt(newmsg))+' new messages. Mark as read</h3></a></div>');
         refreshtime = refreshtime*2;
       }
 
