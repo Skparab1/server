@@ -30,6 +30,12 @@ jobs:
         with: 
             path: 'data.json'
             prop_path: 'version'
+      - id: set_var
+        run: |
+          content=`cat ./data.json`
+          echo "::set-output name=dataJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.dataJson).version}}"
       - name: get data
         run: echo ${{steps.version.data[0]}} 
       - name: read data.json
