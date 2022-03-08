@@ -108,6 +108,11 @@
         sent = 'false';
         localStorage.setItem('sent','false');
       }
+
+      if (send != 'true' && sent != 'false'){
+        document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Message sending Failed. Error: '+sent+'</h3> </div>');
+      }
+
       var currentmsgcount = usernames.length;
       newmsg = localStorage.getItem('newmsg');
       if (newmsg == null){
