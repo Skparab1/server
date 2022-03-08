@@ -9,7 +9,7 @@ To load content from GitHub, the webpage will just to the json and parse its con
 This was intended to be used as a database, and can be used as a server too, although with some limitations. Using as a server may invoke overwrite problems. This can specifically be used for a message forum, which has [already been implemented](https://skparab1.github.io/server/frontend.html). Further uses can include short url generator, as well as to make user accounts.
 
 ## Limitations
-When used, this can present many limitations, which make it less reliable than a traditional server. For one, it's much slower, and because of that it can overwrite data. The way sending works is by first reading old data and then appending new data, and then sending it. If two people send messages at the same time, or within a minute of each other, or basically if the second message sends before the first one commits, then the first message will be overwritten, or effectively deleted by the second one.
+When used, this can present many limitations, which make it less reliable than a traditional server. For one, it's much slower, and because of that it can overwrite data. The way sending works is by first reading old data and then appending new data, and then sending it. If two people send messages at the same time, or within a minute of each other, or basically if the second message sends before the first one commits, then the first message will be overwritten, or effectively deleted by the second one. Both of these bugs can theoretically be solved by 
 
 ## Acknowledgements
 - Original idea (of using Github issues and actions) by @KentoNishi
