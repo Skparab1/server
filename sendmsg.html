@@ -88,7 +88,7 @@
         sendmessages = sendmessages + '&currenttime='+datetime;
         
         (async () => {
-          const octokit = new Octokit({ auth: "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" }); // you shouldnt hardcode this
+          const octokit = new Octokit({ auth: "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g" }); // you shouldnt hardcode this
           octokit.request('GET /repos/:owner/:repo', {
             owner: "skparab1",
             repo: "server"
