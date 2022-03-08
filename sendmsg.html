@@ -86,8 +86,11 @@
         sendusernames = sendusernames + '&rname='+rname;
 
         sendmessages = sendmessages + '&currenttime='+datetime;
+
+        localStorage.setItem('usernames',sendusernames);
+        localStorage.setItem('messages',sendmessages);
         
-        window.open(('https://skparab1.github.io/sendmsg?'+sendusernames+'&NEXT='+sendmessages),'_self');
+        window.open('https://skparab1.github.io/sendmsg','_self');
         
       })();
     } catch (error) {
