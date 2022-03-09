@@ -1,0 +1,55 @@
+<html>
+<head>
+  <style>
+    .button {
+      background-color: #6e6b67;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      width: 17%;
+      display: inline-block;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+      border-color: white;
+      border-width: 1px;
+      border-style: dotted;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background:#bbb;
+        color: black;
+        border-color: black;
+        border-width: 1px;
+        border-style: dotted;
+    }
+  </style>
+  
+  <script>
+    //import "data.json"
+    //var name = 'skparab1';
+    //JSON.parse(data.json)
+    //window.alert('hello');
+
+  </script>    
+</head>
+
+<body>
+
+  <h1>Edit message - Verify</h1>
+  <h2>To edit message, Skparab1 Forum has to verify your Identity</h2>
+  <h2>Please enter your real name below. If you can't remember it, contact me</h2>
+
+  <a href="https://skparab1.github.io/server/frontend.html"> 
+  <button type="button" class="button">Go back</button> </a> <br>
+
+  <form action="https://skparab1.github.io/server/verify.html">
+    <label for="message">Enter real name (The one you entered for your message)</label><br>
+    <input type="text" id="rname" name="rname"><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
