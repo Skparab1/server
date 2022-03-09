@@ -1,0 +1,55 @@
+<html>
+<head>
+  <style>
+    .button {
+      background-color: #6e6b67;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      width: 17%;
+      display: inline-block;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+      border-color: white;
+      border-width: 1px;
+      border-style: dotted;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background:#bbb;
+        color: black;
+        border-color: black;
+        border-width: 1px;
+        border-style: dotted;
+    }
+  </style>
+  
+  <script>
+    loc = window.location.href;
+    loc = loc.replace('https://skparab1.github.io/server/verify.html?rname=')
+    num = parseInt(localStorage.getItem('postnumber'));
+
+    const data1 = await fetch('./data.json').then(r => r.json());
+    oldusernames = data1.data[0];
+    
+    oldusernames = JSON.stringify(oldusernames);
+    oldusernames = oldusernames.replace('{"name":"','');
+    oldusernames = oldusernames.replace('"}','');
+    var usernames = oldusernames.split('&=');
+    document.write(usernames[num]);
+
+
+  </script>    
+</head>
+
+<body>
+
+  <h1>Verifying</h1>
+  <img src="loading.gif" alt="loading" style="width: 20%; text-align: center;">
+
+</body>
+</html>
