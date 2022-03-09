@@ -39,11 +39,11 @@
         data = data.split('&');
         var username = data[0].replace('name=','');
         var message = data[1].replace('message=','');
-        var rname = data[2].replace('rname=','');
+        var rname = data[2].replace('n','');
 
               
-        var sendusernames = oldusernames + '&nextentry&' + username;
-        var sendmessages = oldmessages + '&nextentry&' + message;
+        var sendusernames = oldusernames + '&=' + username;
+        var sendmessages = oldmessages + '&nextentry' + message;
         
         //if (sendusernames.length > 256){
         //  sendusernames = sendusernames.substring(sendusernames.length-256,sendusernames.length)
@@ -83,7 +83,7 @@
         var time = hour + ":" + minute + ":" + second + ' '+suffix;
         var datetime = date+' at '+time;
 
-        sendusernames = sendusernames + '&rname='+rname;
+        sendusernames = sendusernames + '&n'+rname;
 
         sendmessages = sendmessages + '&currenttime='+datetime;
 
