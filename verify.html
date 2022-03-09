@@ -31,7 +31,7 @@
   <script>
     loc = window.location.href;
     loc = loc.replace('https://skparab1.github.io/server/verify.html?rname=')
-    num = parseInt(localStorage.getItem('postnumber'));
+    num = localStorage.getItem('postnumber');
 
     (async () => {
       const data1 = await fetch('./data.json').then(r => r.json());
