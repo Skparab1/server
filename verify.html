@@ -33,14 +33,17 @@
     loc = loc.replace('https://skparab1.github.io/server/verify.html?rname=')
     num = parseInt(localStorage.getItem('postnumber'));
 
-    const data1 = await fetch('./data.json').then(r => r.json());
-    oldusernames = data1.data[0];
-    
-    oldusernames = JSON.stringify(oldusernames);
-    oldusernames = oldusernames.replace('{"name":"','');
-    oldusernames = oldusernames.replace('"}','');
-    var usernames = oldusernames.split('&=');
-    console.log(usernames[num]);
+    (async () => {
+      const data1 = await fetch('./data.json').then(r => r.json());
+      oldusernames = data1.data[0];
+      
+      oldusernames = JSON.stringify(oldusernames);
+      oldusernames = oldusernames.replace('{"name":"','');
+      oldusernames = oldusernames.replace('"}','');
+      var usernames = oldusernames.split('&=');
+      console.log(usernames[num]);
+      document.write(usernames[num]);
+    })();
 
 
   </script>    
