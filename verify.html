@@ -42,12 +42,17 @@
       oldusernames = oldusernames.replace('"}','');
       var usernames = oldusernames.split('&=');
 
-      num = num-1;
-      console.log(usernames[num]);
-      document.write(num);
-      document.write(usernames);
-      document.write('<br>');
-      document.write(usernames[num]);
+      num = num + 1;
+
+      entry = usernames[num];
+      entry = entry.split('&');
+      rname = entry[1];
+      
+      if (rname == loc){
+        window.open('https://skparab1.github.io/server/edit.html','_self')
+      } else {
+        window.open('https://skparab1.github.io/server/verifyedit.html?messageid='+num+'&incorrect','_self')
+      }
     })();
 
 

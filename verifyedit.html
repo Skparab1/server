@@ -31,25 +31,30 @@
   <script>
     loc = window.location.href;
     loc = loc.replace('https://skparab1.github.io/server/verifyedit.html?messageid=','')
-    console.log('it is '+loc);
+    if (loc.includes('&incorrect')){
+      loc = loc.replace('incorrect','');
+      document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"><h3 style="color:rgb(255, 255, 255);">Name incorrect. Try again</h3></div>');
+
+    }
     localStorage.setItem('postnumber',loc);
+
+    document.write('<h1>Edit message - Verify</h1>');
+    document.write('<h2>To edit message, Skparab1 Forum has to verify your Identity</h2>');
+    document.write('<h2>Please enter your real name below. If you can\'t remember it, contact me</h2>');
+
+    document.write('<a href="https://skparab1.github.io/server/frontend.html">');
+    document.write('<button type="button" class="button">Go back</button> </a> <br>');
+
+    document.write('<form action="https://skparab1.github.io/server/verify.html">');
+    document.write('<label for="message">Enter real name (The one you entered for your message)</label><br>');
+    document.write('<input type="text" id="rname" name="rname"><br>');
+    document.write('<input type="submit" value="Submit">');
+    document.write('</form>');
 
   </script>    
 </head>
 
 <body>
 
-  <h1>Edit message - Verify</h1>
-  <h2>To edit message, Skparab1 Forum has to verify your Identity</h2>
-  <h2>Please enter your real name below. If you can't remember it, contact me</h2>
-
-  <a href="https://skparab1.github.io/server/frontend.html"> 
-  <button type="button" class="button">Go back</button> </a> <br>
-
-  <form action="https://skparab1.github.io/server/verify.html">
-    <label for="message">Enter real name (The one you entered for your message)</label><br>
-    <input type="text" id="rname" name="rname"><br>
-    <input type="submit" value="Submit">
-  </form>
 </body>
 </html>
