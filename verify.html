@@ -41,6 +41,8 @@
       oldusernames = oldusernames.replace('{"name":"','');
       oldusernames = oldusernames.replace('"}','');
       var usernames = oldusernames.split('&=');
+
+      num = num-1;
       console.log(usernames[num]);
       document.write(num);
       document.write(usernames);
