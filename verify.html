@@ -51,8 +51,9 @@
       entry = entry.split('&n');
       rname = entry[1];
       rname = rname.replaceAll(' ','');
-      loc = loc.replaceAll('+','');
-      console.log('Looking for ',rname);
+      loc = loc.replaceAll('+',' ');
+      console.log('Looking for',rname);
+      console.log(rname,loc);
       
       if (rname == loc){
         window.open('https://skparab1.github.io/server/edit.html','_self')
