@@ -32,7 +32,7 @@
     loc = window.location.href;
     loc = loc.replace('https://skparab1.github.io/server/verify.html?rname=','')
     num = localStorage.getItem('postnumber');
-    console.log('loc',loc);
+    //console.log('loc',loc);
 
     (async () => {
       const data1 = await fetch('./data.json').then(r => r.json());
@@ -46,22 +46,22 @@
       num = parseInt(num) - 1;
 
       var entry = usernames[num];
-      console.log(usernames);
-      console.log(num);
-      console.log(usernames[num]);
+      //console.log(usernames);
+      //console.log(num);
+      //console.log(usernames[num]);
       entry = entry.split('&n');
       rname = entry[1];
       rname = rname.replaceAll(' ','');
       loc = loc.replaceAll('+',' ');
-      console.log('loc',loc);
-      console.log('Looking for',rname);
-      console.log(rname,loc);
+      //console.log('loc',loc);
+      //console.log('Looking for',rname);
+      //console.log(rname,loc);
       
       if (rname == loc){
         window.open('https://skparab1.github.io/server/edit.html','_self')
       } else {
         num = num + 1;
-        //window.open('https://skparab1.github.io/server/verifyedit.html?messageid='+num+'&incorrect','_self')
+        window.open('https://skparab1.github.io/server/verifyedit.html?messageid='+num+'&incorrect','_self')
       }
     })();
 
