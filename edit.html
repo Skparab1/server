@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Skparab1 Forum - Edit message</title>
+  <style>
+    .button {
+      background-color: #6e6b67;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      width: 17%;
+      display: inline-block;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+      border-color: white;
+      border-width: 1px;
+      border-style: dotted;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background:#bbb;
+        color: black;
+        border-color: black;
+        border-width: 1px;
+        border-style: dotted;
+    }
+  </style>
+  
+  <script>
+    document.write('<h1>Skparab1 forum - Edit message</h1>');
+
+    document.write('<a href="https://skparab1.github.io/server/frontend.html">');
+    document.write('<button type="button" class="button">Go back</button> </a> <br>');
+
+    document.write('<form action="https://skparab1.github.io/server/sendmsg.html">');
+    document.write('<label for="name">Username (will be displayed):</label><br>');
+    document.write('<input type="text" id="name" name="name"><br>');
+    document.write('<label for="message">Message:</label><br>');
+    document.write('<textarea id="message" name="message" rows="4" cols="50"></textarea><br>');
+    document.write('<label for="message">Your real name (will not be visible, will be logged for security)</label><br>');
+    document.write('<input type="text" id="rname" name="rname"><br>');
+    document.write('<input type="submit" value="Submit">');
+    document.write('</form>');
+
+  </script>    
+</head>
+
+<body>
+
+  
+</body>
+</html>
