@@ -50,6 +50,8 @@
       console.log(usernames[num]);
       entry = entry.split('&n');
       rname = entry[1];
+      rname = rname.replaceAll(' ','');
+      loc = loc.replaceAll('+','');
       console.log('Looking for ',rname);
       
       if (rname == loc){
