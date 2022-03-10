@@ -32,6 +32,7 @@
     loc = window.location.href;
     loc = loc.replace('https://skparab1.github.io/server/verify.html?rname=')
     num = localStorage.getItem('postnumber');
+    console.log('loc',loc);
 
     (async () => {
       const data1 = await fetch('./data.json').then(r => r.json());
@@ -52,6 +53,7 @@
       rname = entry[1];
       rname = rname.replaceAll(' ','');
       loc = loc.replaceAll('+',' ');
+      console.log('loc',loc);
       console.log('Looking for',rname);
       console.log(rname,loc);
       
