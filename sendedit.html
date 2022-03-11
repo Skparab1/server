@@ -53,14 +53,14 @@
       usernames = usernames.replace('"}','');
       messages = messages.replace('{"message":"','');
       messages = messages.replace('"}','');
-      var messages = messages.split('&nextentry&');
+      var messagesnew = messages.split('&nextentry&');
 
       num = parseInt(num) - 1;
 
-      var entry = messages[num];
-      console.log(messages);
+      var entry = messagesnew[num];
+      console.log(messagesnew);
       console.log(num);
-      console.log(messages[num]);
+      console.log(messagesnew[num]);
       var oldcontent = localStorage.getItem('oldcontent');
 
       var newentry = entry.replace(oldcontent,loc);
