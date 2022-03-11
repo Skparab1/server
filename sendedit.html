@@ -58,6 +58,9 @@
       num = parseInt(num) - 1;
 
       var entry = messages[num];
+      console.log(messages);
+      console.log(num);
+      console.log(messages[num]);
       var oldcontent = localStorage.getItem('oldcontent');
 
       var newentry = entry.replace(oldcontent,loc);
