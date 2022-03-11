@@ -65,11 +65,11 @@
 
       console.log('before splitting',entry);
 
-      entry = entry.split('&currenttime=');
-      console.log('after splitting',entry);
+      var splitentry = entry.split('&currenttime=');
+      console.log('after splitting',splitentry);
 
       var newentry = loc;
-      newentry = loc+'&currenttime='+entry[1];
+      newentry = loc+'&currenttime='+splitentry[1];
       
       console.log('sending message is this ',newentry);
       newentry = newentry.replace('(edited)','');
