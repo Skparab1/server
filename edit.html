@@ -44,7 +44,7 @@
 
       var oldcontent = oldmessages[num].split('&currenttime=')[0]
 
-      oldcontent = oldcontent.replace('+',' ');
+      oldcontent = oldcontent.replaceAll('+',' ');
 
       document.write('<h1>Skparab1 forum - Edit message</h1>');
 
@@ -53,7 +53,7 @@
       document.write('<a href="https://skparab1.github.io/server/delete.html">');
       document.write('<button type="button" class="button">Delete message</button> </a> <br>');
 
-      document.write('<form action="https://skparab1.github.io/server/sendmsg.html">');
+      document.write('<form action="https://skparab1.github.io/server/sendedit.html">');
       document.write('<label for="message">Message:</label><br>');
       document.write('<textarea id="message" name="message" rows="4" cols="50">'+oldcontent+'</textarea><br>');
       document.write('<input type="submit" value="Submit">');
