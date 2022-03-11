@@ -64,6 +64,7 @@
       var oldcontent = localStorage.getItem('oldcontent');
 
       var newentry = entry.replace(oldcontent,loc);
+      newentry = newentry.replace('(edited)','');
       newentry = newentry + '(edited)';
       
       messages = messages.replace(entry,newentry);
