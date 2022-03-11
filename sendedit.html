@@ -63,16 +63,23 @@
       console.log(messagesnew[num]);
       var oldcontent = localStorage.getItem('oldcontent');
 
+      console/log('sending message is this ',loc);
+
       var newentry = entry.replace(oldcontent,loc);
+      console/log('sending message is this ',newentry);
       newentry = newentry.replace('(edited)','');
       newentry = newentry + '(edited)';
+
+      console/log('sending message is this ',newentry);
       
       messages = messages.replace(entry,newentry);
       
       localStorage.setItem('usernames',usernames);
       localStorage.setItem('messages',messages);
+
+      console/log('sending message is this ',messages);
       
-      window.open('https://skparab1.github.io/sendmsg','_self');
+      //window.open('https://skparab1.github.io/sendmsg','_self');
     })();
 
 
