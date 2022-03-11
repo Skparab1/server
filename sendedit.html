@@ -66,6 +66,7 @@
       console.log('before splitting',entry);
 
       entry = entry.split('&currentime=');
+      console.log('after splitting',entry);
 
       var newentry = loc;
       newentry = loc+'&currenttime='+entry[1];
