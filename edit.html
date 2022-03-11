@@ -30,20 +30,31 @@
   </style>
   
   <script>
-    document.write('<h1>Skparab1 forum - Edit message</h1>');
+    (async () => {
+      const data1 = await fetch('./data.json').then(r => r.json());
+      var oldmessages = data1.data[1];  // but you dont want usernames you want messages
+      num = localStorage.getItem('postnumber');
+      
+      oldmessages = JSON.stringify(oldmessages);
+      oldmessages = oldmessages.replace('{"message":"','');
+      oldmessages = oldmessages.replace('"}','');
+      var usernames = oldusernames.split('&nextentry&');
 
-    document.write('<a href="https://skparab1.github.io/server/frontend.html">');
-    document.write('<button type="button" class="button">Go back</button> </a> <br>');
+      num = parseInt(num) - 1;
 
-    document.write('<form action="https://skparab1.github.io/server/sendmsg.html">');
-    document.write('<label for="name">Username (will be displayed):</label><br>');
-    document.write('<input type="text" id="name" name="name"><br>');
-    document.write('<label for="message">Message:</label><br>');
-    document.write('<textarea id="message" name="message" rows="4" cols="50"></textarea><br>');
-    document.write('<label for="message">Your real name (will not be visible, will be logged for security)</label><br>');
-    document.write('<input type="text" id="rname" name="rname"><br>');
-    document.write('<input type="submit" value="Submit">');
-    document.write('</form>');
+      var oldcontent = usernames[num].split('&currenttime=')[0]
+
+      document.write('<h1>Skparab1 forum - Edit message</h1>');
+
+      document.write('<a href="https://skparab1.github.io/server/frontend.html">');
+      document.write('<button type="button" class="button">Go back</button> </a> <br>');
+
+      document.write('<form action="https://skparab1.github.io/server/sendmsg.html">');
+      document.write('<label for="message">Message:</label><br>');
+      document.write('<textarea id="message" name="message" rows="4" cols="50">'+oldcontent+'</textarea><br>');
+      document.write('<input type="submit" value="Submit">');
+      document.write('</form>');
+    })();
 
   </script>    
 </head>
