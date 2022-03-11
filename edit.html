@@ -38,16 +38,18 @@
       oldmessages = JSON.stringify(oldmessages);
       oldmessages = oldmessages.replace('{"message":"','');
       oldmessages = oldmessages.replace('"}','');
-      var usernames = oldusernames.split('&nextentry&');
+      var oldmessages = oldmessages.split('&nextentry&');
 
       num = parseInt(num) - 1;
 
-      var oldcontent = usernames[num].split('&currenttime=')[0]
+      var oldcontent = oldmessages[num].split('&currenttime=')[0]
 
       document.write('<h1>Skparab1 forum - Edit message</h1>');
 
       document.write('<a href="https://skparab1.github.io/server/frontend.html">');
       document.write('<button type="button" class="button">Go back</button> </a> <br>');
+      document.write('<a href="https://skparab1.github.io/server/delete.html">');
+      document.write('<button type="button" class="button">Delete message</button> </a> <br>');
 
       document.write('<form action="https://skparab1.github.io/server/sendmsg.html">');
       document.write('<label for="message">Message:</label><br>');
