@@ -44,6 +44,8 @@
 
       var oldcontent = oldmessages[num].split('&currenttime=')[0]
 
+      oldcontent = oldcontent.replace('+',' ');
+
       document.write('<h1>Skparab1 forum - Edit message</h1>');
 
       document.write('<a href="https://skparab1.github.io/server/frontend.html">');
