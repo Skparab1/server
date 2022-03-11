@@ -65,7 +65,11 @@
 
       console.log('sending message is this ',loc);
 
-      var newentry = entry.replace(oldcontent,loc);
+      entry = entry.split('&currentime=');
+
+      var newentry = loc;
+      newentry = loc+'&currenttime='+entry[1];
+      
       console.log('sending message is this ',newentry);
       newentry = newentry.replace('(edited)','');
       newentry = newentry + '(edited)';
