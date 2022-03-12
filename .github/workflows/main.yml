@@ -30,7 +30,7 @@ jobs:
            json_var: 'data.json'
            
       - name: Update name in data.json
-        run: echo "`jq '.data[0].name="${{ env.jon_var }}:${{ github.event.issue.title }}"' data.json`" > data.json
+        run: echo "`jq '.data[0].name="${{ env.json_var }}:${{ github.event.issue.title }}"' data.json`" > data.json
       - name: Update message in data.json
         run: echo "`jq '.data[1].message="${{ github.event.issue.body }}"' data.json`" > data.json
       - name: Close issue
