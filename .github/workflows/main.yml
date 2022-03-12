@@ -25,10 +25,10 @@ jobs:
       - name: set output
         id: set
         run: |
-           echo ::set-output name=json_var:: 'data.json'
-        env:
-           json_var: 'data.json'
-           
+           echo ::set-output name=json_var:: 'data.json'     
+      - name: use data
+        run: |
+          echo $json_var | jq '.[].data'
       - name: Update name in data.json
         run: echo "`jq '.data[0].name="${{ env.json_var }}"' data.json`" > data.json
       - name: Update message in data.json
