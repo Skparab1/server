@@ -12,7 +12,7 @@ This was intended to be used as a database, and can be used as a server too, alt
 When used, this can present many limitations, which make it less reliable than a traditional server. For one, it's much slower, and because of that it can overwrite data. The way sending works is by first reading old data and then appending new data, and then sending it. If two people send messages at the same time, or within a minute of each other, or basically if the second message sends before the first one commits, then the first message will be overwritten, or effectively deleted by the second one. Aditionally, the length of issue titles and bodies has a limit, so the system only allows about 30 posts before giving an error. Not that bad, but 3 posts is still a limitation. Both of these bugs can theoretically be solved by sending just the new data, and then having Github actions yoink the current data and append the new data to it, and then save it. I tried to do that but idk it didn't work.
 
 ## Features of [Message sender](https://skparab1.github.io/server/frontend.html)
-This message sender uses the same data storage algorithm and database type as this template. The main and fundamental feature is sending and receiving messages. Editing messages has recently beed added, so expect it to be buggy.  
+This message sender uses the same data storage algorithm and database type as this template. The main and fundamental feature is sending and receiving messages. Editing messages has recently beed added, so expect it to be buggy. Delete messages should be added soon, and then replies will be added 
 
 ## Acknowledgements
 - Original idea (of using Github issues and actions) by @KentoNishi
