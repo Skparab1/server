@@ -61,7 +61,7 @@
     }
     var time = hour + ":" + minute + ":" + second + ' '+suffix;
 
-    if (sentlast != null && lastdate == date){
+    if (hour != null && lastdate == date){
       if ((hour == lasthr || (parseInt(hour) == parseInt(lasthr)+1 && parseInt(minute)-parseInt(lastmin) < 0)) && suffix == lastsuf){
         if (parseInt(minute)-parseInt(lastmin) < 1 || parseInt(minute)+60-parseInt(lastmin) < 1){
           document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Hold up! You are sending messages too quickly. You last sent your message 1 minute ago. Your preious message will likely be deleted.</h3> </div>');
