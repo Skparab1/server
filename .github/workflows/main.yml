@@ -28,7 +28,7 @@ jobs:
            echo ::set-output name=json_var:: 'data.json'
       - name: use output
         run: |
-          echo $json_var | jq '.[].data[1]'
+          echo $json_var | jq '.[].data.name'
         env:
           json_var: ${{ steps.set.outputs.json_var}}
       - name: Update name in data.json
