@@ -2,10 +2,10 @@
   "version": "1",
   "data": [
     {
-      "name": "://://&=Skparab1&nhm"
+      "name": "://://://&=Skparab1&nhm&=this+is+another+test&ngood"
     },
     {
-      "message": "&nextentry&test+message&currenttime=2022/3/12 at 12:30:42 PM"
+      "message": "&nextentry&test+message&currenttime=2022/3/12 at 12:30:42 PM&nextentry&will+it+work&currenttime=2022/3/12 at 12:32:30 PM"
     }
   ],
   "secondArray": [
