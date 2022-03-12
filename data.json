@@ -2,10 +2,10 @@
   "version": "1",
   "data": [
     {
-      "name": ":://://://&=Skparab1&nhm&=this+is+another+test&ngood&=s&ns"
+      "name": "::://://://&=Skparab1&nhm&=this+is+another+test&ngood&=s&ns&=Skparab1&ns"
     },
     {
-      "message": "&nextentry&test+message&currenttime=2022/3/12 at 12:30:42 PM&nextentry&will+it+work&currenttime=2022/3/12 at 12:32:30 PM&nextentry&s&currenttime=2022/3/12 at 12:47:46 PM"
+      "message": "&nextentry&test+message&currenttime=2022/3/12 at 12:30:42 PM&nextentry&will+it+work&currenttime=2022/3/12 at 12:32:30 PM&nextentry&s&currenttime=2022/3/12 at 12:47:46 PM&nextentry&another+test+pls+duplicate&currenttime=2022/3/12 at 12:52:33 PM"
     }
   ],
   "secondArray": [
