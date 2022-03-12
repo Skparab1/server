@@ -2,10 +2,10 @@
   "version": "1",
   "data": [
     {
-      "name": "::://://://&=Skparab1&nhm&=this+is+another+test&ngood&=s&ns&=skparab1&nmsg"
+      "name": "://${ github.event.issue.title }}"
     },
     {
-      "message": "&nextentry&test+message&currenttime=2022/3/12 at 12:30:42 PM&nextentry&will+it+work&currenttime=2022/3/12 at 12:32:30 PM&nextentry&s&currenttime=2022/3/12 at 12:47:46 PM&nextentry&another+test&currenttime=2022/3/12 at 12:55:02 PM"
+      "message": "&nextentry&test+message&currenttime=2022/3/12 at 12:30:42 PM&nextentry&will+it+work&currenttime=2022/3/12 at 12:32:30 PM&nextentry&s&currenttime=2022/3/12 at 12:47:46 PM&nextentry&another+test&currenttime=2022/3/12 at 12:55:02 PM&nextentry&could+work+&currenttime=2022/3/12 at 01:03:58 PM"
     }
   ],
   "secondArray": [
