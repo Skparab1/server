@@ -1,0 +1,100 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: rgb(0, 0, 0);
+    }
+
+    h1 {
+      color: white;
+    }
+
+    .button {
+      background-color: #6e6b67;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      width: 17%;
+      display: inline-block;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+      border-color: white;
+      border-width: 1px;
+      border-style: dotted;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background:#bbb;
+        color: black;
+        border-color: black;
+        border-width: 1px;
+        border-style: dotted;
+    }
+  </style>
+  
+  <script>
+    loc = window.location.href;
+    loc = loc.replace('https://skparab1.github.io/server/sendedit.html?message=','')
+    num = localStorage.getItem('postnumber');
+    //console.log('loc',loc);
+
+    (async () => {
+      const data1 = await fetch('./data.json').then(r => r.json());
+      messages = data1.data[1];
+      usernames = data1.data[0];
+
+      messages = JSON.stringify(messages);
+      usernames = JSON.stringify(usernames);
+      usernames = usernames.replace('{"name":"','');
+      usernames = usernames.replace('"}','');
+      messages = messages.replace('{"message":"','');
+      messages = messages.replace('"}','');
+      var messagesnew = messages.split('&nextentry&');
+
+      num = parseInt(num) - 1;
+
+      var entry = messagesnew[num];
+      console.log(messagesnew);
+      console.log(num);
+      console.log(messagesnew[num]);
+      var oldcontent = localStorage.getItem('oldcontent');
+
+      console.log('before splitting',entry);
+
+      var splitentry = entry.split('&currenttime=');
+      console.log('after splitting',splitentry);
+
+      var newentry = loc;
+      newentry = loc+'&currenttime='+splitentry[1];
+      
+      console.log('sending message is this ',newentry);
+      newentry = newentry.replace('(edited)','');
+      newentry = newentry + '(edited)';
+
+      console.log('sending message is this ',newentry);
+      
+      messages = messages.replace(entry,newentry);
+      
+      localStorage.setItem('usernames',usernames);
+      localStorage.setItem('messages',messages);
+
+      console.log('sending message is this ',messages);
+      
+      window.open('https://skparab1.github.io/sendmsg','_self');
+    })();
+
+
+  </script>    
+</head>
+
+<body>
+
+  <h1>Sending edited message</h1>
+  <img src="loading.gif" alt="loading" style="width: 20%; text-align: center;">
+
+</body>
+</html>
