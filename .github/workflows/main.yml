@@ -26,6 +26,11 @@ jobs:
         id: set
         run: |
            echo ::set-output name=json_var:: 'data.json'
+      - name: use output
+        run: |
+          echo $json_var | jq '.[].data[1]'
+        env:
+          json_var: ${{ steps.set.outputs.json_var}}
       - name: Update name in data.json
         run: echo "`jq '.data[0].name="${{ github.event.issue.title }}"' data.json`" > data.json
       - name: Update message in data.json
