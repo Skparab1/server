@@ -42,3 +42,5 @@ jobs:
         with:
           message: 'updating data'
           add: "data.json"
+      - name: destroy changes
+        run: git reset -- hard
