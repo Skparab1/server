@@ -49,7 +49,7 @@ This message sender uses the same data storage algorithm and database type as th
 ````
 
 ### Make Github Actions push isssue data
-- This snippet yoinks the issue data and adds it to two different arrays of the json
+- This snippet yoinks the issue data and appends it to two different arrays of the json
 ````
 name: Issue data pusher
 
@@ -77,9 +77,9 @@ jobs:
       - name: Update name in data.json
         env:
           issue_data: github.event.issue.title
-        run: echo "`jq '.data[0].name="${{ github.event.issue.title }}"' data.json`" > data.json
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
       - name: Update message in data.json
-        run: echo "`jq '.data[1].message="${{ github.event.issue.body }}"' data.json`" > data.json
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
       # close issue but this doesnt work rn
       - name: Close issue
         run: echo "github.event.issue.close"
