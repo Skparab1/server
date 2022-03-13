@@ -16,8 +16,7 @@ jobs:
   consecutiveness:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./
+    - uses: mktcode/consecutive-workflow-action@v1
       with:
         token: ${{ secrets.GH_TOKEN }}
 
