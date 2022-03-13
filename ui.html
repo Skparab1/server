@@ -65,7 +65,7 @@
     if (hour != null && lastdate == date){
       if ((hour == lasthr || (parseInt(hour) == parseInt(lasthr)+1 && parseInt(minute)-parseInt(lastmin) < 0)) && suffix == lastsuf){
         if (parseInt(minute)-parseInt(lastmin) < 1 || parseInt(minute)+60-parseInt(lastmin) < 1){
-          document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Hold up! You are sending messages too quickly. You last sent your message 1 minute ago. Your preious message will likely be deleted.</h3> </div>');
+          document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Hold up! You are sending messages too quickly. You last sent your message 1 minute ago. Your previous message will likely be deleted.</h3> </div>');
         } else if (parseInt(minute)-parseInt(lastmin) < 2 || parseInt(minute)+60-parseInt(lastmin) < 2){
           document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <h3 style="color:rgb(10, 10, 10);">You last send a message less than 2 minutes ago. Sending consecutive messages may cause deletion of first message.</h3> </div>');
         } else if (parseInt(minute)-parseInt(lastmin) < 5 || parseInt(minute)+60-parseInt(lastmin) < 5){
@@ -79,7 +79,7 @@
     document.write('<a href="https://skparab1.github.io/server/frontend.html">');
     document.write('<button type="button" class="button">Go back</button> </a> <br>');
 
-    document.write('<form action="https://skparab1.github.io/server/sendmsg.html">');
+    document.write('<form action="https://skparab1.github.io/sendmsg">');
     document.write('<label for="name">Username (will be displayed):</label><br>');
     document.write('<input type="text" id="name" name="name"><br>');
     document.write('<label for="message">Message:</label><br>');
