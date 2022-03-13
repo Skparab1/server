@@ -11,11 +11,15 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
-concurrency: staging_environment
-  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  consecutiveness:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: mktcode/consecutive-workflow-action@v1 # please read security note
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
