@@ -42,5 +42,6 @@ jobs:
         with:
           message: 'updating data'
           add: "data.json"
-      - name: stash changes
-        run: git stash push --include-untracked
+      - name: idk remove changes
+        run: git checkout HEAD^ data.json
+             git pull
