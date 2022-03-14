@@ -37,6 +37,11 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
+      - name: finish removing changes
+        run: git reset --hard
+      - name: remove changes
+        run: git reset -- data.json
+        
       - name: pull
         run: git pull
       - name: Commit
