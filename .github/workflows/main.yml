@@ -51,6 +51,9 @@ jobs:
         run: cat data.json
       - name: new branch
         run: git checkout -b new
+      - name: idk
+        run: git branch --set-upstream-to=origin/<branch> new
+      
       - name: Commit
         uses: EndBug/add-and-commit@v7
         with:
