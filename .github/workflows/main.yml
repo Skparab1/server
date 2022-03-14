@@ -55,10 +55,11 @@ jobs:
         run: git switch new
       
       - name: Commit
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           message: 'updating data'
           add: "data.json --force"
+          new_branch: new
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
