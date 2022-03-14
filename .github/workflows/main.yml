@@ -53,6 +53,8 @@ jobs:
         run: git checkout -b new
       - name: idk
         run: git switch new
+      - name: push
+        run: git push --set-upstream origin new
       
       - name: Commit
         uses: EndBug/add-and-commit@v9
