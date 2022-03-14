@@ -26,8 +26,6 @@ jobs:
     needs: [ consecutiveness ]
     
     steps:
-      - name: finish removing changes
-        run: git reset --hard
       - name: remove changes
         run: git reset -- data.json
       - name: Sleep for 60 seconds
