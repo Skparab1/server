@@ -26,9 +26,6 @@ jobs:
     needs: [ consecutiveness ]
     
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
       - name: finish removing changes
         run: git reset --hard
       - name: remove changes
@@ -36,6 +33,10 @@ jobs:
       - name: Sleep for 60 seconds
         run: sleep 60s
         shell: bash
+        
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
         
       - name: Update name in data.json
         run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
