@@ -43,4 +43,4 @@ jobs:
           message: 'updating data'
           add: "data.json"
       - name: stash changes
-        run: git stash
+        run: git stash push --include-untracked
