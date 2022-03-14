@@ -33,6 +33,9 @@ jobs:
         run: git reset --hard
       - name: remove changes
         run: git reset -- data.json
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
         
       - name: Update name in data.json
         run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
