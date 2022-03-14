@@ -44,4 +44,5 @@ jobs:
           add: "data.json"
       - name: idk remove changes
         run: git checkout HEAD^ data.json
-             git pull
+      - name: finish removing changes
+        run: git pull
