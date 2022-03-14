@@ -53,10 +53,7 @@ jobs:
         run: sleep 60s
         shell: bash
       - name: Commit
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: 'updating data'
-          add: "data.json"
+        run: git commit -m "committing"
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
