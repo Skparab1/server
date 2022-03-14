@@ -54,6 +54,8 @@ jobs:
         shell: bash
       - name: new branch
         run: git checkout -b new
+      - name: pull new
+        run: git pull new
       - name: Commit
         uses: EndBug/add-and-commit@v7
         with:
