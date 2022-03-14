@@ -52,6 +52,8 @@ jobs:
       - name: Sleep for 60 seconds
         run: sleep 60s
         shell: bash
+      - name: stash changes
+        run: git stash branch new [<stash>]
       - name: Commit
         uses: EndBug/add-and-commit@v7
         with:
