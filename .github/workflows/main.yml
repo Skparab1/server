@@ -59,7 +59,8 @@ jobs:
         with:
           message: 'updating data'
           add: "data.json --force"
-          new_branch: new
+          pathspec_error_handling: ignore
+          push: true
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
