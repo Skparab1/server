@@ -46,10 +46,17 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
+      - name: Sleep for 60 seconds
+        run: sleep 60s
+        shell: bash
       - name: Commit
         uses: EndBug/add-and-commit@v7
         with:
           message: 'updating data'
           add: "data.json"
+      - name: remove changes
+        run: git reset -- data.json
+      - name: remove data changes
+        run: git reset --hard
 
         
