@@ -59,6 +59,7 @@ jobs:
         with:
           message: 'updating data'
           add: "data.json"
+          new_branch: new
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
