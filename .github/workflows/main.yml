@@ -37,6 +37,9 @@ jobs:
         run: git reset -- data.json
       - name: remove data changes
         run: git reset --hard
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
         
       - name: Update name in data.json
         run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
