@@ -58,8 +58,8 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           message: 'updating data'
-          add: "data.json"
           remove: './data.json'
+          add: "data.json"
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
