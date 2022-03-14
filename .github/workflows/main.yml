@@ -44,7 +44,6 @@ jobs:
         with:
           message: 'updating data'
           add: "data.json"
-        run: git reset --hard
       - name: idk remove changes
         run: git checkout HEAD^ data.json
       - name: finish removing changes
