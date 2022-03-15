@@ -16,9 +16,12 @@ jobs:
   consecutiveness:
     runs-on: ubuntu-latest
     steps:
-    - uses: mktcode/consecutive-workflow-action@v1
-      with:
-        token: ${{ secrets.GH_TOKEN }}
+      - uses: mktcode/consecutive-workflow-action@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Sleep for 2 minutes
+          run: sleep 120s
+          shell: bash
 
   build:
     # The type of runner that the job will run on
@@ -26,9 +29,6 @@ jobs:
     needs: [ consecutiveness ]
     
     steps:
-      - name: Sleep for 2 minutes
-        run: sleep 120s
-        shell: bash
         
       - uses: actions/checkout@v2
         with:
@@ -55,8 +55,6 @@ jobs:
       - name: read data.json
         run: cat data.json
       
-      - name: reset
-        run: git reset HEAD~1
       - name: pull
         run: git pull
         continue-on-error: true
