@@ -54,7 +54,9 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
-        
+      
+      - name: reset:
+        run: git reset HEAD~1
       - name: pull
         run: git pull
         continue-on-error: true
