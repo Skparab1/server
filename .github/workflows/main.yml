@@ -57,6 +57,7 @@ jobs:
         
       - name: pull
         run: git pull
+        continue-on-error: true
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
