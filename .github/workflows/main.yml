@@ -19,9 +19,6 @@ jobs:
       - uses: mktcode/consecutive-workflow-action@v1
         with:
           token: ${{ secrets.GH_TOKEN }}
-      - name: Sleep for 2 minutes
-        run: sleep 120s
-        shell: bash
 
   build:
     # The type of runner that the job will run on
@@ -54,6 +51,9 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
+      
+      - name: stash changes
+        run: git stash
       
       - name: pull
         run: git pull
