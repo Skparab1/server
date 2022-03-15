@@ -21,6 +21,7 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
 
+
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -31,6 +32,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
+
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
@@ -64,6 +66,20 @@ jobs:
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
+        id: commit
+      - name: retry
+        continue-on-error: true
+        id: retry1
+        if: steps.commit.outcome=='failure'         # check the step outcome, retry 1st time
+        run: |
+          exit 1                                # if it fails again. if it's succeeds, the latter steps will be skipped, and status is successful.
+      - name: retry 2
+        continue-on-error: true
+        id: retry2
+        if: steps.commit.outcome=='failure'   # check the step outcome, retry 2nd time
+        run: |
+          echo retry 2nd time
+          exit 1    
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
