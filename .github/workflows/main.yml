@@ -55,7 +55,7 @@ jobs:
       - name: read data.json
         run: cat data.json
       
-      - name: reset:
+      - name: reset
         run: git reset HEAD~1
       - name: pull
         run: git pull
