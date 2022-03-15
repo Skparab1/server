@@ -51,10 +51,7 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
-      
-      - name: stash changes
-        run: git stash
-      
+    
       - name: pull
         run: git pull
         continue-on-error: true
