@@ -54,10 +54,15 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
-    
+        
+      - name: checkout
+        uses: actions/checkout@v2   
+        id: checkout
       - name: pull
         run: git pull
         continue-on-error: true
+        id: pull
+     
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
@@ -70,14 +75,14 @@ jobs:
       - name: retry
         continue-on-error: true
         id: retry1
-        if: steps.commit.outcome=='failure'         # check the step outcome, retry 1st time
+        if: steps.commit.outcome=='failure'
         run: |
           sleep 30s  
-          exit 1                             # if it fails again. if it's succeeds, the latter steps will be skipped, and status is successful.
+          exit 1                      
       - name: retry 2
         continue-on-error: true
         id: retry2
-        if: steps.commit.outcome=='failure'   # check the step outcome, retry 2nd time
+        if: steps.commit.outcome=='failure' 
         run: |
           echo retry 2nd time
           sleep 30s
