@@ -26,8 +26,8 @@ jobs:
     needs: [ consecutiveness ]
     
     steps:
-      - name: Sleep for 5 minutes
-        run: sleep 300s
+      - name: Sleep for 2 minutes
+        run: sleep 120s
         shell: bash
         
       - uses: actions/checkout@v2
