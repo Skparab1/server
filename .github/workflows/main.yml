@@ -72,13 +72,15 @@ jobs:
         id: retry1
         if: steps.commit.outcome=='failure'         # check the step outcome, retry 1st time
         run: |
-          exit 1                                # if it fails again. if it's succeeds, the latter steps will be skipped, and status is successful.
+          sleep 30s  
+          exit 1                             # if it fails again. if it's succeeds, the latter steps will be skipped, and status is successful.
       - name: retry 2
         continue-on-error: true
         id: retry2
         if: steps.commit.outcome=='failure'   # check the step outcome, retry 2nd time
         run: |
           echo retry 2nd time
+          sleep 30s
           exit 1    
       - name: remove changes
         run: git reset -- data.json
