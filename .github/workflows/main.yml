@@ -55,9 +55,6 @@ jobs:
       - name: read data.json
         run: cat data.json
         
-      - name: checkout
-        uses: actions/checkout@v2   
-        id: checkout
       - name: pull
         run: git pull
         continue-on-error: true
