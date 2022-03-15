@@ -47,9 +47,9 @@ jobs:
         run: git reset --hard
         
       - name: Update name in data.json
-        run: echo "`jq '.data[0].name = "${{ github.event.issue.title }}"' data.json`" > data.json
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
       - name: Update message in data.json
-        run: echo "`jq '.data[1].message = "${{ github.event.issue.body }}"' data.json`" > data.json
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
       - name: Close issue
         run: echo "github.event.issue.close"
       - name: read data.json
@@ -80,10 +80,8 @@ jobs:
           echo retry 2nd time
           sleep 30s
           exit 1    
-          
+
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
         run: git reset --hard
-
-        
