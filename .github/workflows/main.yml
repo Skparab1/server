@@ -57,12 +57,24 @@ jobs:
         continue-on-error: true
       - name: Commit
         uses: EndBug/add-and-commit@v9
+        id: commit
         with:
           message: 'updating data'
           add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
+    
+      - name: commit to other
+        if: steps.commit.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'updating data'
+          add: "data2.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true
+    
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
