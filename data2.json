@@ -1,0 +1,16 @@
+{
+  "version": "1",
+  "data": [
+    {
+      "name": ""
+    },
+    {
+      "message": ""
+    }
+  ],
+  "secondArray": [
+    {
+      "secondId": "Hey everyone, editing message now works (feel free to try it) but deleting message doesn't work yet but if you want to delete message lmk and ill do it manually (yes i can) i just edited this"
+    }
+  ]
+}
