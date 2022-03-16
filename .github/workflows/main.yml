@@ -28,10 +28,14 @@ jobs:
     needs: [ consecutiveness ]
     
     steps:
+    
+      - name: sleep 46
+        run: sleep 46sec
         
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          fetch-depth: 2
+      - run: git checkout HEAD^
 
       - name: remove changes
         run: git reset -- data.json
