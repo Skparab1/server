@@ -65,6 +65,13 @@ jobs:
           push: true
         continue-on-error: true
         
+      - name: remove data changes
+        run: git reset --hard
+        
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+        
         
       - name: Update name in data.json
         if: steps.commit.outcome=='failure'
