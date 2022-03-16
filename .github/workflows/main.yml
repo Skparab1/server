@@ -54,6 +54,7 @@ jobs:
         run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
+        id: read
      
       - name: Commit
         uses: EndBug/add-and-commit@v9
@@ -63,18 +64,29 @@ jobs:
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
-        id: commit
-      
-      - name: retry
-        continue-on-error: true
-        id: retry1
+        
+      - name: wait 1 min if failed
         if: steps.commit.outcome=='failure'
         run: |
-          sleep 30s  
-          exit 1                      
+          sleep 30s
+      
+      - name: retry checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      
+      - name: retry commit if initial commit failed
+        if: steps.commit.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'updating data'
+          add: "data.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true        
+        
       - name: retry 2
         continue-on-error: true
-        id: retry2
         if: steps.commit.outcome=='failure' 
         run: |
           echo retry 2nd time
