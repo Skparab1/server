@@ -57,6 +57,7 @@ jobs:
         id: read
      
       - name: Commit
+        id: commit
         uses: EndBug/add-and-commit@v9
         with:
           message: 'updating data'
