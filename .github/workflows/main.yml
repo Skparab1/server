@@ -94,13 +94,24 @@ jobs:
           push: true
         continue-on-error: true        
         
+      - name: retry commit if initial commit failed
+        if: steps.commit.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'updating data'
+          add: "data.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true        
+        
       - name: retry 2
         continue-on-error: true
         if: steps.commit.outcome=='failure' 
         run: |
           echo retry 2nd time
           sleep 30s
-          exit 1    
+          exit 1   
+          
 
       - name: remove changes
         run: git reset -- data.json
