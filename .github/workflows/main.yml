@@ -64,6 +64,14 @@ jobs:
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
+        
+        
+      - name: Update name in data.json
+        if: steps.commit.outcome=='failure'
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data2.json`" > data2.json
+      - name: Update message in data.json
+        if: steps.commit.outcome=='failure'
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data2.json`" > data2.json
     
       - name: commit to other
         if: steps.commit.outcome=='failure'
