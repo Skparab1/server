@@ -79,7 +79,9 @@ jobs:
       - name: Update message in data.json
         if: steps.commit.outcome=='failure'
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data2.json`" > data2.json
-    
+      - name: pull
+        run: git pull
+        continue-on-error: true
       - name: commit to other
         if: steps.commit.outcome=='failure'
         uses: EndBug/add-and-commit@v9
