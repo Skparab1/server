@@ -30,7 +30,7 @@ jobs:
     steps:
     
       - name: sleep 46
-        run: sleep 46sec
+        run: sleep 46s
         
       - uses: actions/checkout@v3
         with:
