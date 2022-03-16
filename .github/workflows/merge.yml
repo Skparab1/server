@@ -22,5 +22,5 @@ jobs:
         with:
           type: now
           from_branch: staging
-          target_branch: uat
+          target_branch: new
           github_token: ${{ env.GH_TOKEN }}
