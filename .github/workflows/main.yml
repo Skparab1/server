@@ -23,6 +23,8 @@ jobs:
         with:
           submodules: 'recursive'
       
+      # this is the process
+      
       - name: pull
         run: git pull
         continue-on-error: true
@@ -33,12 +35,64 @@ jobs:
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
       - name: Close issue
         run: echo "github.event.issue.close"
-      - name: read data.json
-        run: cat data.json
     
       - name: Commit
         uses: EndBug/add-and-commit@v9
         id: commit
+        with:
+          message: 'updating data'
+          add: "data.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true
+        
+      # repeat the process if the commit fails - but wait like 15 secs (10 would probablty work but 15 just to be safe)
+      - name: wait 15 secs if failed
+        if: steps.commit.outcome=='failure'
+        run: sleep 15s
+      - name: pull
+        if: steps.commit.outcome=='failure'
+        run: git pull
+        continue-on-error: true
+        
+      - name: Update name in data.json
+        if: steps.commit.outcome=='failure'
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
+      - name: Update message in data.json
+        if: steps.commit.outcome=='failure'
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
+    
+      - name: Commit2
+        if: steps.commit.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        id: commit2
+        with:
+          message: 'updating data'
+          add: "data.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true
+      
+      # 3rd try if failed
+      - name: wait 15 secs if failed
+        if: steps.commit2.outcome=='failure'
+        run: sleep 15s
+      - name: pull
+        if: steps.commit2.outcome=='failure'
+        run: git pull
+        continue-on-error: true
+        
+      - name: Update name in data.json
+        if: steps.commit2outcome=='failure'
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
+      - name: Update message in data.json
+        if: steps.commit2.outcome=='failure'
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
+    
+      - name: Commit#
+        if: steps.commit2.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        id: commit3
         with:
           message: 'updating data'
           add: "data.json --force"
