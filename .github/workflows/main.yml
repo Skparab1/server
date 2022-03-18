@@ -72,10 +72,10 @@ jobs:
         
       - name: Update name in data.json
         if: steps.commit.outcome=='failure'
-        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data2.json`" > data2.json
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
       - name: Update message in data.json
         if: steps.commit.outcome=='failure'
-        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data2.json`" > data2.json
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
     
       - name: retry commit
         if: steps.commit.outcome=='failure'
