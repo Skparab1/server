@@ -25,14 +25,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ consecutiveness ]
     
-    steps:    
-      - name: remove changes
-        run: git reset -- data.json
-      - name: remove data changes
-        run: git reset --hard    
+    steps:
+        
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
+      - name: remove changes
+        run: git reset -- data.json
+      - name: remove data changes
+        run: git reset --hard
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      
       - name: pull
         run: git pull
         continue-on-error: true
@@ -87,3 +92,5 @@ jobs:
         run: git reset -- data.json
       - name: remove data changes
         run: git reset --hard
+
+        
