@@ -51,6 +51,11 @@ jobs:
           push: true
         continue-on-error: true
         
+      # wait if failed
+      - name: wait if failed
+        if: steps.commit.outcome=='failure'
+        run: sleep 15s
+        
       - name: remove data changes
         run: git reset --hard
         
@@ -66,10 +71,6 @@ jobs:
         if: steps.commit.outcome=='failure'
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data2.json`" > data2.json
       
-      # wait if failed
-      - name: wait if failed
-        if: steps.commit.outcome=='failure'
-        run: sleep 15s
       - name: pull
         run: git pull
         continue-on-error: true
