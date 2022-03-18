@@ -87,6 +87,42 @@ jobs:
           push: true
         continue-on-error: true
     
+    # wait if failed
+      - name: wait if failed
+        if: steps.commit.outcome=='failure'
+        run: sleep 15s
+        
+      - name: remove data changes
+        if: steps.commit.outcome=='failure'
+        run: git reset --hard
+        
+      - uses: actions/checkout@v2
+        if: steps.commit.outcome=='failure'
+        with:
+          submodules: 'recursive'
+      
+      - name: pull
+        if: steps.commit.outcome=='failure'
+        run: git pull
+        continue-on-error: true
+        
+      - name: Update name in data.json
+        if: steps.commit.outcome=='failure'
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data2.json`" > data2.json
+      - name: Update message in data.json
+        if: steps.commit.outcome=='failure'
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data2.json`" > data2.json
+    
+      - name: retry commit
+        if: steps.commit.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'updating data'
+          add: "data2.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true
+    
       - name: remove changes
         run: git reset -- data.json
       - name: remove data changes
