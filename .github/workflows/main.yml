@@ -83,7 +83,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           message: 'updating data'
-          add: "data2.json --force"
+          add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
@@ -119,7 +119,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           message: 'updating data'
-          add: "data2.json --force"
+          add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
