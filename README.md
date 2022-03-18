@@ -128,4 +128,4 @@ jobs:
 ````
 
 ## End
-Wow you've reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html !
+Wow you've reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html!
