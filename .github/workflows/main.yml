@@ -81,7 +81,7 @@ jobs:
         if: steps.commit.outcome=='failure'
         run: git pull
         continue-on-error: true
-      - name: commit to other
+      - name: retry commit
         if: steps.commit.outcome=='failure'
         uses: EndBug/add-and-commit@v9
         with:
