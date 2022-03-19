@@ -223,6 +223,26 @@
       element.style.display = "inline-block";
       element.style.width = "60px";
       element.style.height = "34px";
+      var element1 = document.createElement('slider');
+      element1.style.position = "absolute";
+      element1.style.cursor = "pointer";
+      element1.style.top = "0";
+      element1.style.left = "0";
+      element1.style.right = "0";
+      element1.style.bottom = "0";
+      element1.style.background-color = "#ccc";
+      element1.style.transition = ".4s";
+      .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
       document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
       document.write('<label class="switch" style="position: relative; display: inline-block; width: 60px; height: 34px;"><input type="checkbox"><span class="slider round"></span></label><br>'); 
       let i = usernames.length-1;
