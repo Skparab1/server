@@ -16,6 +16,66 @@
       color: aliceblue;
     }
 
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
     .button {
       background-color: #6e6b67;
       border: none;
@@ -86,7 +146,10 @@
       oldusernames = data1.data[0];
       oldmessages = data1.data[1];
 
-      document.body.style.backgroundColor = "black";
+      // univ var
+      var themecolor = 'black';
+
+      document.body.style.backgroundColor = themecolor;
       
       oldusernames = JSON.stringify(oldusernames);
       oldmessages = JSON.stringify(oldmessages);
@@ -103,7 +166,7 @@
         oldmessages = oldmessages.replace('+',' ');
       }
 
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = themecolor;
 
       var usernames = oldusernames.split('&=')
       var messages = oldmessages.split('&nextentry&')
@@ -133,7 +196,7 @@
         refreshtime = refreshtime*2;
       }
 
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = themecolor;
 
       if (sent == 'true'){
         document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: green; class="center"> <h3 style="color:rgb(255, 166, 0);">Your message has been sent. It should appear in a less than a minute. You will need to refresh for it to appear.</h3> </div>');
@@ -143,13 +206,12 @@
 
       document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: black; class="center"> <h2 style="color:rgb(255, 166, 0);">Skparab1 message forum&nbsp&nbsp'+usernames.length+' Messages </h1> </div>');
       document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
-      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a><br>');
-      let i = usernames.length-1;
+      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>');      let i = usernames.length-1;
 
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = themecolor;
 
       while (i > 0){
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = themecolor;
         document.write('<div style="width: 100%;">');
 
         var bgcolor;
@@ -170,7 +232,7 @@
         document.write('<h3 style="float: left; text-align: center;">'+dispmessage[0]+'</h3>');
         document.write('</div>');
 
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = themecolor;
 
         // based on what number post it is, decide the color.
         i = i-1;
@@ -190,7 +252,7 @@
           timeanddate[0] = 'On '+timeanddate[0];
         }
 
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = themecolor;
 
         document.write('<h2>&nbsp&nbsp&nbsp'+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
         document.write('<h3 style="float: left; text-align: center;">'+dispmessage[0]+'</h3>');
@@ -202,7 +264,7 @@
       }
 
       //document.getElementById("body").style.background-color = "black";
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = themecolor;
 
       setTimeout(function(){location.reload(true)},1*refreshtime);
     })();
