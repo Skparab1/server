@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>Skparab1 Forum - Edit message</title>
   <style>
     .button {
       background-color: #6e6b67;
@@ -29,33 +30,16 @@
   </style>
   
   <script>
-    loc = window.location.href;
-    loc = loc.replace('https://skparab1.github.io/server/verifyedit.html?messageid=','')
-    if (loc.includes('&incorrect')){
-      loc = loc.replace('incorrect','');
-      document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"><h3 style="color:rgb(255, 255, 255);">Name incorrect. Try again</h3></div>');
+    
+      document.write('<h1>Skparab1 forum - Edit message</h1>');
 
-    }
-    console.log('wrote',loc);
-    localStorage.setItem('postnumber',loc);
-
-    document.write('<h1>Edit message - Verify</h1>');
-    document.write('<h2>To edit message, Skparab1 Forum has to verify your Identity</h2>');
-    document.write('<h2>Please enter your real name below. If you can\'t remember it, contact me</h2>');
-
-    document.write('<a href="https://skparab1.github.io/server/frontend.html">');
-    document.write('<button type="button" class="button">Go back</button> </a> <br>');
-
-    document.write('<form action="https://skparab1.github.io/server/verify.html">');
-    document.write('<label for="message">Enter real name (The one you entered for your message)</label><br>');
-    document.write('<input type="text" id="rname" name="rname"><br>');
-    document.write('<input type="submit" value="Submit">');
-    document.write('</form>');
+      document.write('<h1>Do not edit! editing is currently down!</h1>');
 
   </script>    
 </head>
 
 <body>
 
+  
 </body>
 </html>
