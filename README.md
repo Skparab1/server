@@ -1,6 +1,6 @@
 # Server
 ## About
-This is a template and tutorial for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It usually processes writes requests in less than a minute. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html). I made this because despite lots of searches about using Github as a database, I didn't really find anything that seemed easy to use and implement. So I ended up yoinking lots of code snippents from different websites, and, with the help of @r2dev2, I ended up with [this](https://skparab1.github.io/server/frontend.html) cool working product which is functional, although ugly. To be clear, this is not meant to be used to make any real large app, and the main point of this is a demo.
+This is a template and tutorial for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It usually processes writes requests in less than a minute. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html). I made this because despite lots of searches about using Github as a database, I didn't really find anything that seemed easy to use and implement. So I ended up yoinking lots of code snippents from different websites, and ended up with [this](https://skparab1.github.io/server/frontend.html) cool working product which is functional, although ugly. To be clear, this is not meant to be used to make any real large app, and the main point of this is a demo.
 
 ## How it works
 To load content from GitHub, the webpage will just load the json and parse its content. To write to back to the database, the webpage will use GitHub API for opening an Issue and Actions to stage a Commit and push changes. First, the webpage first uses Github API to open an issue with data to be commited in issue title and body. Then, the issue triggers a Github Actions workflow that extracts the title and body data of the issue and then commits the content into the json. The entire process takes an average of 30 seconds to complete, and usually completes in less than a minute. After that, a built in GitHub action will deploy the webpage. If the workflow has commited right before it attempts to commit again, it will cause an error since the files are not up to date. To solve this, it will just pull the files again, make changes and re-commit.
@@ -94,6 +94,7 @@ jobs:
           add: "data.json"
       # done!
 ````
+- Note: the above is ample for just one message at a time, or one message every 15 seconds (the time it takes to push to the repo)
 - But you will need to have a file named data.json formatted like this
 ````
 {
