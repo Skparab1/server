@@ -163,8 +163,8 @@
 
         // based on what number post it is, decide the color.
         i = i-1;
-        if ((i+1)%8 == 0){bgcolor = 'rgb(150, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 150, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 0, 150)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(150, 150, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 150, 150)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(150, 0, 150)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(200, 100, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(0, 200, 100)'}
-        i = i+1;
+        if ((i+1)%8 == 0){bgcolor = 'rgb(200, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 200, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 0, 200)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(175, 175, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 175, 175)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(175, 0, 175)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(200, 100, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(0, 100, 200)'}
+     i = i+1;
         document.write('<div style="margin-left: 50%; width: 49%; height: 150px; background: '+bgcolor+'; ">');
 
         var dispname = usernames[i-1].split('&n');
