@@ -85,6 +85,8 @@
       const data1 = await fetch('./data.json').then(r => r.json());
       oldusernames = data1.data[0];
       oldmessages = data1.data[1];
+
+      document.body.style.backgroundColor = "black";
       
       oldusernames = JSON.stringify(oldusernames);
       oldmessages = JSON.stringify(oldmessages);
@@ -101,6 +103,7 @@
         oldmessages = oldmessages.replace('+',' ');
       }
 
+      document.body.style.backgroundColor = "black";
 
       var usernames = oldusernames.split('&=')
       var messages = oldmessages.split('&nextentry&')
@@ -130,6 +133,7 @@
         refreshtime = refreshtime*2;
       }
 
+      document.body.style.backgroundColor = "black";
 
       if (sent == 'true'){
         document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: green; class="center"> <h3 style="color:rgb(255, 166, 0);">Your message has been sent. It should appear in a less than a minute. You will need to refresh for it to appear.</h3> </div>');
@@ -139,10 +143,13 @@
 
       document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: black; class="center"> <h2 style="color:rgb(255, 166, 0);">Skparab1 message forum&nbsp&nbsp'+usernames.length+' Messages </h1> </div>');
       document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
-      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>');
+      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a><br>');
       let i = usernames.length-1;
 
+      document.body.style.backgroundColor = "black";
+
       while (i > 0){
+        document.body.style.backgroundColor = "black";
         document.write('<div style="width: 100%;">');
 
         var bgcolor;
@@ -163,11 +170,13 @@
         document.write('<h3 style="float: left; text-align: center;">'+dispmessage[0]+'</h3>');
         document.write('</div>');
 
+        document.body.style.backgroundColor = "black";
+
         // based on what number post it is, decide the color.
         i = i-1;
         if ((i+1)%8 == 0){bgcolor = 'rgb(200, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 200, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 100, 200)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(175, 175, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 175, 175)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(175, 0, 175)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(200, 100, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(100, 0, 200)'}
      i = i+1;
-        document.write('<div style="margin-left: 50%; width: 49%; border-radius: 25px; height: 150px; background: '+bgcolor+'; ">');
+        document.write('<div style="margin-left: 51%; width: 49%; border-radius: 25px; height: 150px; background: '+bgcolor+'; ">');
 
         var dispname = usernames[i-1].split('&n');
         console.log(dispmessage);
@@ -180,6 +189,8 @@
         } else {
           timeanddate[0] = 'On '+timeanddate[0];
         }
+
+        document.body.style.backgroundColor = "black";
 
         document.write('<h2>&nbsp&nbsp&nbsp'+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
         document.write('<h3 style="float: left; text-align: center;">'+dispmessage[0]+'</h3>');
