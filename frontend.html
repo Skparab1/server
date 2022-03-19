@@ -112,6 +112,9 @@
         localStorage.setItem('sent','false');
       }
 
+      //document.getElementById("body").style.background-color = "black";
+      document.body.style.backgroundColor = "black";
+
       if (sent != 'true' && sent != 'false'){
         document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Message sending Failed.   '+sent+'</h3> </div>');
       }
