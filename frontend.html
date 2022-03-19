@@ -147,7 +147,17 @@
       oldmessages = data1.data[1];
 
       // univ var
-      var themecolor = 'white';
+
+      loc = window.loaction.href;
+      loc = loc.replace('https://skparab1.github.io/server/frontend.html?');
+      var themecolor;
+      if (loc == 'lighttheme'){
+        themecolor = 'white';
+      } else if (loc == 'gray'){
+        themecolor = 'gray';
+      } else {
+        themecolor = 'black';
+      }
 
       document.body.style.backgroundColor = themecolor;
       
