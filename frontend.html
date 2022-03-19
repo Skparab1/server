@@ -218,9 +218,12 @@
       document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: '+themecolor+'; class="center"> <h2 style="color:rgb(255, 166, 0);">Skparab1 message forum&nbsp&nbsp'+usernames.length+' Messages </h1> </div>');
       document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
       //document.getElementById("switch").style.display = "inline-block";
-      var element = document.createElement('toggle');
+      var element = document.createElement('switch');
+      element.style.position = "relative";
       element.style.display = "inline-block";
-      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp        <input type="checkbox" id="switch" class="checkbox"/><label for="switch" class="toggle"><br>'); 
+      element.style.width = "60px";
+      element.style.height = "34px";
+      document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>'); 
       let i = usernames.length-1;
 
       document.body.style.backgroundColor = themecolor;
