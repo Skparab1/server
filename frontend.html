@@ -234,9 +234,21 @@
       element1.style.color = "#ccc";
       element1.style.transition = ".4s";
 
+      var css = 'button:hover{ background-color: #00ff00 }';
+      var style = document.createElement('style');
+
+      if (style.styleSheet) {
+          style.styleSheet.cssText = css;
+      } else {
+          style.appendChild(document.createTextNode(css));
+      }
+
+      document.getElementsByTagName('head')[0].appendChild(style);
+
+
       document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
       document.write('<label class="switch" style="position: relative; display: inline-block; width: 60px; height: 34px;"><input type="checkbox"><span class="slider round"></span></label><br>'); 
-      document.write('<button type="button" class="button" style="background-color: #6e6b67; border: 2px solid black; color: white; padding: 15px 32px; text-align: center; width: 17%; display: inline-block; font-size: 16px; transition: all 0.2s ease-in-out; box-shadow: 0 5px 15px rgba(145, 92, 182, .4);">Go back</button> </a> <br>');
+      document.write('<button type="button" class="button" style="background-color: #6e6b67; border: 2px solid black; color: white; padding: 15px 32px; text-align: center; width: 17%; display: inline-block; font-size: 16px; transition: all 0.2s ease-in-out; box-shadow: 0 5px 15px rgba(145, 92, 182, .4); cursor: point;">Go back</button> </a> <br>');
       
       let i = usernames.length-1;
 
@@ -245,18 +257,6 @@
       while (i > 0){
         document.body.style.backgroundColor = themecolor;
         document.write('<div style="width: 100%;">');
-
-        var css = 'table button:hover{ background-color: #00ff00 }';
-        var style = document.createElement('style');
-
-        if (style.styleSheet) {
-            style.styleSheet.cssText = css;
-        } else {
-            style.appendChild(document.createTextNode(css));
-        }
-
-        document.getElementsByTagName('head')[0].appendChild(style);
-
 
         var bgcolor;
         if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(225, 0, 225)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(250, 200, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(200, 0, 250)'}
