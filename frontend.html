@@ -165,7 +165,7 @@
       document.write('<a href="https://skparab1.github.io/server/frontend.html?lighttheme"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5em;">Light theme</button> </a>');
 
 
-      let i = usernames.length-1;
+      //let i = usernames.length-1;
 
       document.body.style.backgroundColor = themecolor; 
       document.body.classList.add("paper"); 
@@ -177,7 +177,7 @@
       const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
 
       (async () => {
-        for (let i = usernames.length-1; ij >= 0; ij -= 1) {
+        for (let i = usernames.length-1; i >= 0; i -= 1) {
           document.body.style.backgroundColor = themecolor;
           document.write('<div style="width: 100%;">');
 
