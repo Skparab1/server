@@ -55,6 +55,8 @@
       console.log(loc);
       var themecolor;
       var contrastcolor;
+
+      var delaytime;
       if (loc == 'lighttheme' || loc == 'light'){
         themecolor = 'white';
         contrastcolor = 'black';
@@ -201,8 +203,6 @@
 
           document.body.style.backgroundColor = themecolor;
 
-          await sleep(50);
-
           // based on what number post it is, decide the color.
           i = i-1;
           if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(225, 0, 225)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(250, 200, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(200, 0, 250)'}
@@ -231,7 +231,7 @@
           document.write('</div>');
           //document.write('<hr>');
           i -= 2;
-          await sleep(50);
+          await sleep(100);
         }
       })();
 
