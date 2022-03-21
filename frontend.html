@@ -44,6 +44,7 @@
 
     (async () => {
       const data1 = await fetch("./data.json").then(r => r.json());
+
       oldusernames = data1.data[0];
       oldmessages = data1.data[1];
 
@@ -84,8 +85,8 @@
 
       document.body.style.backgroundColor = themecolor;
 
-      var usernames = oldusernames.split('&=')
-      var messages = oldmessages.split('&nextentry&')
+      var usernames = oldusernames.split('&=');
+      var messages = oldmessages.split('&nextentry&');
 
       var refreshtime = 60000;
 
@@ -173,59 +174,64 @@
       const descriptionStyle = `style="text-align: center; margin-left: 1.5em; margin-right: 1.5em; "`;
       const messageHeaderStyle = `style="text-align: center";`;
 
-      while (i > 0){
-        document.body.style.backgroundColor = themecolor;
-        document.write('<div style="width: 100%;">');
+      const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
 
-        var bgcolor;
-        if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'}
-        document.write('<div style="width: 50%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: 25px; height: 150px; float: left; background: '+bgcolor+'"" class="center">');
-        var dispname = usernames[i].split('&n');
-        var dispmessage = messages[i].split('&currenttime=');
-        var timeanddate = dispmessage[1].split(' at ');
-        var today = new Date();
-        var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-        if (date == timeanddate[0]){
-          timeanddate[0] = 'Today';
-        } else {
-          timeanddate[0] = 'On '+timeanddate[0];
+      (async () => {
+        for (let i = usernames.length-1; ij >= 0; ij -= 1) {
+          document.body.style.backgroundColor = themecolor;
+          document.write('<div style="width: 100%;">');
+
+          var bgcolor;
+          if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'}
+          document.write('<div style="width: 50%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: 25px; height: 150px; float: left; background: '+bgcolor+'"" class="center">');
+          var dispname = usernames[i].split('&n');
+          var dispmessage = messages[i].split('&currenttime=');
+          var timeanddate = dispmessage[1].split(' at ');
+          var today = new Date();
+          var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+          if (date == timeanddate[0]){
+            timeanddate[0] = 'Today';
+          } else {
+            timeanddate[0] = 'On '+timeanddate[0];
+          }
+
+          document.write(`<h2 ${messageHeaderStyle} >`+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
+          document.write(`<h3 ${descriptionStyle}>` +dispmessage[0]+'</h3>');
+          document.write('</div>');
+
+          document.body.style.backgroundColor = themecolor;
+
+          // based on what number post it is, decide the color.
+          i = i-1;
+          if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(225, 0, 225)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(250, 200, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(200, 0, 250)'}
+          i = i+1;
+
+          document.write('<div class="paper container" style="float: right; margin-bottom: 0.35em; margin-top: 0.35em; width: 49%; border-radius: 25px; height: 150px; background: '+bgcolor+'; ">');
+
+          var dispname = usernames[i-1].split('&n');
+          console.log(dispmessage);
+          var dispmessage = messages[i-1].split('&currenttime=');
+          var timeanddate = dispmessage[1].split(' at ');
+          var today = new Date();
+          var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+          if (date == timeanddate[0]){
+            timeanddate[0] = 'Today';
+          } else {
+            timeanddate[0] = 'On '+timeanddate[0];
+          }
+
+          document.body.style.backgroundColor = themecolor;
+
+          document.write(`<h2 ${messageHeaderStyle}>`+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
+          document.write(`<h3 ${descriptionStyle}">`+dispmessage[0]+'</h3>');
+          console.log(dispmessage[0]);
+          document.write('</div>');
+          document.write('</div>');
+          //document.write('<hr>');
+          i -= 2;
+          await sleep(2);
         }
-
-        document.write(`<h2 ${messageHeaderStyle} >`+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
-        document.write(`<h3 ${descriptionStyle}>` +dispmessage[0]+'</h3>');
-        document.write('</div>');
-
-        document.body.style.backgroundColor = themecolor;
-
-        // based on what number post it is, decide the color.
-        i = i-1;
-        if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(225, 0, 225)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(250, 200, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(200, 0, 250)'}
-        i = i+1;
-
-        document.write('<div class="paper container" style="float: right; margin-bottom: 0.35em; margin-top: 0.35em; width: 49%; border-radius: 25px; height: 150px; background: '+bgcolor+'; ">');
-
-        var dispname = usernames[i-1].split('&n');
-        console.log(dispmessage);
-        var dispmessage = messages[i-1].split('&currenttime=');
-        var timeanddate = dispmessage[1].split(' at ');
-        var today = new Date();
-        var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-        if (date == timeanddate[0]){
-          timeanddate[0] = 'Today';
-        } else {
-          timeanddate[0] = 'On '+timeanddate[0];
-        }
-
-        document.body.style.backgroundColor = themecolor;
-
-        document.write(`<h2 ${messageHeaderStyle}>`+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
-        document.write(`<h3 ${descriptionStyle}">`+dispmessage[0]+'</h3>');
-        console.log(dispmessage[0]);
-        document.write('</div>');
-        document.write('</div>');
-        //document.write('<hr>');
-        i -= 2;
-      }
+      })();
 
       //document.getElementById("body").style.background-color = "black";
       document.body.style.backgroundColor = themecolor;
