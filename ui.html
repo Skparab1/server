@@ -27,64 +27,24 @@
     body {
       background-color: rgb(0, 0, 0);
     }
+
+    h1 {
+      color: white;
+    }
   </style>
   
   <script>
-    var lastdate = localStorage.getItem('lastdate');
-    var lasthr = localStorage.getItem('hr');
-    var lastmin = localStorage.getItem('min');
-    var lastsuf = localStorage.getItem('suf');
-
-    var today = new Date();
-    var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-
-    var hour = parseInt(today.getHours());
-    var suffix;
-    if (hour > 12){
-      hour = hour - 12;
-      suffix = 'PM';
-    } else if (hour == 12){
-      suffix = 'PM';
-    } else {
-      suffix = 'AM';
-    }
-    hour = String(hour);
-    if (hour.length == 1){
-      hour = '0'+hour;
-    }
-    var minute = String(today.getMinutes());
-    if (minute.length == 1){
-      minute = '0'+minute;
-    }
-    var second = String(today.getSeconds());
-    if (second.length == 1){
-      second = '0'+second;
-    }
-    var time = hour + ":" + minute + ":" + second + ' '+suffix;
-
-    if (hour != null && lastdate == date){
-      if ((hour == lasthr || (parseInt(hour) == parseInt(lasthr)+1 && parseInt(minute)-parseInt(lastmin) < 0)) && suffix == lastsuf){
-        if (parseInt(minute)-parseInt(lastmin) < 1 || parseInt(minute)+60-parseInt(lastmin) < 1){
-          document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Hold up! You are sending messages too quickly. You last sent your message 1 minute ago. Your previous message will likely be deleted.</h3> </div>');
-        } else if (parseInt(minute)-parseInt(lastmin) < 2 || parseInt(minute)+60-parseInt(lastmin) < 2){
-          document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: orange; class="center"> <h3 style="color:rgb(10, 10, 10);">You last send a message less than 2 minutes ago. Sending consecutive messages may cause deletion of first message.</h3> </div>');
-        } else if (parseInt(minute)-parseInt(lastmin) < 5 || parseInt(minute)+60-parseInt(lastmin) < 5){
-          document.write('<div style="width: 100%; height: 50px; padding: 0px; float: left; background: green; class="center"> <h3 style="color:rgb(10, 10, 10);">You last send a message less than 5 minutes ago. Your messages should process, but a longer wait time is recommended.</h3> </div>');
-        }
-      }
-    }
-
     document.write('<h1>Skparab1 forum message sender </h1>');
 
     document.write('<a href="https://skparab1.github.io/server/frontend.html">');
     document.write('<button type="button" class="button">Go back</button> </a> <br>');
 
     document.write('<form action="https://skparab1.github.io/sendmsg">');
-    document.write('<label for="name">Username (will be displayed):</label><br>');
-    document.write('<input type="text" id="name" name="name"><br>');
-    document.write('<label for="message">Message:</label><br>');
+    document.write('<label style="color: white;" for="name">Username (will be displayed):</label><br>');
+    document.write('<input style="background-color: blue; type="text" id="name" name="name"><br>');
+    document.write('<label style="color: white;" for="message">Message:</label><br>');
     document.write('<textarea id="message" name="message" rows="4" cols="50"></textarea><br>');
-    document.write('<label for="message">real name/code (will not be visible, will be logged for security. Also will be used for editing message)</label><br>');
+    document.write('<label style="color: white;" for="message">real name/code (will not be visible, will be logged for security. Also will be used for editing message)</label><br>');
     document.write('<input type="text" id="rname" name="rname"><br>');
     document.write('<input type="submit" value="Submit">');
     document.write('</form>');
