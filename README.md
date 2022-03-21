@@ -95,7 +95,7 @@ jobs:
           add: "data.json"
       # done!
 ````
-- Note: the above is ample for just one message at a time, or one message every 15 seconds (the time it takes to push to the repo). If you want to handle more than that, use some overrides to try committing after a few seconds. To do that, you can just make it wait a few seconds, run git pull, make changes, and then try commiting again. Depending on the request frequency you expect, you may want to do that 2 times, See [what i did](https://github.com/Skparab1/server/blob/main/.github/workflows/main.yml).
+- Note: the above is ample for just one message at a time, or one message every 15 seconds (the time it takes to push to the repo). If you want to handle more than that, use some overrides to try committing after a few seconds. To do that, you can just make it wait a few seconds, run git pull, make changes, and then try commiting again. Depending on the request frequency you expect, you may want to do that 3 or 4 times, but for me,  See [what i did](https://github.com/Skparab1/server/blob/main/.github/workflows/main.yml).
 - But you will need to have a file named data.json formatted like this
 ````
 {
