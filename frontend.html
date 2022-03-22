@@ -181,7 +181,9 @@
 
       select.addEventListener('sort', (event) => {
         const result = document.querySelector('.sort');
+        const result1 = document.querySelector('.sort');
         result.textContent = `You chose ${event.target.value}`;
+        console.log(result1);
       });
 
       //document.write('<label style="position: relative; display: inline-block; width: 60px; height: 34px; color: black">');
@@ -209,6 +211,7 @@
       document.body.style.fontFamily = "Inter var,ui-sans-serif,system-ui"; 
       const descriptionStyle = `style="text-align: center; margin-left: 1.5em; margin-right: 1.5em; "`;
       const messageHeaderStyle = `style="text-align: center";`;
+    
 
       const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
 
