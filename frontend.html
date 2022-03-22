@@ -179,6 +179,11 @@
       var value = select.options[select.selectedIndex].value;
       console.log(value);
 
+      selectElement.addEventListener('sort', (event) => {
+        const result = document.querySelector('.sort');
+        result.textContent = `You chose ${event.target.value}`;
+      });
+
       document.write('<label style="position: relative; display: inline-block; width: 60px; height: 34px; color: black">');
       document.write('<input type="checkbox">');
       document.write('<span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; color: white;"></span>');
