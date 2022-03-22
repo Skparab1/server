@@ -179,7 +179,7 @@
       var value = select.options[select.selectedIndex].value;
       console.log(value);
 
-      selectElement.addEventListener('sort', (event) => {
+      select.addEventListener('sort', (event) => {
         const result = document.querySelector('.sort');
         result.textContent = `You chose ${event.target.value}`;
       });
