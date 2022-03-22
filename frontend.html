@@ -170,9 +170,8 @@
         document.write('<a href="https://skparab1.github.io/server/frontend.html?lighttheme"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Light theme</button> </a>');
       }
       document.write('<select name="Sort" id="sort" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5em;">');
-      document.write('<option value="otn">Newest first</option>');
-      document.write('<option value="l">Oldest first</option>');
-      document.write('<option value="o">Most viewed</option>');
+      document.write('<option value="newest">Newest first</option>');
+      document.write('<option value="oldest">Oldest first</option>');
       document.write('<option value="t">Liked by you</option>');
       document.write('</select>');
 
@@ -185,7 +184,19 @@
       document.write('<span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; color: white;"></span>');
       document.write('</label>');
 
-      //let i = usernames.length-1;
+      let i;
+      let iend;
+      let increment;
+
+      if (value == 'newest'){
+        i = usernames.length-1;
+        iend = 0;
+        increment = -1;
+      } else {
+        iend = usernames.length-1;
+        i = 0;
+        increment = 1;
+      }
 
       document.body.style.backgroundColor = themecolor; 
       document.body.classList.add("paper"); 
@@ -197,7 +208,7 @@
       const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
 
       (async () => {
-        for (let i = usernames.length-1; i >= 0; i -= 1) {
+        while (i >= 0 && i <= iend) {
           //await sleep(50);
           document.body.style.backgroundColor = themecolor;
           document.write('<div style="width: 100%;">');
@@ -252,7 +263,7 @@
           document.write('</div>');
           document.write('</div>');
           //document.write('<hr>');
-          i -= 2;
+          i -= increment*2;
         }
       })();
 
