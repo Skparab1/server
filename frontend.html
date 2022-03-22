@@ -203,8 +203,11 @@
           var timeanddate = dispmessage[1].split(' at ');
           var today = new Date();
           var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+          var lastdate = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+(today.getDate()-1);
           if (date == timeanddate[0]){
             timeanddate[0] = 'Today';
+          } else if (lastdate == timeanddate[0]){
+            timeanddate[0] = 'Yesterday';
           } else {
             timeanddate[0] = 'On '+timeanddate[0];
           }
