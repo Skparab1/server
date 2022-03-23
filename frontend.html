@@ -279,6 +279,8 @@
           var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
           if (date == timeanddate[0]){
             timeanddate[0] = 'Today';
+          } else if (lastdate == timeanddate[0]){
+            timeanddate[0] = 'Yesterday';
           } else {
             timeanddate[0] = 'On '+timeanddate[0];
           }
