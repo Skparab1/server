@@ -268,8 +268,9 @@
             if (bgcolor == 'red'){bgcolor = 'rgb(225, 0, 0)'} else if (bgcolor == 'green'){bgcolor = 'rgb(0, 225, 0)'} else if (bgcolor == 'blue'){bgcolor = 'rgb(0, 200, 250)'} else if (bgcolor == 'yellow'){bgcolor = 'rgb(225, 225, 0)'} else if (bgcolor == 'aqua'){bgcolor = 'rgb(0, 225, 225)'} else if (bgcolor == 'pink'){bgcolor = 'rgb(255, 0, 255)'} else if (bgcolor == 'orange'){bgcolor = 'rgb(255, 180, 0)'} else if (bgcolor == 'purple'){bgcolor = 'rgb(180, 0, 255)'}
           }
           i += 1;
-
-          document.write('<div class="paper container" style="float: right; margin-bottom: 0.35em; margin-top: 0.35em; width: 49%; border-radius: 25px; height: 150px; background: '+bgcolor+'; ">');
+          if (i >= 0){
+            document.write('<div class="paper container" style="float: right; margin-bottom: 0.35em; margin-top: 0.35em; width: 49%; border-radius: 25px; height: 150px; background: '+bgcolor+'; ">');
+          }
 
           var dispname = usernames[i-1].split('&n');
           console.log(dispmessage);
