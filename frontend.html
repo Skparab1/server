@@ -225,7 +225,7 @@
           var dispname = usernames[i].split('&c');
           var bgcolor;
           if (dispname.length == 1){
-            var namedisp = dispname[0].split('&n');
+            var namedisp = dispname[0].split('&n')[0];
             if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'}
           } else {
             var splitname = dispname[1].split('&n');
@@ -248,7 +248,7 @@
             timeanddate[0] = 'On '+timeanddate[0];
           }
 
-          document.write(`<h2 ${messageHeaderStyle} >`+dispname[0]+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
+          document.write(`<h2 ${messageHeaderStyle} >`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
           document.write(`<h3 ${descriptionStyle}>` +dispmessage[0]+'</h3>');
           document.write('</div>');
 
