@@ -226,12 +226,13 @@
           var bgcolor;
           console.log(dispname);
           if (dispname.length == 1){
+            var namedisp = dispname[0].split('&n');
             if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'}
-            dispname = dispname[0].split('&n');
           } else {
-            bgcolor = dispname[0]
+            var splitname = dispname[1].split('&n');
+            var namedisp = dispname[0];
+            var bgcolor = splitname[0];
             if (bgcolor == 'red'){bgcolor = 'rgb(225, 0, 0)'} else if (bgcolor == 'green'){bgcolor = 'rgb(0, 225, 0)'} else if (bgcolor == 'purple'){bgcolor = 'rgb(0, 200, 250)'} else if (bgcolor == 'yellow'){bgcolor = 'rgb(225, 225, 0)'} else if (bgcolor == 'aqua'){bgcolor = 'rgb(0, 225, 225)'} else if (bgcolor == 'pink'){bgcolor = 'rgb(255, 0, 255)'} else if (bgcolor == 'orange'){bgcolor = 'rgb(255, 180, 0)'} else if (bgcolor == 'purple'){bgcolor = 'rgb(180, 0, 255)'}
-            dispname = dispname[1].split('&n');
           }
 
           console.log(bgcolor);
