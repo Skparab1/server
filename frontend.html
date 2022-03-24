@@ -182,6 +182,7 @@
       selectElement.addEventListener('change', (event) => {
         const result = document.querySelector('.result');
         result.textContent = `Sorted by ${event.target.value}`;
+        var value1 = event.target.value
       });
 
 
@@ -205,7 +206,7 @@
       let iend;
       let increment;
 
-      if (value == 'newest'){
+      if (value1 == 'newest'){
         i = usernames.length-1;
         iend = 0;
         increment = -1;
