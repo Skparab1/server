@@ -178,11 +178,12 @@
       document.write('<div class="result" style="color: white"></div>');
 
       const selectElement = document.querySelector('.sort');
+      var value1 = 'newest';
 
       selectElement.addEventListener('change', (event) => {
         const result = document.querySelector('.result');
         result.textContent = `Sorted by ${event.target.value}`;
-        var value1 = event.target.value
+        value1 = event.target.value
       });
 
 
