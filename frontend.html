@@ -175,13 +175,13 @@
       document.write('<option value="t">Liked by you</option>');
       document.write('</select>');
 
-      document.write('<div class="result"></div>');
+      document.write('<div class="result" style="color: white"></div>');
 
       const selectElement = document.querySelector('.sort');
 
       selectElement.addEventListener('change', (event) => {
         const result = document.querySelector('.result');
-        result.textContent = `You like ${event.target.value}`;
+        result.textContent = `Sorted by ${event.target.value}`;
       });
 
 
