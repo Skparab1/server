@@ -169,7 +169,7 @@
       if (themecolor == 'black'){
         document.write('<a href="https://skparab1.github.io/server/frontend.html?lighttheme"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Light theme</button> </a>');
       }
-      document.write('<select name="sort" id="sort" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5em;">');
+      document.write('<select class="sort" name="sort" id="sort" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5em;">');
       document.write('<option value="newest">Newest first</option>');
       document.write('<option value="oldest">Oldest first</option>');
       document.write('<option value="t">Liked by you</option>');
@@ -177,7 +177,7 @@
 
       document.write('<div class="result"></div>');
 
-      const selectElement = document.querySelector('sort');
+      const selectElement = document.querySelector('.sort');
 
       selectElement.addEventListener('change', (event) => {
         const result = document.querySelector('.result');
