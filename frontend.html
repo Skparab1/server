@@ -54,10 +54,10 @@
       loc = loc.replace('https://skparab1.github.io/server/frontend.html?','');
       if (loc.includes('&sort=newest')){
         value1 = "newest";
-      } else if (loc.includes('&sort=oldest'){
+      } else if (loc.includes('&sort=oldest')){
         value1 = 'oldest';
       }
-      //loc = loc.replace()
+      loc = loc.replace('&sort=newest','').replace('&sort=oldest','')
 
       console.log(loc);
       var themecolor;
