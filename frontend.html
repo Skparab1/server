@@ -242,7 +242,7 @@
       const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
 
       (async () => {
-        while ((i > iend && value == 'newest')||(i < iend && value != 'newest')) {
+        while ((i > iend && value1 == 'newest')||(i < iend && value1 == 'oldest')) {
           //await sleep(50);
           console.log(i,iend,increment);
           document.body.style.backgroundColor = themecolor;
