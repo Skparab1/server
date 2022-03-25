@@ -184,6 +184,8 @@
         const result = document.querySelector('.result');
         result.textContent = `Sorted by ${event.target.value}`;
         value1 = event.target.value
+        var newloc = window.location.href + '&sort=' + value1;
+        window.open(newloc,'_self');
       });
 
 
