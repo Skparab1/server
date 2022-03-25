@@ -223,10 +223,11 @@
         //document.write('<span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; color: white;"></span>');
         //document.write('</label>');
         function myFunction(){
-          documnet.write('<button>Click me</button>');
+          document.write('<button>Click me</button>');
         }
-        document.write('<button onclick="myFunction()">Click me</button>');
+        document.write('<button onclick="console.log('clicked');">Click me</button>');
 
+        button.addEventListener("click", "console.log('clicked');");
         let i;
         let iend;
         let increment;
