@@ -192,7 +192,11 @@
         const result = document.querySelector('.result');
         result.textContent = `Sorted by ${event.target.value}`;
         value1 = event.target.value
-        var newloc = window.location.href.replace('&sort=newest','').replace('&sort=oldest','') + '&sort=' + value1;
+        var newloc = window.location.href.replace('?sort=newest','').replace('?sort=oldest','')
+        if (!newloc.includes('?')){
+          newloc += '?';
+        } 
+        newloc += '&sort=' + value1;
         window.open(newloc,'_self');
       });
 
