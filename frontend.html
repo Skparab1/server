@@ -49,13 +49,15 @@
       oldmessages = data1.data[1];
 
       // univ var
-
+      var value1;
       loc = window.location.href;
       loc = loc.replace('https://skparab1.github.io/server/frontend.html?','');
       if (loc.includes('&sort=newest')){
         value1 = "newest";
       } else if (loc.includes('&sort=oldest')){
         value1 = 'oldest';
+      } else {
+        value1 = 'newest';
       }
       loc = loc.replace('&sort=newest','').replace('&sort=oldest','')
 
