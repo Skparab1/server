@@ -190,7 +190,7 @@
       }
       document.write('</select>');
 
-      document.write('<div class="result" style="color: white"></div>');
+      //document.write('<div class="result" style="color: white"></div>');
 
       const selectElement = document.querySelector('.sort');
 
@@ -198,7 +198,7 @@
         const result = document.querySelector('.result');
         result.textContent = `Sorted by ${event.target.value}`;
         value1 = event.target.value
-        var newloc = window.location.href.replace('?sort=newest','').replace('?sort=oldest','')
+        var newloc = window.location.href.replace('&sort=newest','').replace('&sort=oldest','')
         if (!newloc.includes('?')){
           newloc += '?';
         } 
