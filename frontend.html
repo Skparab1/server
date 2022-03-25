@@ -225,9 +225,7 @@
         function myFunction(){
           document.write('<button>Click me</button>');
         }
-        document.write('<button onclick="">Click me</button>');
-
-        button.addEventListener("click", "console.log('clicked');");
+        document.write('<button onclick="myFunction();">Click me</button>');
         let i;
         let iend;
         let increment;
