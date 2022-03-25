@@ -36,8 +36,6 @@ jobs:
         run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
       - name: Update message in data.json
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
-      - name: Close issue
-        run: echo "github.event.issue.close"
       - name: read data.json
         run: cat data.json
     
@@ -123,6 +121,12 @@ jobs:
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
+      
+      - name: Close Issue
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Issue data processed. Closing issue...
     
       - name: remove changes
         run: git reset -- data.json
