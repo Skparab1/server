@@ -288,8 +288,8 @@
             // replier
             var replying = false;
 
-            document.write('<button id="reply'+i+'" onclick="myFunction();">Reply</button>');
-            document.getElementById('reply'+i).onclick = function myFunction() {
+            document.write('<button id="reply'+String(i)+'" onclick="myFunction();">Reply</button>');
+            document.getElementById('reply'+String(i)).onclick = function myFunction() {
               if (!replying){
                 document.getElementById('reply'+i).textContent = "Hide";
                 document.getElementById('text').style = "display: block";
