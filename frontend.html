@@ -233,27 +233,6 @@
 
         }
         document.write('<input id="text" type="text" style="display: none" />');
-
-        $("#button").click(function() {
-          $("fn").show();
-          $("ln").show();        
-          document.write('<div id="fn" >First Name :');
-          document.write('<input type="text" />');
-          document.write('</div>');
-          document.write('<br>');
-          document.write('<div id="ln" >Last Name :');
-          
-          document.write('</div>');
-        });
-
-        function clickMe() {
-          var text = document.getElementById("popup");
-          text.classList.toggle("hide");
-          text.classList.toggle("show");
-        }
-
-        document.write('<button id="theButton" onclick="clickMe()">Click me!</button>');
-        document.write('<input type="text" name="popup" id="popup" class="hide">');
         let i;
         let iend;
         let increment;
