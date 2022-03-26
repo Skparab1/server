@@ -302,7 +302,8 @@
             var act = eachnum.replace('reply','');
             document.getElementById(eachnum).onclick = function myFunction() {
               if (!replying){
-                document.getElementById(eachnum).textContent = "Hide";
+                console.log(act);
+                document.getElementById(act).textContent = "Hide";
                 document.getElementById('text'+act).style = "display: block";
                 document.getElementById('submitter'+act).style = "display: block";
                 replying = true;
