@@ -235,7 +235,14 @@
 
         $("#button").click(function() {
           $("fn").show();
-          $("ln").show();
+          $("ln").show();        
+          document.write('<div id="fn" >First Name :');
+          document.write('<input type="text" />');
+          document.write('</div>');
+          document.write('<br>');
+          document.write('<div id="ln" >Last Name :');
+          document.write('<input type="text" />');
+          document.write('</div>');
         });
 
         document.write('<input id="button" type="button" value="Click">');
