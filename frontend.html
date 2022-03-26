@@ -30,7 +30,7 @@
 
       function createclick(i){
         document.write('<button id="replier'+i+'>Reply</button>');
-          document.getElementById("replier1").onclick = function myFunction() {
+          document.getElementById('replier'+i).onclick = function myFunction() {
             if (!replying){
               //console.log('reply'+act);
               document.getElementById('replier'+i).textContent = "Hide";
