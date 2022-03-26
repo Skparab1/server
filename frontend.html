@@ -299,16 +299,17 @@
             console.log(eachnum);
 
             document.write('<button id="'+eachnum+'" onclick="myFunction();">Reply</button>');
+            var act = eachnum.replace('reply','');
             document.getElementById(eachnum).onclick = function myFunction() {
               if (!replying){
-                document.getElementById(eachnum).textContent = "Hide";
-                document.getElementById(eachtext).style = "display: block";
-                document.getElementById(eachsubmitter).style = "display: block";
+                document.getElementById(act).textContent = "Hide";
+                document.getElementById('text'+act).style = "display: block";
+                document.getElementById('submitter'+act).style = "display: block";
                 replying = true;
               } else {
-                document.getElementById(eachnum).textContent = "Reply";
-                document.getElementById(eachtext).style = "display: none";
-                document.getElementById(eachsubmitter).style = "display: none";
+                document.getElementById(act).textContent = "Reply";
+                document.getElementById('text'+act).style = "display: none";
+                document.getElementById('submitter'+act).style = "display: none";
                 replying = false;
               }
             }
