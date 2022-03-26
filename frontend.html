@@ -300,7 +300,7 @@
 
             for (j=0; j<messages.length; j++){
               if (i == j){
-              document.write('<button id="replier'+String(i)'" onclick="myFunction();">Reply</button>');
+              document.write('<button id="replier'+String(i)+'" onclick="myFunction();">Reply</button>');
                 document.getElementById("replier"+String(i)).onclick = function myFunction() {
                   if (!replying){
                     //console.log('reply'+act);
