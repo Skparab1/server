@@ -248,6 +248,7 @@
 
         const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
 
+        var eachnum;
         (async () => {
           while ((i > iend && value1 == 'newest')||(i < iend && value1 == 'oldest')) {
             //await sleep(50);
@@ -288,7 +289,7 @@
             // replier
             var replying = false;
 
-            var eachnum = String(i);
+            eachnum = String(i);
             //eachnum = '';
             eachnum = 'reply'+eachnum;
             var eachtext = 'text'+eachnum;
@@ -297,7 +298,7 @@
 
             document.write('<button id="'+eachnum+'" onclick="myFunction();">Reply</button>');
             document.getElementById(eachnum).onclick = function myFunction() {
-              if (!replying || true){
+              if (!replying){
                 document.getElementById(eachnum).textContent = "Hide";
                 document.getElementById(eachtext).style = "display: block";
                 document.getElementById(eachsubmitter).style = "display: block";
