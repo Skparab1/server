@@ -297,7 +297,7 @@
 
             document.write('<button id="'+eachnum+'" onclick="myFunction();">Reply</button>');
             document.getElementById(eachnum).onclick = function myFunction() {
-              if (!replying){
+              if (!replying || true){
                 document.getElementById(eachnum).textContent = "Hide";
                 document.getElementById(eachtext).style = "display: block";
                 document.getElementById(eachsubmitter).style = "display: block";
