@@ -5,7 +5,8 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
     window.onload = () => {
       function truncby4(number){
@@ -231,6 +232,21 @@
         document.write('<button>Click me</button>');
 
         }
+
+        $("#button").click(function() {
+          $("#fn").show();
+          $("#ln").show();
+        });
+
+        document.write('<input id="button" type="button" value="Click">');
+        document.write('<br>');
+        document.write('<div id="fn" hidden>First Name :');
+        document.write('<input type="text" />');
+        document.write('document.write('</div>');
+        document.write('<br>');
+        document.write('<div id="ln" hidden>Last Name :');
+        document.write('<input type="text" />');
+        document.write('</div>');
 
         let i;
         let iend;
