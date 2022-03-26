@@ -225,7 +225,14 @@
         function myFunction(){
           document.write('<button>Click me</button>');
         }
-        document.write('<button onclick="myFunction();">Click me</button>');
+        document.write('<button id="reply" onclick="myFunction();">Click me</button>');
+        document.getElementById('reply').onclick = function myFunction() {
+
+        document.getElementById('reply').textContent = "Help me";
+        document.getElementById('reply').style = "Color: red";
+
+        }
+
         let i;
         let iend;
         let increment;
