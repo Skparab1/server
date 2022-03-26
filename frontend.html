@@ -293,6 +293,7 @@
             eachnum = 'reply'+eachnum;
             var eachtext = 'text'+eachnum;
             var eachsubmitter = 'submitter'+eachnum;
+            var actnum = String(i);
 
             document.write('<button id="'+eachnum+'" onclick="myFunction();">Reply</button>');
             document.getElementById(eachnum).onclick = function myFunction() {
@@ -309,7 +310,7 @@
                 replying = false;
               }
             }
-            document.write('<form action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value=12 style="display: none"><textarea id="'+eachtext+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="'+submitter+'" style="display: none;"></form>');
+            document.write('<form action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+actnum+' style="display: none"><textarea id="'+eachtext+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="'+eachsubmitter+'" style="display: none;"></form>');
             document.getElementById("msgnum").style.display = "none";
 
             document.write('</div>');
