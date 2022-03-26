@@ -232,10 +232,12 @@
             document.getElementById('text').style = "display: block";
             document.getElementById('submitter').style = "display: block";
             document.write('<button>Reply</button>');
+            replying = true;
           } else {
             document.getElementById('reply').textContent = "Replying";
             document.getElementById('text').style = "display: none";
             document.getElementById('submitter').style = "display: none";
+            replying = false;
           }
 
         }
