@@ -299,8 +299,8 @@
             console.log(eachnum);
 
             document.write('<button id="'+eachnum+'" onclick="myFunction();">Reply</button>');
-            var act = eachnum.replace('reply','');
             document.getElementById(eachnum).onclick = function myFunction() {
+              var act = eachnum.replace('reply','');
               if (!replying){
                 console.log('reply'+act);
                 document.getElementById('reply'+act).textContent = "Hide";
