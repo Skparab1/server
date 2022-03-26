@@ -288,16 +288,16 @@
             // replier
             var replying = false;
 
-            document.write('<button id="reply" onclick="myFunction();">Reply</button>');
+            document.write('<button id="reply'+i+'" onclick="myFunction();">Reply</button>');
             document.getElementById('reply').onclick = function myFunction() {
               if (!replying){
-                document.getElementById('reply').textContent = "Hide";
+                document.getElementById('reply'+i).textContent = "Hide";
                 document.getElementById('text').style = "display: block";
                 document.getElementById('submitter').style = "display: block";
                 document.write('<button>Reply</button>');
                 replying = true;
               } else {
-                document.getElementById('reply').textContent = "Reply";
+                document.getElementById('reply'+i).textContent = "Reply";
                 document.getElementById('text').style = "display: none";
                 document.getElementById('submitter').style = "display: none";
                 replying = false;
