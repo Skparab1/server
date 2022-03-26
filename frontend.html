@@ -228,10 +228,11 @@
         document.getElementById('reply').onclick = function myFunction() {
 
         document.getElementById('reply').textContent = "Help me";
-        document.getElementById('reply').style = "Color: red";
+        document.getElementById('text').style = "display: block";
         document.write('<button>Click me</button>');
 
         }
+        document.write('<input id="text" type="text" style="display: none" />');
 
         $("#button").click(function() {
           $("fn").show();
@@ -241,7 +242,7 @@
           document.write('</div>');
           document.write('<br>');
           document.write('<div id="ln" >Last Name :');
-          document.write('<input type="text" />');
+          
           document.write('</div>');
         });
 
