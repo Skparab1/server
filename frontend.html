@@ -312,7 +312,7 @@
                 replying = false;
               }
             }
-            document.write('<form action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+actnum+' style="display: none"><textarea id="'+eachtext+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="'+eachsubmitter+'" style="display: none;"></form>');
+            document.write('<form id='+eachnum+' action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+actnum+' style="display: none"><textarea id="'+eachtext+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="'+eachsubmitter+'" style="display: none;"></form>');
             document.getElementById("msgnum").style.display = "none";
 
             document.write('</div>');
