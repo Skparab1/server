@@ -239,10 +239,8 @@
             document.getElementById('submitter').style = "display: none";
             replying = false;
           }
-
         }
         document.write('<form action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value=12 style="display: none"><textarea id="text" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitter" style="display: none;"></form>');
-
         document.getElementById("msgnum").style.display = "none";
         let i;
         let iend;
@@ -304,6 +302,28 @@
 
             document.write(`<h2 ${messageHeaderStyle} >`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
             document.write(`<h3 ${descriptionStyle}>` +dispmessage[0]+'</h3>');
+
+            // replier
+            var replying = false;
+
+            document.write('<button id="reply" onclick="myFunction();">Reply</button>');
+            document.getElementById('reply').onclick = function myFunction() {
+              if (!replying){
+                document.getElementById('reply').textContent = "Hide";
+                document.getElementById('text').style = "display: block";
+                document.getElementById('submitter').style = "display: block";
+                document.write('<button>Reply</button>');
+                replying = true;
+              } else {
+                document.getElementById('reply').textContent = "Reply";
+                document.getElementById('text').style = "display: none";
+                document.getElementById('submitter').style = "display: none";
+                replying = false;
+              }
+            }
+            document.write('<form action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value=12 style="display: none"><textarea id="text" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitter" style="display: none;"></form>');
+            document.getElementById("msgnum").style.display = "none";
+
             document.write('</div>');
 
             document.body.style.backgroundColor = themecolor;
