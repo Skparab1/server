@@ -245,16 +245,14 @@
           document.write('</div>');
         });
 
-        document.write('<input id="button" type="button" value="Click">');
-        document.write('<br>');
-        document.write('<div id="fn" hidden>First Name :');
-        document.write('<input type="text" />');
-        document.write('</div>');
-        document.write('<br>');
-        document.write('<div id="ln" hidden>Last Name :');
-        document.write('<input type="text" />');
-        document.write('</div>');
+        function clickMe() {
+          var text = document.getElementById("popup");
+          text.classList.toggle("hide");
+          text.classList.toggle("show");
+        }
 
+        document.write('<button id="theButton" onclick="clickMe()">Click me!</button>');
+        document.write('<input type="text" name="popup" id="popup" class="hide">');
         let i;
         let iend;
         let increment;
@@ -533,6 +531,18 @@ input:checked + .slider:before {
       border-color: black;
       border-width: 1px;
       border-style: dotted;
+  }
+
+  form {
+    width: 50%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
   }
 </style>
 
