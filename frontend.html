@@ -296,13 +296,14 @@
             var eachsubmitter = 'submitter'+eachnum;
             var actnum = String(i);
 
+            console.log(eachnum);
+
             document.write('<button id="'+eachnum+'" onclick="myFunction();">Reply</button>');
             document.getElementById(eachnum).onclick = function myFunction() {
               if (!replying){
                 document.getElementById(eachnum).textContent = "Hide";
                 document.getElementById(eachtext).style = "display: block";
                 document.getElementById(eachsubmitter).style = "display: block";
-                document.write('<button>Reply</button>');
                 replying = true;
               } else {
                 document.getElementById(eachnum).textContent = "Reply";
