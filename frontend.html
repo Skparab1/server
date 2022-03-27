@@ -322,9 +322,9 @@
 
             console.log(eachnum);
             if (i == 35 || i == 36 || true){
-              document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black">Reply</button>');
+              document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black"; border: 2px solid black>Reply</button>');
               document.write('<div id="myDIV'+String(i)+'" style="display: none">');
-              document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+String(i)+' style="display: none"><textarea id="textbox" type="text" style=" color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn" style="color: white; background-color: black"></form>');
+              document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+String(i)+' style="display: none"><textarea id="textbox" type="text" style=" color: white; background-color: black; border: 2px solid black" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn" style="color: white; background-color: black; border: 2px solid black"></form>');
               document.getElementById('msgnum').style.display = "none";
               document.write('</div>');
             }
@@ -393,11 +393,11 @@
       if (x.style.display === "none") {
         x.style.display = "block";
         y.textContent = "Hide"
-        z.style.height = "175px";
+        //z.style.height = "175px";
       } else {
         x.style.display = "none";
         y.textContent = "Reply"
-        z.style.height = "150px";
+        //z.style.height = "150px";
       }
     }
   </script>    
