@@ -361,7 +361,7 @@
                 document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum'+String(actuali)+'" name="msgnum" value='+String(actuali)+' style="display: none"><textarea id="textbox'+String(actuali)+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn'+String(actuali)+'" style="display: none;"></form>');
                 document.getElementById('msgnum'+String(i)+'').style.display = "none";
               }
-              j += 1;
+              j -= 1;
             }
             
             //createclick(33);
