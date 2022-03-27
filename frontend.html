@@ -322,7 +322,7 @@
 
             console.log(eachnum);
             if (i == 35 || i == 36 || true){
-              document.write('<button onclick="myFunction('+String(i)+');">Reply</button>');
+              document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'">Reply</button>');
               document.write('<div id="myDIV'+String(i)+'" style="display: none">');
               document.write('This is my DIV element.');
               document.write('</div>');
@@ -387,10 +387,13 @@
 
     function myFunction(i) {
       var x = document.getElementById('myDIV'+String(i)+'');
+      var y = document.getElementById(String(i));
       if (x.style.display === "none") {
         x.style.display = "block";
+        y.textContent = "Hide"
       } else {
         x.style.display = "none";
+        y.textContent = "Reply"
       }
     }
   </script>    
