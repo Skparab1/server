@@ -371,6 +371,15 @@
 
             document.write(`<h2 ${messageHeaderStyle}>`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
             document.write(`<h3 ${descriptionStyle}">`+dispmessage[0]+'</h3>');
+
+            if (i == 35 || i == 36 || true){
+              document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black"; border: 2px solid white>Reply</button>');
+              document.write('<div id="myDIV'+String(i)+'" style="display: none">');
+              document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+String(i)+' style="display: none"><input id="textbox" type="text" style=" color: white; background-color: black; border: 2px solid white" name="Username" rows="1" cols="10"></input><input id="textbox2" type="text" style=" color: white; background-color: black; border: 2px solid white" name="message" rows="1" cols="30"></input><input type="submit" value="Submit" id="submitbtn" style="color: white; background-color: black; border: 2px solid white"></form>');
+              document.getElementById('msgnum').style.display = "none";
+              document.write('</div>');
+            }
+
             console.log(dispmessage[0]);
             document.write('</div>');
             document.write('</div>');
