@@ -9,14 +9,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
     window.onload = () => {
-      function myFunction() {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
 
       function truncby4(number){
         while (number >= 4){
@@ -392,6 +384,15 @@
         setTimeout(function(){location.reload(true)},1*refreshtime);
       })();
     };
+
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
   </script>    
 </head>
 
