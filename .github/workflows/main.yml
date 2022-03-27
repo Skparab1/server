@@ -32,19 +32,39 @@ jobs:
         run: git pull
         continue-on-error: true
         
-      - name: Update name in data.json
+      - if: startsWith(github.event.issue.title, 'REPLY') != 'true'
+        name: Update name in data.json
         run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
-      - name: Update message in data.json
+      - if: startsWith(github.event.issue.title, 'REPLY') != 'true'
+        name: Update message in data.json
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
+      - if: startsWith(github.event.issue.title, 'REPLY') != 'false'
+        name: Update name in replies.json
+        run: echo "`jq '.replies[0].name |= . + "${{ github.event.issue.title }}"' replies.json`" > replies.json
+      - if: startsWith(github.event.issue.title, 'REPLY') != 'false'
+        name: Update message in replies.json
+        run: echo "`jq '.replies[1].message |= . + "${{ github.event.issue.body }}"' replies.json`" > replies.json
       - name: read data.json
         run: cat data.json
     
-      - name: Commit
+      - if: startsWith(github.event.issue.title, 'REPLY') != 'true'
+        name: Commit
         uses: EndBug/add-and-commit@v9
         id: commit
         with:
           message: 'updating data'
           add: "data.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true
+        
+      - if: startsWith(github.event.issue.title, 'REPLY') != 'false'
+        name: Commit replies
+        uses: EndBug/add-and-commit@v9
+        id: commit-replies
+        with:
+          message: 'updating data'
+          add: "replies.json --force"
           pathspec_error_handling: ignore
           push: true
         continue-on-error: true
