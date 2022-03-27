@@ -292,76 +292,12 @@
               if (bgcolor == 'random'){ if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'} }
             }
 
-            document.write('<div style="width: 50%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: 25px; height: 150px; float: left; background: '+bgcolor+'"" class="center">');
-            var dispmessage = messages[i].split('&currenttime=');
-            var timeanddate = dispmessage[1].split(' at ');
-            var today = new Date();
-            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-            var lastdate = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+(today.getDate()-1);
-            if (date == timeanddate[0]){
-              timeanddate[0] = 'Today';
-            } else if (lastdate == timeanddate[0]){
-              timeanddate[0] = 'Yesterday';
-            } else {
-              timeanddate[0] = 'On '+timeanddate[0];
-            }
-
-            document.write(`<h2 ${messageHeaderStyle} >`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
-            document.write(`<h3 ${descriptionStyle}>` +dispmessage[0]+'</h3>');
-
             // replier
-            var replying = false;
+            // each one has a reply button. if the reply button is pressed, then the page is reloaded with &replymsg=messagenum
+            // opens dialogue for reply
+            // click hide --> then reload to main
+            // this shud be pretty streamlines because the pg relaod is generally fast
 
-            eachnum = String(i);
-            //eachnum = '';
-            eachnum = 'reply'+eachnum;
-            var eachtext = 'text'+eachnum;
-            var eachsubmitter = 'submitter'+eachnum;
-            var actnum = String(i);
-
-            console.log(eachnum);
-
-            // for (j=0; j<messages.length; j++){
-            //   if (i == j){
-            //   document.write('<button id="replier'+String(i)+'" onclick="myFunction();">Reply</button>');
-            //     document.getElementById("replier"+String(i)).onclick = function myFunction() {
-            //       if (!replying){
-            //         //console.log('reply'+act);
-            //         document.getElementById('replier'+String(i)).textContent = "Hide";
-            //         document.getElementById('textbox'+String(i)).style = "display: block";
-            //         document.getElementById('submitbtn'+String(i)).style = "display: block";
-            //         replying = true;
-            //       } else {
-            //         document.getElementById('replier'+String(i)).textContent = "Reply";
-            //         document.getElementById('textbox'+String(i)).style = "display: none";
-            //         document.getElementById('submitbtn'+String(i)).style = "display: none";
-            //         replying = false;
-            //       }
-            //     }
-            //     document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value=12 style="display: none"><textarea id="textbox'+String(i)+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn'+String(i)+'" style="display: none;"></form>');
-            //     document.getElementById("msgnum").style.display = "none";
-            //   }
-            // }
-            var actuali = i; 
-            if (i == 35){document.write('<button id="replier'+String(actuali)+'">Reply</button>'); document.getElementById('replier'+String(actuali)+'').onclick = function myFunction1(i) { var actuali = i; console.log('actually went into function of 35'); if (!replying){ console.log(actuali,('replier'+String(actuali)+''),'replier37'); document.getElementById('replier'+String(actuali)+'').textContent = "Hide"; document.getElementById('textbox'+String(actuali)+'').style = "display: block";document.getElementById('submitbtn'+String(actuali)+'').style = "display: block";replying = true;} else { document.getElementById('replier'+String(actuali)+'').textContent = "Reply";document.getElementById('textbox'+String(actuali)+'').style = "display: none";document.getElementById('submitbtn'+String(actuali)+'').style = "display: none";replying = false;}} 
-            document.write('<form id=lol1 action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum'+String(actuali)+'" name="msgnum" value='+String(actuali)+' style="display: none"><textarea id="textbox'+String(actuali)+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn'+String(actuali)+'" style="display: none;"></form>'); document.getElementById('msgnum'+String(actuali)+'').style.display = "none"; }
-            var actuali = i; 
-            var inputElement = document.createElement('input');
-            inputElement.type = "button";
-            if (i == 37){inputElement.addEventListener('replier'+String(actuali)+'', function myFunction(i) { var actuali = i; console.log('actually went into function of 37'); if (!replying){ console.log(actuali,('replier'+String(actuali)+''),'replier37'); document.getElementById('replier'+String(actuali)+'').textContent = "Hide"; document.getElementById('textbox'+String(actuali)+'').style = "display: block";document.getElementById('submitbtn'+String(actuali)+'').style = "display: block";replying = true;} else { document.getElementById('replier'+String(actuali)+'').textContent = "Reply";document.getElementById('textbox'+String(actuali)+'').style = "display: none";document.getElementById('submitbtn'+String(actuali)+'').style = "display: none"; replying = false;}});
-            document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum'+String(actuali)+'" name="msgnum" value='+String(actuali)+' style="display: none"><textarea id="textbox'+String(actuali)+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn'+String(actuali)+'" style="display: none;"></form>'); document.getElementById('msgnum'+String(actuali)+'').style.display = "none"; }
-            
-            //if (i == 37){document.write('<button id="replier'+String(actuali)+'">Reply</button>'); document.getElementById('replier'+String(actuali)+'').onclick = function myFunction(i) { var actuali = i; console.log('actually went into function of 37'); if (!replying){ console.log(actuali,('replier'+String(actuali)+''),'replier37'); document.getElementById('replier'+String(actuali)+'').textContent = "Hide"; document.getElementById('textbox'+String(actuali)+'').style = "display: block";document.getElementById('submitbtn'+String(actuali)+'').style = "display: block";replying = true;} else { document.getElementById('replier'+String(actuali)+'').textContent = "Reply";document.getElementById('textbox'+String(actuali)+'').style = "display: none";document.getElementById('submitbtn'+String(actuali)+'').style = "display: none";replying = false;}} 
-            //document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum'+String(actuali)+'" name="msgnum" value='+String(actuali)+' style="display: none"><textarea id="textbox'+String(actuali)+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn'+String(actuali)+'" style="display: none;"></form>'); document.getElementById('msgnum'+String(actuali)+'').style.display = "none"; }
-            
-            //if (i == 33){ var actuali = i; document.write('<button id="replier33">Reply</button>'); document.getElementById('replier33').onclick = function myFunction2() { if (!replying){ console.log(actuali,('replier33'),'replier37'); document.getElementById('replier33').textContent = "Hide"; document.getElementById('textbox31').style = "display: block";document.getElementById('submitbtn31').style = "display: block";replying = true;} else { document.getElementById('replier31').textContent = "Reply";document.getElementById('textbox31').style = "display: none";document.getElementById('submitbtn31').style = "display: none";replying = false;}} 
-            //document.write('<form id=lol2 action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum33" name="msgnum" value=33 style="display: none"><textarea id="textbox33" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn31" style="display: none;"></form>'); document.getElementById('msgnum31').style.display = "none"; }
-            
-            //if (i == 31){ var actuali = i; document.write('<button id="replier31">Reply</button>'); document.getElementById('replier31').onclick = function myFunction3() { if (!replying){ console.log(actuali,('replier31'),'replier37'); document.getElementById('replier31').textContent = "Hide"; document.getElementById('textbox33').style = "display: block";document.getElementById('submitbtn33').style = "display: block";replying = true;} else { document.getElementById('replier33').textContent = "Reply";document.getElementById('textbox33').style = "display: none";document.getElementById('submitbtn33').style = "display: none";replying = false;}} 
-            //document.write('<form id=lol3 action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum31" name="msgnum" value=31 style="display: none"><textarea id="textbox31" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn33" style="display: none;"></form>'); document.getElementById('msgnum33').style.display = "none"; }
-   
-
-            
 
             document.write('</div>');
 
