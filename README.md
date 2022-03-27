@@ -1,4 +1,5 @@
 # Server
+[![pages-build-deployment](https://github.com/Skparab1/server/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Skparab1/server/actions/workflows/pages/pages-build-deployment)
 ## About
 This is a template and tutorial for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It usually processes writes requests in less than a minute. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html). I made this because despite lots of searches about using Github as a database, I didn't really find anything that seemed easy to use and implement. So I ended up yoinking lots of code snippents from different websites, and ended up with [this](https://skparab1.github.io/server/frontend.html) cool working product which is functional, although ugly. To be clear, this is not meant to be used to make any real large app, and the main point of this is a demo.
 
