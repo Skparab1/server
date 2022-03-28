@@ -69,9 +69,13 @@
 
       (async () => {
         const data1 = await fetch("./data.json").then(r => r.json());
+        const replies1 = await fetch("./replies.json").then(r => r.json());
 
         oldusernames = data1.data[0];
         oldmessages = data1.data[1];
+
+        var names = replies1.data[0];
+        var replies = replies1.data[1];
 
         // univ var
         var value1;
@@ -106,11 +110,17 @@
         
         oldusernames = JSON.stringify(oldusernames);
         oldmessages = JSON.stringify(oldmessages);
+        names = JSON.stringify(names);
+        replies = JSON.stringify(replies);
         
         oldusernames = oldusernames.replace('{"name":"','');
         oldusernames = oldusernames.replace('"}','');
         oldmessages = oldmessages.replace('{"message":"','');
         oldmessages = oldmessages.replace('"}','');
+        names = names.replace('{"name":"','');
+        names = names.replace('"}','');
+        replies = replies.replace('{"message":"','');
+        replies = replies.replace('"}','');
 
         while (oldusernames.includes('+')){
           oldusernames = oldusernames.replace('+',' ');
@@ -119,10 +129,16 @@
           oldmessages = oldmessages.replace('+',' ');
         }
 
+        names = names.replaceAll('+','');
+        replies = replies.replaceAll('+','');
+
         document.body.style.backgroundColor = themecolor;
 
         var usernames = oldusernames.split('&=');
         var messages = oldmessages.split('&nextentry&');
+
+        names = names.split('&reply');
+        replies = replies.split('&nextentry&')
 
         var refreshtime = 60000;
 
@@ -309,6 +325,16 @@
 
             document.write(`<h2 ${messageHeaderStyle} >`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>'); 
             document.write(`<h3 ${descriptionStyle}>` +dispmessage[0]+'</h3>');
+
+            // look for reply
+            let ij = 0;
+            while (ij <= name.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                document.write(`<h4 ${descriptionStyle}>` +replies[ij].split('&currenttime=')[0]+'</h4>');
+              }
+              ij+=1;
+            }
 
             // replier
             var replying = false;
