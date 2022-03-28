@@ -328,7 +328,7 @@
 
             // look for reply
             let ij = 0;
-            while (ij <= name.length-1){
+            while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
               if (String(msgnum) == String(i)){
                 document.write(`<h4 ${descriptionStyle}>` +replies[ij].split('&currenttime=')[0]+'</h4>');
