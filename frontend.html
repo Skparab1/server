@@ -328,9 +328,12 @@
 
             // look for reply
             let ij = 0;
+            console.log(names.length-1);
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
+              console.log(String(msgnum),String(i));
               if (String(msgnum) == String(i)){
+                console.log('matched');
                 document.write(`<h4 ${descriptionStyle}>` +replies[ij].split('&currenttime=')[0]+'</h4>');
               }
               ij+=1;
