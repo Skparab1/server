@@ -38,12 +38,12 @@ jobs:
       - if: startsWith(github.event.issue.title, '&REPLY') != 'true'
         name: Update message in data.json
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
-      - if: startsWith(github.event.issue.title, '&REPLY') != 'false'
+      - if: startsWith(github.event.issue.title, '&REPLY') == 'true'
         name: Update name in replies.json
-        run: echo "`jq '.replies[0].name |= . + "${{ github.event.issue.title }}"' replies.json`" > replies.json
-      - if: startsWith(github.event.issue.title, '&REPLY') != 'false'
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' replies.json`" > replies.json
+      - if: startsWith(github.event.issue.title, '&REPLY') == 'true'
         name: Update message in replies.json
-        run: echo "`jq '.replies[1].message |= . + "${{ github.event.issue.body }}"' replies.json`" > replies.json
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' replies.json`" > replies.json
       - name: read data.json
         run: cat data.json
     
@@ -58,7 +58,7 @@ jobs:
           push: true
         continue-on-error: true
         
-      - if: startsWith(github.event.issue.title, '&REPLY') != 'false'
+      - if: startsWith(github.event.issue.title, '&REPLY') == 'true'
         name: Commit replies
         uses: EndBug/add-and-commit@v9
         id: commit-replies
