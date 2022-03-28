@@ -401,6 +401,18 @@
             document.write(`<h2 ${messageHeaderStyle}>`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
             document.write(`<h3 ${descriptionStyle}">`+dispmessage[0]+'</h3>');
 
+            ij = 0;
+            console.log('thing',names.length-1);
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              console.log('thing1',String(msgnum),String(i));
+              if (String(msgnum) == String(i)){
+                console.log('matched');
+                document.write(`<h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +replies[ij].split('&currenttime=')[0]+'</h4>');
+              }
+              ij+=1;
+            }
+
             if (i == 35 || i == 36 || true){
               document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black"; border: 2px solid white>Reply</button>');
               document.write('<div id="myDIV'+String(i)+'" style="display: none">');
