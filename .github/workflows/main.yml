@@ -32,7 +32,7 @@ jobs:
         run: git pull
         continue-on-error: true
         
-      - if: startsWith(github.event.issue.title, '&REPLY') === 'true'
+      - if: startsWith(github.event.issue.title, '&REPLY') == 'true'
         name: Update name in data.json
         run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
       - if: startsWith(github.event.issue.title, '&REPLY') == 'true'
