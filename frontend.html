@@ -324,7 +324,7 @@
             }
 
             document.write(`<h2 ${messageHeaderStyle}>`+namedisp+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
-            document.write(`<h3 ${descriptionStyle}>` +dispmessage[0].replaceAll('%2C','')+'</h3>');
+            document.write(`<h3 ${descriptionStyle}>` +dispmessage[0].replaceAll('%2C',',')+'</h3>');
 
             // look for reply
             let ij = 0;
