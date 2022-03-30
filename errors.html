@@ -1,0 +1,204 @@
+<html>
+<head>
+  <title>Skparab1 Forum - Error troubleshooting</title>
+  <link rel="stylesheet" type="text/css" href="./paper.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<style>
+  body {
+      background-color: rgb(0, 0, 0);
+  }
+
+
+  .dank {
+    font-size: 30px !important; 
+  }
+  h1 {
+    color: aliceblue;
+  }
+  h2 {
+    color: aliceblue;
+  }
+  h3 {
+    color: lightgray;
+  }
+  h4 {
+    color: lightblue;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: lightgrey;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+    .button {
+      background-color: white;
+      border: none;
+      color: white;
+      padding: 0px 32px;
+      text-align: center;
+      text-decoration: none;
+      width: 49%;
+      display: inline-block;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+      border-color: white;
+      border-width: 1px;
+      border-style: dotted;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background:#bbb;
+        color: black;
+        border-color: black;
+        border-width: 1px;
+        border-style: dotted;
+    }
+
+    form {
+      width: 50%;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+     
+</head>
+
+<body>
+  <h1>Skparab1 forum - Message sending Error troubleshooting</h1>
+  <br><hr>
+  <h2>Non-Fatal errors</h2>
+  <h3>-HttpError: NetworkError when attempting to fetch resource.</h3>
+  <h4>&nbsp&nbsp&nbsp-Cause: This error message means that the system encountered a problem when attempting to load or send content. It is likely related to The Cross-Origin Resource Sharing (CORS) mechanism gives web servers cross-domain access controls, which enable secure cross-domain data transfers. Modern browsers use CORS in an API container - such as XMLHttpRequest or Fetch - to mitigate risks of cross-origin HTTP requests.</h4>
+  <h4>&nbsp&nbsp&nbsp-What it means: Your message has likely gotten through, but you should check at the <a href="https://github.com/Skparab1/server/actions/workflows/main.yml">Server Backend</a></h4>
+  <br><hr>
+  <h2>Fatal errors</h2>
+  <h3>HttpError: Bad credentials</h3>
+  <h4>&nbsp&nbsp&nbsp-Cause: Github API is unable to process the request due to bad credentials</h4>
+  <h4>&nbsp&nbsp&nbsp-What it means: Skparab1's Github token has expired! :(( contact him asap>/h4>
+  <br><hr>
+  <h2>This is the end of this troubleshooting guide! If you have received any other errors, open a pr!</h2>
+</body>
+
+</html>
