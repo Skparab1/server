@@ -53,7 +53,37 @@
       }
 
       function convertchars(str){
+        str = str.replaceAll('%0D%0A','\n');
+        str = str.replaceAll('%21','!');
+        str = str.replaceAll('%40','@');
+        str = str.replaceAll('%23','#');
+        str = str.replaceAll('%24','$');
+        str = str.replaceAll('%25','%');
+        str = str.replaceAll('%5E','^');
+        str = str.replaceAll('%25','&');
+        str = str.replaceAll('%2A','*');
+        str = str.replaceAll('%28','(');
+        str = str.replaceAll('%29',')');
+        str = str.replaceAll('%2B','+');
+        str = str.replaceAll('%60','`');
+        str = str.replaceAll('%3D','=');
+        str = str.replaceAll('%5B','[');
+        //blankline ~ !@#$%^&*()_+`-=[]\{}|;':",./<>?         33 total
+        //%0D%0A ~ %21 %40 %23 %24 %25 %5E %26 %2A %28 %29 _ %2B %60 - %3D %5B %5D %5C %7B %7D %7C %3B %27 %3A %22 , . %2F %3C %3E %3F
+        str = str.replaceAll('%5D',']');
+        str = str.replaceAll('%5C','\ ');
+        str = str.replaceAll('%7B','{');
+        str = str.replaceAll('%7D','}');
+        str = str.replaceAll('%7C','|');
+        str = str.replaceAll('%3B',';');
+        str = str.replaceAll('%27',"'");
+        str = str.replaceAll('%3A',':');
+        str = str.replaceAll('%22','"');
         str = str.replaceAll('%2C',',');
+        str = str.replaceAll('%2F','/');
+        str = str.replaceAll('%3C','<');
+        str = str.replaceAll('%3E','>');
+        str = str.replaceAll('%3F','?');
         return str
       }
 
