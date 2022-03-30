@@ -169,7 +169,7 @@
         }
 
         if (sent != 'true' && sent != 'false' && sent != 'replied'){
-          document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">Message sending Failed.   '+sent+'</h3> </div>');
+          document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">'+sent+'   <a href="https://skparab1.github.io/server/errors.html">Learn more<a/></h3> </div>');
         }
 
         var currentmsgcount = usernames.length;
@@ -197,7 +197,7 @@
         }
         localStorage.setItem('sent','false');
 
-        document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: '+themecolor+'; class="center"> <h2 style="color: '+contrastcolor+';">Skparab1 message forum&nbsp&nbsp'+usernames.length+' Messages </h1> </div>');
+        document.write('<div style="width: 100%; height: 50px; padding: 0x; text-align: center; background: '+themecolor+'; class="center"> <h2 style="color: '+contrastcolor+';">Skparab1 message forum&nbsp&nbsp'+usernames.length+' Messages </h1> </div>');
         //document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
         //document.getElementById("switch").style.display = "inline-block";
         var element = document.createElement('switch');
