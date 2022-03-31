@@ -133,7 +133,44 @@ jobs:
         run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
     
       - name: retry commit
+        id: commit3
         if: steps.commit2.outcome=='failure'
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'updating data'
+          add: "data.json --force"
+          pathspec_error_handling: ignore
+          push: true
+        continue-on-error: true
+        
+      # wait if failed a third time
+      - name: wait if failed
+        if: steps.commit3.outcome=='failure'
+        run: sleep 15s
+        
+      - name: remove data changes
+        if: steps.commit3.outcome=='failure'
+        run: git reset --hard
+        
+      - uses: actions/checkout@v2
+        if: steps.commit3.outcome=='failure'
+        with:
+          submodules: 'recursive'
+      
+      - name: pull
+        if: steps.commit3.outcome=='failure'
+        run: git pull
+        continue-on-error: true
+        
+      - name: Update name in data.json
+        if: steps.commit3.outcome=='failure'
+        run: echo "`jq '.data[0].name |= . + "${{ github.event.issue.title }}"' data.json`" > data.json
+      - name: Update message in data.json
+        if: steps.commit3.outcome=='failure'
+        run: echo "`jq '.data[1].message |= . + "${{ github.event.issue.body }}"' data.json`" > data.json
+    
+      - name: retry commit
+        if: steps.commit3.outcome=='failure'
         uses: EndBug/add-and-commit@v9
         with:
           message: 'updating data'
