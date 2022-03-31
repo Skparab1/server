@@ -52,7 +52,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         id: commit
         with:
-          message: 'updating data'
+          message: 'updating database'
           add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
@@ -63,7 +63,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         id: commit-replies
         with:
-          message: 'updating data'
+          message: 'updating database'
           add: "replies.json --force"
           pathspec_error_handling: ignore
           push: true
@@ -100,7 +100,7 @@ jobs:
         id: commit2
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'updating data'
+          message: 'updating database'
           add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
@@ -137,7 +137,7 @@ jobs:
         if: steps.commit2.outcome=='failure'
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'updating data'
+          message: 'updating database'
           add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
@@ -173,7 +173,7 @@ jobs:
         if: steps.commit3.outcome=='failure'
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'updating data'
+          message: 'updating database'
           add: "data.json --force"
           pathspec_error_handling: ignore
           push: true
