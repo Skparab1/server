@@ -472,12 +472,12 @@
       if (x.style.display === "none") {
         x.style.display = "block";
         y.textContent = "Hide"
-        z.style.height = String(z.style.height+25)+"px";
+        z.style.height = String(z.offsetHeight+25)+"px";
         //z1.style.height = "175px";
       } else {
         x.style.display = "none";
         y.textContent = "Reply"
-        z.style.height = String(z.style.height-25)+"px";
+        z.style.height = String(z.offsetHeight-25)+"px";
         //z1.style.height = "150px";
       }
     }
