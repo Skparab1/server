@@ -352,16 +352,20 @@
 
             // look for reply
             let ij = 0;
+            var repliesfound = 0;
             console.log('thing',names.length-1);
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
               console.log('thing1',String(msgnum),String(i));
               if (String(msgnum) == String(i)){
                 console.log('matched');
+                repliesfound += 1;
                 document.write(`<h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4>');
               }
               ij+=1;
             }
+            let zvar = document.getElementById('div'+String(i+1));
+            zvar.style.height = 180+25*repliesfound;
 
             // replier
             var replying = false;
