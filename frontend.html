@@ -360,7 +360,7 @@
               if (String(msgnum) == String(i)){
                 console.log('matched');
                 repliesfound += 1;
-                document.write(`<h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4>');
+                document.write(`<div style="background: light-gray"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
             }
