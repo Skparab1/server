@@ -364,8 +364,9 @@
               }
               ij+=1;
             }
+            var leneach = "put this message of sending a message in a modal/dialog in the center of the page (like the results for ".length;
             let zvar = document.getElementById('div'+String(i));
-            zvar.style.height = 180+30*repliesfound;
+            zvar.style.height = 155+(40*repliesfound)+Math.floor(dispmessage[0].length/leneach);
 
             // replier
             var replying = false;
@@ -443,7 +444,9 @@
               ij+=1;
             }
             let zvar1 = document.getElementById('div'+String(i));
-            zvar1.style.height = 180+30*repliesfound;
+            //length per line for 50%
+            // 50%/4096 is one of the most commonly used display sizes
+            zvar1.style.height = 155+(40*repliesfound)+Math.floor(dispmessage[0].length/leneach);
 
             if (i == 35 || i == 36 || true){
               document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black"; border: 2px solid white>Reply</button>');
