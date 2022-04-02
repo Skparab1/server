@@ -431,11 +431,13 @@
 
             ij = 0;
             console.log('thing',names.length-1);
+            repliesfound = 0;
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
               console.log('thing1',String(msgnum),String(i));
               if (String(msgnum) == String(i)){
                 console.log('matched');
+                repliesfound += 1;
                 document.write(`<div class="center" style="background: light-gray"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
