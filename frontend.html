@@ -436,10 +436,12 @@
               console.log('thing1',String(msgnum),String(i));
               if (String(msgnum) == String(i)){
                 console.log('matched');
-                document.write(`<h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4>');
+                document.write(`<div class="center" style="background: light-gray"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
             }
+            let zvar1 = document.getElementById('div'+String(i));
+            zvar1.style.height = 180+30*repliesfound;
 
             if (i == 35 || i == 36 || true){
               document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black"; border: 2px solid white>Reply</button>');
