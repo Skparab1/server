@@ -540,8 +540,12 @@
       var x = document.getElementById('replydisplay'+String(i)+'');
       var y = document.getElementById('replytoggle'+String(i));
       var z = document.getElementById('div'+String(i));
-      let addheight = y.textContent.replace('Show ','');
-      addheight = y.textContent.replace('Hide ','');
+      let addheight;
+      if (y.textContent.includes('Show')){
+        addheight = y.textContent.replace('Show ','');
+      } else {
+        addheight = y.textContent.replace('Hide ','');
+      }
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
       if (x.style.display === "none") {
