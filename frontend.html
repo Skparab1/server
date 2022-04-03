@@ -368,19 +368,6 @@
             bgcolor = bgcolor.split(',');
             bgcolor = 'rgb('+String(parseInt(bgcolor[0]-33))+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
 
-            document.write('<div id="replydisplay'+i+'"style="display: none">');
-            while (ij <= names.length-1){
-              msgnum = names[ij].split('&m')[1];
-              console.log('thing1',String(msgnum),String(i));
-              if (String(msgnum) == String(i)){
-                console.log('matched');
-                repliesfound += 1;
-                document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
-              }
-              ij+=1;
-            }
-            document.write('</div>');
-
             var leneach = "put this message of sending a message in a modal/dialog in the center of the page (like the results for ".length;
             let zvar = document.getElementById('div'+String(i));
             zvar.style.height = 155+(40*repliesfound)+25*Math.floor(dispmessage[0].length/leneach);
@@ -408,6 +395,19 @@
               document.getElementById('msgnum').style.display = "none";
               document.write('</div>');
             }
+
+            document.write('<div id="replydisplay'+i+'"style="display: none">');
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              console.log('thing1',String(msgnum),String(i));
+              if (String(msgnum) == String(i)){
+                console.log('matched');
+                repliesfound += 1;
+                document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+              }
+              ij+=1;
+            }
+            document.write('</div>');
 
             document.write('</div>');
 
@@ -460,18 +460,6 @@
             bgcolor = bgcolor.split(',');
             bgcolor = 'rgb('+String(parseInt(bgcolor[0]-33))+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
             
-            document.write('<div id="replydisplay'+i+'"style="display: none">');
-            while (ij <= names.length-1){
-              msgnum = names[ij].split('&m')[1];
-              console.log('thing1',String(msgnum),String(i));
-              if (String(msgnum) == String(i)){
-                console.log('matched');
-                repliesfound += 1;
-                document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
-              }
-              ij+=1;
-            }
-            document.write('</div>');
             let zvar1 = document.getElementById('div'+String(i));
             //length per line for 50%
             // 50%/4096 is one of the most commonly used display sizes
@@ -489,6 +477,19 @@
               document.getElementById('msgnum').style.display = "none";
               document.write('</div>');
             }
+
+            document.write('<div id="replydisplay'+i+'"style="display: none">');
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              console.log('thing1',String(msgnum),String(i));
+              if (String(msgnum) == String(i)){
+                console.log('matched');
+                repliesfound += 1;
+                document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+              }
+              ij+=1;
+            }
+            document.write('</div>');
 
             console.log(dispmessage[0]);
             document.write('</div>');
