@@ -395,7 +395,10 @@
             console.log(eachnum);
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
-                document.write('<button style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
+              } else {
+                document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               }
               document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               document.write('<div id="myDIV'+String(i)+'" style="display: none">');
@@ -471,7 +474,7 @@
 
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
-                document.write('<button style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
                 document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               } else {
                 document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
@@ -502,6 +505,22 @@
       var y = document.getElementById(String(i));
       var z = document.getElementById('div'+String(i));
       var z1 = document.getElementById('div'+String(i+1));
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.textContent = "Hide"
+        z.style.height = String(z.offsetHeight+25)+"px";
+        //z1.style.height = "175px";
+      } else {
+        x.style.display = "none";
+        y.textContent = "Reply"
+        z.style.height = String(z.offsetHeight-25)+"px";
+        //z1.style.height = "150px";
+      }
+    }
+    function togglereplies(i) {
+      var x = document.getElementById('myDIV'+String(i)+'');
+      var y = document.getElementById(String(i));
+      var z = document.getElementById('div'+String(i));
       if (x.style.display === "none") {
         x.style.display = "block";
         y.textContent = "Hide"
