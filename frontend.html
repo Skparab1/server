@@ -357,7 +357,7 @@
             }
 
             document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
-            document.write(`<h3 ${descriptionStyle}>` +convertchars(dispmessage[0])+'</h3>');
+            document.write(`<p ${descriptionStyle}>` +convertchars(dispmessage[0])+'</p>');
 
             // look for reply
             let ij = 0;
@@ -444,7 +444,7 @@
             document.body.style.backgroundColor = themecolor;
 
             document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
-            document.write(`<h3 ${descriptionStyle}">`+convertchars(dispmessage[0])+'</h3>');
+            document.write(`<p ${descriptionStyle}">`+convertchars(dispmessage[0])+'</p>');
 
             ij = 0;
             console.log('thing',names.length-1);
