@@ -374,7 +374,7 @@
               if (String(msgnum) == String(i)){
                 repliesfound += 1;
                 console.log("after: "+bgcolor);
-                document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+                document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
             }
