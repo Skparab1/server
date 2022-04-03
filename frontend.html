@@ -538,17 +538,20 @@
     }
     function togglereplies(i) {
       var x = document.getElementById('replydisplay'+String(i)+'');
-      //var y = document.getElementById('replydisplay'+String(i));
+      var y = document.getElementById('replytoggle'+String(i));
       var z = document.getElementById('div'+String(i));
+      let addheight = y.textContent.replace('Show ','');
+      addheight = addheight.replace(' replies','');
+      addheight = parseInt(addheight);
       if (x.style.display === "none") {
         x.style.display = "block";
-        //y.textContent = "Hide"
-        z.style.height = String(z.offsetHeight+25)+"px";
+        y.textContent = y.textContent.replace('Show','Hide');
+        z.style.height = String(z.offsetHeight+(30*addheight))+"px";
         //z1.style.height = "175px";
       } else {
         x.style.display = "none";
-        //y.textContent = "Reply"
-        z.style.height = String(z.offsetHeight-25)+"px";
+        y.textContent = y.textContent.replace('Hide','Show');
+        z.style.height = String(z.offsetHeight-(40*addheight))+"px";
         //z1.style.height = "150px";
       }
     }
