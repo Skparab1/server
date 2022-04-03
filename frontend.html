@@ -548,12 +548,12 @@
       }
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
-      if (x.style.display === "none") {
+      if (x.style.display == "none") {
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
         console.log(z.offsetHeight);
-        console.log((z.offsetHeight+(30*addheight)));
+        console.log(String(z.offsetHeight+(30*addheight))+"px");  //282
         z.style.height = String(z.offsetHeight+(30*addheight))+"px";
         console.log(z.offsetHeight);
         //z1.style.height = "175px";
