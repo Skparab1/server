@@ -227,6 +227,15 @@
 
         document.getElementsByTagName('head')[0].appendChild(style);
 
+        // let i = 0;
+        // while (i < data_array_1.length-1){
+        //   const msg = data_array_2[i];
+        //   const renderMessage = msg => html`<div class="msg"><h2>${msg}</h2></div>`;
+        //   const renderDataAray = arr => html`
+        //   <div class="msg-container">${arr.map(renderMessage)}</div>`
+        //   i += 1;
+        // }
+
 
         //document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
         //document.write('<label class="switch" style="position: relative; display: inline-block; width: 60px; height: 34px;"><input type="checkbox"><span class="slider round"></span></label><br>'); 
@@ -366,7 +375,7 @@
             }
             var leneach = "put this message of sending a message in a modal/dialog in the center of the page (like the results for ".length;
             let zvar = document.getElementById('div'+String(i));
-            zvar.style.height = 155+(40*repliesfound)+Math.floor(dispmessage[0].length/leneach);
+            zvar.style.height = 155+(40*repliesfound)+25*Math.floor(dispmessage[0].length/leneach);
 
             // replier
             var replying = false;
@@ -446,7 +455,7 @@
             let zvar1 = document.getElementById('div'+String(i));
             //length per line for 50%
             // 50%/4096 is one of the most commonly used display sizes
-            zvar1.style.height = 155+(40*repliesfound)+Math.floor(dispmessage[0].length/leneach);
+            zvar1.style.height = 155+(40*repliesfound)+25*Math.floor(dispmessage[0].length/leneach);
 
             if (i == 35 || i == 36 || true){
               document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="color: white; background-color: black"; border: 2px solid white>Reply</button>');
