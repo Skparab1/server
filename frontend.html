@@ -447,6 +447,10 @@
             ij = 0;
             console.log('thing',names.length-1);
             repliesfound = 0;
+            bgcolor = bgcolor.replace('rgb(','');
+            bgcolor = bgcolor.replace(')','');
+            bgcolor = bgcolor.split(',');
+            bgcolor = 'rgb('+String(parseInt(bgcolor[0]-33))+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
               console.log('thing1',String(msgnum),String(i));
