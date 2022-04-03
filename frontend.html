@@ -382,6 +382,14 @@
             var eachsubmitter = 'submitter'+eachnum;
             var actnum = String(i);
 
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                repliesfound += 1;
+              }
+              ij+=1;
+            }
+
             console.log(eachnum);
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
@@ -396,12 +404,11 @@
               document.write('</div>');
             }
 
+            ij = 0;
             document.write('<div id="replydisplay'+i+'"style="display: none">');
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
-              console.log('thing1',String(msgnum),String(i));
               if (String(msgnum) == String(i)){
-                console.log('matched');
                 repliesfound += 1;
                 document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
@@ -465,6 +472,14 @@
             // 50%/4096 is one of the most commonly used display sizes
             zvar1.style.height = 155+(40*repliesfound)+25*Math.floor(dispmessage[0].length/leneach);
 
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                repliesfound += 1;
+              }
+              ij+=1;
+            }
+
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
                 document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
@@ -478,12 +493,11 @@
               document.write('</div>');
             }
 
+            ij = 0;
             document.write('<div id="replydisplay'+i+'"style="display: none">');
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
-              console.log('thing1',String(msgnum),String(i));
               if (String(msgnum) == String(i)){
-                console.log('matched');
                 repliesfound += 1;
                 document.write(`<div style="width: 100%; float: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
