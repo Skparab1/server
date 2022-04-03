@@ -459,7 +459,8 @@
             bgcolor = bgcolor.replace(')','');
             bgcolor = bgcolor.split(',');
             bgcolor = 'rgb('+String(parseInt(bgcolor[0]-33))+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
-            //document.write('<div id="replydisplay'+i+'>');
+            
+            document.write('<div id="replydisplay'+i+'"style="display: none">');
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
               console.log('thing1',String(msgnum),String(i));
@@ -470,7 +471,7 @@
               }
               ij+=1;
             }
-            //document.write('</div>');
+            document.write('</div>');
             let zvar1 = document.getElementById('div'+String(i));
             //length per line for 50%
             // 50%/4096 is one of the most commonly used display sizes
