@@ -370,10 +370,12 @@
                 console.log('matched');
                 repliesfound += 1;
                 //rgb(225, 0, 0)
+                console.log("before: "+bgcolor);
                 bgcolor = bgcolor.replace('rgb(');
                 bgcolor = bgcolor.replace(')');
                 bgcolor = bgcolor.split(',');
                 bgcolor = 'rgb('+String(parseInt(bgcolor[0])-33)+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
+                console.log("after: "+bgcolor);
                 document.write(`<div style="width: 99%; float: center; background: `+bgcolor+`; border: 4px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
