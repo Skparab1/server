@@ -559,6 +559,10 @@
         z.style.height = thisthing;
         console.log(thisthing);
         console.log(z.offsetHeight);
+        if (thisthing != z.offsetHeight){
+          z.style.height += 8;
+        }
+        console.log(z.offsetHeight);
         //z1.style.height = "175px";
       } else {
         x.style.display = "none";
