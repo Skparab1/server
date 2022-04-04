@@ -548,13 +548,14 @@
       }
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
+      addheight = addheight*30;
       if (x.style.display == "none") {
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
         console.log(z.offsetHeight);
-        console.log(String(z.offsetHeight+(30*addheight))+"px");  //282
-        z.style.height = String(z.offsetHeight+(30*addheight))+"px";
+        console.log(String(parseInt(z.offsetHeight)-addheight)+"px");
+        z.style.height = (String(parseInt(z.offsetHeight)-addheight)+"px");
         console.log(z.offsetHeight);
         //z1.style.height = "175px";
       } else {
@@ -562,8 +563,8 @@
         y.textContent = y.textContent.replace('Hide','Show');
         console.log(addheight);  //2
         console.log(z.offsetHeight);  //222
-        console.log(String(z.offsetHeight-(30*addheight))+"px");  //282
-        z.style.height = String(z.offsetHeight-(30*addheight))+"px";
+        console.log(String(parseInt(z.offsetHeight)-addheight)+"px");  //282
+        z.style.height = (String(parseInt(z.offsetHeight)-addheight)+"px");
         console.log(z.offsetHeight);   //290
         //z1.style.height = "150px";
       }
