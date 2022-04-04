@@ -410,7 +410,7 @@
               msgnum = names[ij].split('&m')[1];
               if (String(msgnum) == String(i)){
                 repliesfound += 1;
-                document.write(`<div style="width: 100%; float: center; height: 45px; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+                document.write(`<div style="width: 100%; float: center; height: 40px; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
             }
@@ -550,7 +550,7 @@
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
 
-      addheight = addheight*30-8;
+      addheight = addheight*40-8;
       if (x.style.display == "none") {
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
@@ -594,7 +594,7 @@
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
       
-      //addheight = addheight*30-8;
+      addheight = addheight*40;
       if (x.style.display == "none") {
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
