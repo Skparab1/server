@@ -549,8 +549,9 @@
       }
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
-      addheight = addheight*30 - 8;
+      addheight = addheight*30;
       if (x.style.display == "none") {
+        addheight = addheight + 8;
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
