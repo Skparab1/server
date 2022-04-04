@@ -482,7 +482,7 @@
 
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
-                document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; border-radius: 25px; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="togglerepliesright('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; border-radius: 25px; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
                 document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; border-radius: 25px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               } else {
                 document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; border-radius: 25px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
@@ -549,6 +549,7 @@
       }
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
+
       addheight = addheight*30-8;
       if (x.style.display == "none") {
         x.style.display = "block";
@@ -576,6 +577,44 @@
         if (thisthing != z.offsetHeight){
           z.style.height = z.offsetHeight-24;
         }
+        console.log(z.offsetHeight);
+        //z1.style.height = "150px";
+      }
+    }
+    function togglerepliesright(i) {
+      var x = document.getElementById('replydisplay'+String(i)+'');
+      var y = document.getElementById('replytoggle'+String(i));
+      var z = document.getElementById('div'+String(i));
+      var addheight;
+      if (y.textContent.includes('Show')){
+        addheight = y.textContent.replace('Show ','');
+      } else {
+        addheight = y.textContent.replace('Hide ','');
+      }
+      addheight = addheight.replace(' replies','');
+      addheight = parseInt(addheight);
+      
+      //addheight = addheight*30-8;
+      if (x.style.display == "none") {
+        x.style.display = "block";
+        y.textContent = y.textContent.replace('Show','Hide');
+        console.log(addheight);
+        console.log(z.offsetHeight);
+        var thisthing = String(parseInt(z.offsetHeight)+addheight)+"px";
+        z.style.height = thisthing;
+        console.log(thisthing);
+        console.log(z.offsetHeight);
+        console.log(z.offsetHeight);
+        //z1.style.height = "175px";
+      } else {
+        x.style.display = "none";
+        y.textContent = y.textContent.replace('Hide','Show');
+        console.log(addheight);  //2
+        console.log(z.offsetHeight);  //222
+        var thisthing = String(parseInt(z.offsetHeight)-addheight)+"px";  //282
+        z.style.height = thisthing;
+        console.log(thisthing);
+        console.log(z.offsetHeight);   //290
         console.log(z.offsetHeight);
         //z1.style.height = "150px";
       }
