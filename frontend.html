@@ -552,6 +552,7 @@
       addheight = addheight*30;
       if (x.style.display == "none") {
         x.style.display = "block";
+        addheight = addheight + 8;
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
         console.log(z.offsetHeight);
@@ -565,7 +566,6 @@
         console.log(z.offsetHeight);
         //z1.style.height = "175px";
       } else {
-        addheight = addheight + 8;
         x.style.display = "none";
         y.textContent = y.textContent.replace('Hide','Show');
         console.log(addheight);  //2
