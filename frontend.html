@@ -410,7 +410,7 @@
               msgnum = names[ij].split('&m')[1];
               if (String(msgnum) == String(i)){
                 repliesfound += 1;
-                document.write(`<div style="width: 100%; float: center; height: 40px; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+                document.write(`<div style="width: 100%; float: center; height: 40px; vertical-align: middle; text-align: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
               }
               ij+=1;
             }
