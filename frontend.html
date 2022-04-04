@@ -549,10 +549,9 @@
       }
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
-      addheight = addheight*30;
+      addheight = addheight*30+8;
       if (x.style.display == "none") {
         x.style.display = "block";
-        addheight = addheight + 8;
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
         console.log(z.offsetHeight);
