@@ -554,8 +554,8 @@
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
         console.log(z.offsetHeight);
-        console.log(String(parseInt(z.offsetHeight)-addheight)+"px");
-        z.style.height = (String(parseInt(z.offsetHeight)-addheight)+"px");
+        console.log(String(parseInt(z.offsetHeight)+addheight)+"px");
+        z.style.height = (String(parseInt(z.offsetHeight)+addheight)+"px");
         console.log(z.offsetHeight);
         //z1.style.height = "175px";
       } else {
@@ -564,7 +564,7 @@
         console.log(addheight);  //2
         console.log(z.offsetHeight);  //222
         console.log(String(parseInt(z.offsetHeight)-addheight)+"px");  //282
-        z.style.height = (String(parseInt(z.offsetHeight)-addheight)+"px");
+        z.style.height = String(z.offsetHeight-addheight);
         console.log(z.offsetHeight);   //290
         //z1.style.height = "150px";
       }
