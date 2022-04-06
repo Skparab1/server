@@ -21,8 +21,7 @@ This message sender uses the same data storage algorithm and database type as th
 - Massive thanks to @Anish-lakkapragada for making the frontend look guddie
 
 ## Testimonies
-<img width="189" alt="Screen Shot 2022-03-06 at 9 01 41 PM" src="https://user-images.githubusercontent.com/96956561/156971003-0fc59a45-4f46-4343-9101-fb4ef4bace39.png"><img width="171" alt="Screen Shot 2022-03-06 at 9 02 45 PM" src="https://user-images.githubusercontent.com/96956561/156971095-8e160a9f-ae52-4cd4-bd66-424c16529247.png">
-
+<img width="189" alt="Screen Shot 2022-03-06 at 9 01 41 PM" src="https://user-images.githubusercontent.com/96956561/156971003-0fc59a45-4f46-4343-9101-fb4ef4bace39.png"><img width="171" alt="Screen Shot 2022-03-06 at 9 02 45 PM" src="https://user-images.githubusercontent.com/96956561/156971095-8e160a9f-ae52-4cd4-bd66-424c16529247.png">![image](https://user-images.githubusercontent.com/71990977/161876257-ed858b66-3a9d-4078-9d78-453345850dee.png)
 
 ## Now let me explain how each part works...
 ### Sending an issue with Github API
