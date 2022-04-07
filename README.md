@@ -130,4 +130,7 @@ jobs:
 ````
 
 ## End
-Wow you've reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html! TO see more analysis and impelementations of the idea og Githbu as a database,
+Wow you've reached the end! Thanks for reading all the way though, and I hope you think this is cool. Please star it if you want! Don't forget to leave a message at https://skparab1.github.io/server/ui.html! TO see more analysis and impelementations of the idea of Github as a database, https://github.com/DavidBruant/github-as-a-database
+https://github.com/issue-db/issue-db https://github.com/usmakestwo/githubDB
+
+
