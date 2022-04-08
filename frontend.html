@@ -571,6 +571,7 @@
 
       addheight = addheight*45-8;
       if (x.style.display == "none") {
+        refreshtime = 60000;
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
@@ -615,6 +616,7 @@
       
       addheight = addheight*45;
       if (x.style.display == "none") {
+        refreshtime = 60000;
         x.style.display = "block";
         y.textContent = y.textContent.replace('Show','Hide');
         console.log(addheight);
