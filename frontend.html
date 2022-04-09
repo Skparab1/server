@@ -99,6 +99,7 @@
 
         // univ var
         var value1;
+        var rad = 0;
         loc = window.location.href;
         loc = loc.replace('https://skparab1.github.io/server/frontend.html?','');
         if (loc.includes('&sort=newest')){
@@ -108,6 +109,14 @@
         } else {
           value1 = 'newest';
         }
+        if (loc.includes('&rad=0')){
+          rad = 0;
+        } else if (loc.includes('&rad=25')){
+          rad = 25;
+        } else {
+          rad = 18;
+        }
+        
         loc = loc.replace('&sort=newest','').replace('&sort=oldest','')
 
         console.log(loc);
@@ -242,7 +251,7 @@
         
         document.write(`<i class="fa-brands fa-github"></i>`); 
         document.write('<a href="https://skparab1.github.io/server/ui.html"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Send a message</button> </a>');
-        document.write('<a href='+window.loaction.href+'>" type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reload results</button> </a>');
+        document.write('<a href='+window.location.href+'>" type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reload results</button> </a>');
         document.write('<a href="https://github.com/skparab1/server"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">GitHub <i class="fa-github"> </i> </button> </a>');
         document.write('<a href="https://github.com/skparab1/server/issues"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Issues backend</button> </a>');
         document.write('<a href="https://github.com/Skparab1/server/actions/workflows/main.yml"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Actions backend</button> </a>');
@@ -329,8 +338,6 @@
             console.log(i,iend,increment);
             document.body.style.backgroundColor = themecolor;
             //document.write('<div style="width: 100%;">');
-
-            rad = 0;
 
             var dispname = usernames[i].split('&c');
             var bgcolor;
