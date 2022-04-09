@@ -257,9 +257,9 @@
         document.write('<a href="https://github.com/Skparab1/server/actions/workflows/main.yml"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Actions backend</button> </a>');
         let sendurl = 'https://skparab1.github.io/server/frontend.html?';
         if (themecolor == 'white'){
-          sendurl += 'lighttheme';
-        } else {
           sendurl += 'dark';
+        } else {
+          sendurl += 'lighttheme';
         }
         if (value1 == 'newest'){
           sendurl += '&sort=newest';
@@ -295,13 +295,23 @@
           const result = document.querySelector('.result');
           result.textContent = `Sorted by ${event.target.value}`;
           value1 = event.target.value
-          var newloc = window.location.href.replace('&sort=newest','').replace('&sort=oldest','')
-          if (!newloc.includes('?')){
-            newloc += '?';
-          } 
-          newloc += '&sort=' + value1;
-          console.log(newloc);
-          window.open(newloc,'_self');
+          let sendurl = 'https://skparab1.github.io/server/frontend.html?';
+          if (themecolor == 'white'){
+            sendurl += 'lighttheme';
+          } else {
+            sendurl += 'dark';
+          }
+          if (value1 == 'newest'){
+            sendurl += '&sort=newest';
+          } else {
+            sendurl += '&sort=oldest';
+          }
+          if (rad == 25){
+            sendurl += '&rad=25';
+          } else {
+            sendurl += '&rad=18';
+          }
+          window.open(sendurl,'_self');
         });
 
         document.write('<div class="result" style="color: white; display: none"></div><br>');
