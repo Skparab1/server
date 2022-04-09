@@ -109,12 +109,12 @@
         } else {
           value1 = 'newest';
         }
-        if (loc.includes('&rad=0')){
-          rad = 0;
-        } else if (loc.includes('&rad=25')){
+        if (loc.includes('&rad=25')){
           rad = 25;
-        } else {
+        } else if (loc.includes('&rad=18')){
           rad = 18;
+        } else {
+          rad = 0;
         }
 
         loc = loc.replace('&sort=newest','').replace('&sort=oldest','').replace('&rad=0','').replace('&rad=18','').replace('&rad=25','');
