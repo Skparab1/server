@@ -315,7 +315,7 @@
         selectElement.addEventListener('change', (event) => {
           const result = document.querySelector('.result');
           result.textContent = `Sorted by ${event.target.value}`;
-          value1 = event.target.value
+          value1 = event.target.value;
           let sendurl = 'https://skparab1.github.io/server/frontend.html?';
           if (themecolor == 'white'){
             sendurl += 'lighttheme';
@@ -323,9 +323,9 @@
             sendurl += 'dark';
           }
           if (value1 == 'newest'){
-            sendurl += '&sort=oldest';
+            sendurl += '&sort='+value;
           } else {
-            sendurl += '&sort=newest';
+            sendurl += '&sort='+value;
           }
           if (rad == 25){
             sendurl += '&rad=25';
