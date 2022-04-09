@@ -327,13 +327,13 @@
           } else {
             sendurl += '&sort='+value1;
           }
-          console.log(value1,sendurl);
           if (rad == 25){
             sendurl += '&rad=25';
           } else {
             sendurl += '&rad=0';
           }
-          //window.open(sendurl,'_self');
+          console.log(value1,sendurl);
+          window.open(sendurl,'_self');
         });
 
         document.write('<div class="result" style="color: white; display: none"></div><br>');
