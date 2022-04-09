@@ -270,10 +270,10 @@
         } else {
           sendurl += '&rad=0';
         }
-        if (rad == 25){
-          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Square theme</button> </a>');
+        if (themecolor == 'white'){
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Dark theme</button> </a>');
         } else {
-          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Round theme</button> </a>');
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Light theme</button> </a>');
         }
 
         sendurl = 'https://skparab1.github.io/server/frontend.html?';
@@ -292,10 +292,10 @@
         } else {
           sendurl += '&rad=25';
         }
-        if (themecolor == 'white'){
-          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Dark theme</button> </a>');
+        if (rad == 25){
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Square theme</button> </a>');
         } else {
-          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Light theme</button> </a>');
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Round theme</button> </a>');
         }
         
         document.write('<select class="sort" name="sort" id="sort" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5em;">');
