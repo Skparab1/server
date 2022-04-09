@@ -268,7 +268,7 @@
         if (rad == 25){
           sendurl += '&rad=25';
         } else {
-          sendurl += '&rad=18';
+          sendurl += '&rad=0';
         }
         if (themecolor == 'white'){
           document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Dark theme</button> </a>');
@@ -330,7 +330,7 @@
           if (rad == 25){
             sendurl += '&rad=25';
           } else {
-            sendurl += '&rad=18';
+            sendurl += '&rad=0';
           }
           window.open(sendurl,'_self');
         });
