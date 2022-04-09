@@ -399,6 +399,7 @@
             console.log('rad',rad);
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
+                console.log('literally made a button with border rad ',rad);
                 document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border-radius: '+25+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
                 document.write('<button onclick="myFunctionadj('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border-radius: '+rad+'; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               } else {
