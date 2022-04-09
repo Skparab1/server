@@ -323,16 +323,17 @@
             sendurl += 'dark';
           }
           if (value1 == 'newest'){
-            sendurl += '&sort='+value;
+            sendurl += '&sort='+value1;
           } else {
-            sendurl += '&sort='+value;
+            sendurl += '&sort='+value1;
           }
+          console.log(value1,sendurl);
           if (rad == 25){
             sendurl += '&rad=25';
           } else {
             sendurl += '&rad=0';
           }
-          window.open(sendurl,'_self');
+          //window.open(sendurl,'_self');
         });
 
         document.write('<div class="result" style="color: white; display: none"></div><br>');
