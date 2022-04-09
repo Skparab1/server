@@ -14,6 +14,7 @@ When used, this can present many limitations, which make it less reliable than a
 
 ## Features of [Message sender](https://skparab1.github.io/server/frontend.html)
 This message sender uses the same data storage algorithm and database type as this template. The main and fundamental feature is sending and receiving messages. Editing messages has recently beed added, so expect it to be buggy. Delete messages should be added soon, and then replies will be added (although that is hard ngl). Another feature is a notification if a user is sending messages too quickly. the notif will tell user if overwrite is likely and will help prevent overwrites. It has a nice look, and thanks to @Anish-lakkapragada for making it look good. It allows you to cose the color of your message, and you can also select random (which is not really random). Replying also works! To reply, simple press the reply button under any message to open the reply dialogue, and reply. Replies are processed just like messages. Messages can be viewed by clicking the view replies button. There are also light and dark themes, which can be toggled using a button in the header. There are also
+
 ## Acknowledgements
 - Original idea (of using Github issues and actions) by @KentoNishi (although he does not beleive that it is good for production, and I agree)
 - Massive thanks to @R2dev2 for advice
