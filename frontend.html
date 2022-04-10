@@ -414,7 +414,7 @@
               timeanddate[0] = 'On '+timeanddate[0];
             }
 
-            document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'">edit</a></h2>');
+            document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'"></a></h2>'); //edit would have been there <--
             document.write(`<p ${descriptionStyle}>` +convertchars(dispmessage[0])+'</p>');
 
             // look for reply
@@ -514,7 +514,7 @@
 
             document.body.style.backgroundColor = themecolor;
 
-            document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'"></a></h2>'); //edit would have been over there <--
+            document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'"></a></h2>'); //edit would have been there <--
             document.write(`<p ${descriptionStyle}">`+convertchars(dispmessage[0])+'</p>');
 
 
