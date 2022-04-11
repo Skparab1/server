@@ -401,7 +401,7 @@
             }
 
             // div generator 1
-            document.write('<div id="div'+String(i)+'" style="width: 51%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+bgcolor+'; padding: none; background: '+bgcolor+';" class="paper container">');
+            document.write('<div id="div'+String(i)+'" style="width: 50%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+bgcolor+'; padding: none; background: '+bgcolor+';" class="paper container">');
             var dispmessage = messages[i].split('&currenttime=');
             var timeanddate = dispmessage[1].split(' at ');
             var today = new Date();
@@ -448,8 +448,8 @@
             console.log('rad',rad);
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
-                document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border-radius: '+rad+'px; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: none; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
-                document.write('<button onclick="myFunctionadj('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border-radius: '+rad+'px; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: none; text-align: center; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
+                document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; border-radius: '+rad+'px; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: none; text-align: center; width: 51%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="myFunctionadj('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border-radius: '+rad+'px; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: none; text-align: center; width: 51%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               } else {
                 document.write('<button onclick="myFunctionadj('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+';border-radius: '+rad+'px;  border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               }
