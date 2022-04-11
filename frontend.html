@@ -401,7 +401,7 @@
             }
 
             // generate div for each msg
-            document.write('<div id="div'+String(i)+'" style="width: 49.25%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+bgcolor+'; background: '+bgcolor+'" class="center">');
+            document.write('<div id="div'+String(i)+'" style="width: 49.3%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+bgcolor+'; background: '+bgcolor+'" class="center">');
             var dispmessage = messages[i].split('&currenttime=');
             var timeanddate = dispmessage[1].split(' at ');
             var today = new Date();
@@ -496,7 +496,7 @@
             }
             // another div
             if (i-1 >= 0){
-              document.write('<div id="div'+String(i)+'" style="width: 49.25%; float: right; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; border: 4px solid '+bgcolor+'; background: '+bgcolor+'" class="center">');
+              document.write('<div id="div'+String(i)+'" style="width: 49.3%; float: right; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; border: 4px solid '+bgcolor+'; background: '+bgcolor+'" class="center">');
             }
 
             var dispname = usernames[i].split('&n');
