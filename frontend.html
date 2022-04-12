@@ -544,7 +544,7 @@
 
             if (i == 35 || i == 36 || true){
               if (repliesfound != 0){
-                document.write('<button onclick="togglereplies('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; float: center; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; border-radius: '+rad+'px; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="togglerepliesright('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; float: center; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; border-radius: '+rad+'px; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
                 document.write('<button onclick="myFunctionadj('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; float: center; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; border-radius: '+rad+'px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
               } else {
                 document.write('<button onclick="myFunctionadj('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; float: center; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; border-radius: '+rad+'px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
@@ -674,7 +674,7 @@
       addheight = addheight.replace(' replies','');
       addheight = parseInt(addheight);
       
-      addheight = addheight*45;
+      addheight = addheight*45-16;
       if (x.style.display == "none") {
         refreshtime = 60000;
         x.style.display = "block";
