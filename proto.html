@@ -1,0 +1,882 @@
+<html>
+<head>
+  <title>Skparab1 Forum - Main</title>
+  <link rel="stylesheet" type="text/css" href="./paper.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+    window.onload = () => {
+
+      function truncby4(number){
+        while (number >= 4){
+          number = number - 4;
+        }
+        return number
+      }
+
+      function containscharcodes(str){
+        var htmlchars = ['%7E','%21','%40','%23','%24','%25','%5E','%26','*','%28','%29','_','%2B','%60','-','%3D','%7B','%7D','%0D','%0A','%7C','%5B','%5D','%5C','%3A','%22','%3B','%27','%3C','%3E','%3F','%2C','.','%2F'];
+        let c = 0;
+        while (c < htmlchars.length){
+          if (str.includes(htmlchars[c])){
+            return true
+          }
+          c += 1;
+        }
+        return false
+      }
+
+      function createclick(i){
+        if (i == i){
+          var actuali = i;
+          document.write('<button id="replier'+String(actuali)+'">Reply</button>');
+          document.getElementById('replier'+String(actuali)+'').onclick = function myFunction() {
+            if (!replying){
+              console.log(actuali,('replier'+String(actuali)+''),'replier37');
+              document.getElementById('replier'+String(actuali)+'').textContent = "Hide";
+              document.getElementById('textbox'+String(actuali)+'').style = "display: block";
+              document.getElementById('submitbtn'+String(actuali)+'').style = "display: block";
+              replying = true;
+            } else {
+              document.getElementById('replier'+String(actuali)+'').textContent = "Reply";
+              document.getElementById('textbox'+String(actuali)+'').style = "display: none";
+              document.getElementById('submitbtn'+String(actuali)+'').style = "display: none";
+              replying = false;
+            }
+          }
+          document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum'+String(actuali)+'" name="msgnum" value='+String(actuali)+' style="display: none"><textarea id="textbox'+String(actuali)+'" type="text" style="display: none; color: white; background-color: black;" name="message" rows="1" cols="30"></textarea><input type="submit" value="Submit" id="submitbtn'+String(actuali)+'" style="display: none;"></form>');
+          document.getElementById('msgnum'+String(actuali)+'').style.display = "none";
+        }
+      }
+
+      function convertchars(str){
+        str = str.replaceAll('%0D%0A','\n');
+        str = str.replaceAll('%21','!');
+        str = str.replaceAll('%40','@');
+        str = str.replaceAll('%23','#');
+        str = str.replaceAll('%24','$');
+        str = str.replaceAll('%25','%');
+        str = str.replaceAll('%5E','^');
+        str = str.replaceAll('%26','&');
+        str = str.replaceAll('%2A','*');
+        str = str.replaceAll('%28','(');
+        str = str.replaceAll('%29',')');
+        str = str.replaceAll('%2B','+');
+        str = str.replaceAll('%60','`');
+        str = str.replaceAll('%3D','=');
+        str = str.replaceAll('%5B','[');
+        //blankline ~ !@#$%^&*()_+`-=[]\{}|;':",./<>?         33 total
+        //%0D%0A ~ %21 %40 %23 %24 %25 %5E %26 %2A %28 %29 _ %2B %60 - %3D %5B %5D %5C %7B %7D %7C %3B %27 %3A %22 , . %2F %3C %3E %3F
+        str = str.replaceAll('%5D',']');
+        str = str.replaceAll('%5C','\ ');
+        str = str.replaceAll('%7B','{');
+        str = str.replaceAll('%7D','}');
+        str = str.replaceAll('%7C','|');
+        str = str.replaceAll('%3B',';');
+        str = str.replaceAll('%27',"'");
+        str = str.replaceAll('%3A',':');
+        str = str.replaceAll('%22','"');
+        str = str.replaceAll('%2C',',');
+        str = str.replaceAll('%2F','/');
+        str = str.replaceAll('%3C','<');
+        str = str.replaceAll('%3E','>');
+        str = str.replaceAll('%3F','?');
+        return str
+      }
+
+      (async () => {
+        const data1 = await fetch("./data.json").then(r => r.json());
+        const replies1 = await fetch("./replies.json").then(r => r.json());
+
+        oldusernames = data1.data[0];
+        oldmessages = data1.data[1];
+
+        var names = replies1.data[0];
+        var replies = replies1.data[1];
+
+        // univ var
+        var value1;
+        var rad = 0;
+        loc = window.location.href;
+        loc = loc.replace('https://skparab1.github.io/server/frontend.html?','');
+        if (loc.includes('&sort=newest')){
+          value1 = "newest";
+        } else if (loc.includes('&sort=oldest')){
+          value1 = 'oldest';
+        } else {
+          value1 = 'newest';
+        }
+        if (loc.includes('&rad=25')){
+          rad = 25;
+        } else if (loc.includes('&rad=18')){
+          rad = 18;
+        } else {
+          rad = 0;
+        }
+
+        loc = loc.replace('&sort=newest','').replace('&sort=oldest','').replace('&rad=0','').replace('&rad=18','').replace('&rad=25','');
+
+        console.log(loc);
+        var themecolor;
+        var contrastcolor;
+
+        var delaytime;
+        if (loc == 'lighttheme' || loc == 'light'){
+          themecolor = 'white';
+          contrastcolor = 'black';
+        } else if (loc == 'gray'){
+          themecolor = 'lightgray';
+          contrastcolor = 'darkblue';
+        } else {
+          themecolor = 'black';
+          contrastcolor = 'white';
+        }
+
+        document.body.style.backgroundColor = themecolor;
+        
+        oldusernames = JSON.stringify(oldusernames);
+        oldmessages = JSON.stringify(oldmessages);
+        names = JSON.stringify(names);
+        replies = JSON.stringify(replies);
+        
+        oldusernames = oldusernames.replace('{"name":"','');
+        oldusernames = oldusernames.replace('"}','');
+        oldmessages = oldmessages.replace('{"message":"','');
+        oldmessages = oldmessages.replace('"}','');
+        names = names.replace('{"name":"','');
+        names = names.replace('"}','');
+        replies = replies.replace('{"message":"','');
+        replies = replies.replace('"}','');
+
+        while (oldusernames.includes('+')){
+          oldusernames = oldusernames.replace('+',' ');
+        }
+        while (oldmessages.includes('+')){
+          oldmessages = oldmessages.replace('+',' ');
+        }
+
+        names = names.replaceAll('+',' ');
+        replies = replies.replaceAll('+',' ');
+
+        document.body.style.backgroundColor = themecolor;
+
+        var usernames = oldusernames.split('&=');
+        var messages = oldmessages.split('&nextentry&');
+
+        names = names.split('&REPLY');
+        replies = replies.split('&nextentry&')
+
+        var refreshtime = 60000;
+
+        sent = localStorage.getItem('sent');
+        if (sent == null){
+          sent = 'false';
+          localStorage.setItem('sent','false');
+        }
+
+        if (sent != 'true' && sent != 'false' && sent != 'replied'){
+          document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: red; class="center"> <h3 style="color:rgb(10, 10, 10);">'+sent+'   <a href="https://skparab1.github.io/server/errors.html">Learn more<a/></h3> </div>');
+        }
+
+        var currentmsgcount = usernames.length;
+        newmsg = localStorage.getItem('newmsg');
+        if (newmsg == null){
+          newmsg = '0';
+        }
+
+        localStorage.setItem('newmsg',currentmsgcount);
+        console.log(currentmsgcount,parseInt(newmsg));
+        if (currentmsgcount > parseInt(newmsg)){
+          document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: orange; class="center"><h3 style="color:rgb(255, 255, 255);">You have '+String(currentmsgcount-parseInt(newmsg))+' new messages. <a href="https://skparab1.github.io/server/frontend">Mark as read</h3></a></div>');
+          refreshtime = refreshtime*2;
+        }
+
+        document.body.style.backgroundColor = themecolor;
+
+        if (sent == 'true'){
+          document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: green; class="center"> <h3 style="color:rgb(255, 166, 0);">Your message has been sent. It should appear in a less than a minute. You will need to refresh for it to appear. You can see your message being processed <a href="https://github.com/Skparab1/server/actions/workflows/main.yml">here</h3></a></div>');
+          refreshtime = refreshtime/2;
+        }
+        if (sent == 'replied'){
+          document.write('<div style="width: 100%; height: 50px; padding: 0x; float: left; background: darkgreen; class="center"> <h3 style="color:rgb(255, 166, 0);">Your Reply has been sent. It should appear in a less than a minute. You will need to refresh for it to appear. You can see your reply being processed <a href="https://github.com/Skparab1/server/actions/workflows/main.yml">here</h3></a></div>');
+          refreshtime = refreshtime/2;
+        }
+        localStorage.setItem('sent','false');
+
+        document.write('<div style="width: 100%; height: 50px; padding: 0x; text-align: center; background: '+themecolor+'; class="center"> <h2 style="color: '+contrastcolor+';">Skparab1 message forum&nbsp&nbsp'+usernames.length+' Messages </h1> </div>');
+        //document.write('<a href="https://skparab1.github.io/server/ui.html">Send a message</a>');
+        //document.getElementById("switch").style.display = "inline-block";
+        var element = document.createElement('switch');
+        element.style.position = "relative";
+        element.style.display = "inline-block";
+        element.style.width = "60px";
+        element.style.height = "34px";
+        element.style.color = "lightblue";
+        var element1 = document.createElement('slider');
+        element1.style.position = "absolute";
+        element1.style.cursor = "pointer";
+        element1.style.top = "0";
+        element1.style.left = "0";
+        element1.style.right = "0";
+        element1.style.bottom = "0";
+        element1.style.color = "#ccc";
+        element1.style.transition = ".4s";
+
+        var css = 'table button:hover{ background-color: #00ff00 }';
+        var style = document.createElement('style');
+
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        document.getElementsByTagName('head')[0].appendChild(style);
+
+        // let i = 0;
+        // while (i < data_array_1.length-1){
+        //   const msg = data_array_2[i];
+        //   const renderMessage = msg => html`<div class="msg"><h2>${msg}</h2></div>`;
+        //   const renderDataAray = arr => html`
+        //   <div class="msg-container">${arr.map(renderMessage)}</div>`
+        //   i += 1;
+        // }
+
+
+        //document.write('<a class="github-button" href="https://github.com/skparab1/server" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star skparab1/server on GitHub">&nbsp&nbspGitHub</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+        //document.write('<label class="switch" style="position: relative; display: inline-block; width: 60px; height: 34px;"><input type="checkbox"><span class="slider round"></span></label><br>'); 
+        
+        document.write(`<i class="fa-brands fa-github"></i>`); 
+        document.write('<a href="https://skparab1.github.io/server/ui.html"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Send a message</button> </a>');
+        document.write('<a href="'+window.location.href+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reload results</button> </a>');
+        document.write('<a href="https://github.com/skparab1/server"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">GitHub <i class="fa-github"> </i> </button> </a>');
+        document.write('<a href="https://github.com/Skparab1/server/actions/workflows/main.yml"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Actions backend</button> </a>');
+        let sendurl = 'https://skparab1.github.io/server/frontend.html?';
+        if (themecolor == 'white'){
+          sendurl += 'dark';
+        } else {
+          sendurl += 'lighttheme';
+        }
+        if (value1 == 'newest'){
+          sendurl += '&sort=newest';
+        } else {
+          sendurl += '&sort=oldest';
+        }
+        if (rad == 25){
+          sendurl += '&rad=25';
+        } else {
+          sendurl += '&rad=0';
+        }
+        if (themecolor == 'white'){
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Dark theme</button> </a>');
+        } else {
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Light theme</button> </a>');
+        }
+
+        sendurl = 'https://skparab1.github.io/server/frontend.html?';
+        if (themecolor == 'white'){
+          sendurl += 'lighttheme';
+        } else {
+          sendurl += 'dark';
+        }
+        if (value1 == 'newest'){
+          sendurl += '&sort=newest';
+        } else {
+          sendurl += '&sort=oldest';
+        }
+        if (rad == 25){
+          sendurl += '&rad=0';
+        } else {
+          sendurl += '&rad=25';
+        }
+        if (rad == 25){
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Square theme</button> </a>');
+        } else {
+          document.write('<a href="'+sendurl+'"><button type="button" class="button" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5;">Round theme</button> </a>');
+        }
+        
+        document.write('<select class="sort" name="sort" id="sort" style="background-color: '+themecolor+'; border: 2px solid '+contrastcolor+'; color: '+contrastcolor+'; height: 50px; padding: 10px 5px; text-align: center; width: 13.5%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer; margin-bottom:0.5em;">');
+        if (value1 == 'newest'){
+          document.write('<option value="newest">Sort: Newest first</option>');
+          document.write('<option value="oldest">Sort: Oldest first</option>');
+          document.write('<option value="by color">Sort: By color (dont choose this)</option>');
+        } else {
+          document.write('<option value="oldest">Sort: Oldest first</option>');
+          document.write('<option value="newest">Sort: Newest first</option>');
+          document.write('<option value="by color">Sort: By color (dont choose this)</option>');
+        }
+        document.write('</select>');
+
+        const selectElement = document.querySelector('.sort');
+
+        selectElement.addEventListener('change', (event) => {
+          const result = document.querySelector('.result');
+          result.textContent = `Sorted by ${event.target.value}`;
+          value1 = event.target.value;
+          let sendurl = 'https://skparab1.github.io/server/frontend.html?';
+          if (themecolor == 'white'){
+            sendurl += 'lighttheme';
+          } else {
+            sendurl += 'dark';
+          }
+          if (value1 == 'newest'){
+            sendurl += '&sort='+value1;
+          } else {
+            sendurl += '&sort='+value1;
+          }
+          if (rad == 25){
+            sendurl += '&rad=25';
+          } else {
+            sendurl += '&rad=0';
+          }
+          console.log(value1,sendurl);
+          window.open(sendurl,'_self');
+        });
+
+        document.write('<div class="result" style="color: white; display: none"></div><br>');
+
+        var select = document.getElementById('sort');
+        var value = select.options[select.selectedIndex].value;
+        console.log(value);
+
+        select.addEventListener('sort', (event) => {
+          const result = document.querySelector('.sort');
+          const result1 = document.querySelector('.sort');
+          result.textContent = `You chose ${event.target.value}`;
+          console.log(result1);
+        });
+
+        //document.write('<label style="position: relative; display: inline-block; width: 60px; height: 34px; color: black">');
+        //document.write('<input type="checkbox">');
+        //document.write('<span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; color: white;"></span>');
+        //document.write('</label>');
+      
+        let i;
+        let iend;
+        let increment;
+
+        if (value1 == 'newest'){
+          i = usernames.length-1;
+          iend = 0;
+          increment = -1;
+        } else {
+          iend = usernames.length;
+          i = 1;
+          increment = 1;
+        }
+
+        document.body.style.backgroundColor = themecolor; 
+        document.body.classList.add("paper"); 
+        document.body.classList.add("container");
+        document.body.style.fontFamily = "Inter var,ui-sans-serif,system-ui"; 
+        const descriptionStyle = `style="text-align: center; margin-left: 1.5em; margin-right: 1.5em; color: black"`;
+        const messageHeaderStyle = `style="text-align: center";`;
+      
+
+        const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
+
+        //start iterating
+        var eachnum;
+        (async () => {
+          while ((i > iend && value1 == 'newest')||(i < iend && value1 == 'oldest')) {
+            //await sleep(50);
+            console.log(i,iend,increment);
+            document.body.style.backgroundColor = themecolor;
+            //document.write('<div style="width: 100%;">');
+
+            var dispname = usernames[i].split('&c');
+            var bgcolor;
+            if (dispname.length == 1){
+              var namedisp = dispname[0].split('&n')[0];
+              if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'}
+            } else {
+              var splitname = dispname[1].split('&n');
+              var namedisp = dispname[0];
+              bgcolor = splitname[0];
+              if (bgcolor == 'red'){bgcolor = 'rgb(225, 0, 0)'} else if (bgcolor == 'green'){bgcolor = 'rgb(0, 225, 0)'} else if (bgcolor == 'blue'){bgcolor = 'rgb(0, 200, 250)'} else if (bgcolor == 'yellow'){bgcolor = 'rgb(225, 225, 0)'} else if (bgcolor == 'aqua'){bgcolor = 'rgb(0, 225, 225)'} else if (bgcolor == 'pink'){bgcolor = 'rgb(255, 0, 255)'} else if (bgcolor == 'orange'){bgcolor = 'rgb(255, 180, 0)'} else if (bgcolor == 'purple'){bgcolor = 'rgb(180, 0, 255)'}
+              if (bgcolor == 'random'){ if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'} }
+            }
+
+            // div generator 1
+            document.write('<div id="div'+String(i)+'" class="paper container" style="float: left; margin-bottom: 0.35em; margin-top: 0.35em; width: 49%; border-radius: '+rad+'px; height: 200px; background: '+bgcolor+'; ">');
+            //document.write('<div id="div'+String(i)+'" style="width: 50%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+bgcolor+'; background: '+bgcolor+'" class="center">');
+            var dispmessage = messages[i].split('&currenttime=');
+            var timeanddate = dispmessage[1].split(' at ');
+            var today = new Date();
+            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+            var lastdate = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+(today.getDate()-1);
+            if (date == timeanddate[0]){
+              timeanddate[0] = 'Today';
+            } else if (lastdate == timeanddate[0]){
+              timeanddate[0] = 'Yesterday';
+            } else {
+              timeanddate[0] = 'On '+timeanddate[0];
+            }
+
+            document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'"></a></h2>'); //edit would have been there <--
+            document.write(`<p ${descriptionStyle}>` +convertchars(dispmessage[0])+'</p>');
+
+            // look for reply
+            let ij = 0;
+            var repliesfound = 0;
+            var leneach = "idk what to say here... does this really work? how long does it take? This is pretty cool ngl especially since it works with ".length;
+            let zvar = document.getElementById('div'+String(i));
+            zvar.style.height = 160+20*Math.floor(dispmessage[0].length/leneach);
+            //zvar.style.height = 155+(40*repliesfound)+25*Math.floor(dispmessage[0].length/leneach);
+            // but each reply is 30 px
+
+            // replier
+            var replying = false;
+
+            eachnum = String(i);
+            //eachnum = '';
+            eachnum = 'reply'+eachnum;
+            var eachtext = 'text'+eachnum;
+            var eachsubmitter = 'submitter'+eachnum;
+            var actnum = String(i);
+
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                repliesfound += 1;
+              }
+              ij+=1;
+            }
+
+            console.log('rad',rad);
+            if (i == 35 || i == 36 || true){
+              if (repliesfound != 0){
+                document.write('<button onclick="togglerepliesright('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; float: center; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; border-radius: '+rad+'px; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; float: center; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; border-radius: '+rad+'px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
+              } else {
+                document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; float: center; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; border-radius: '+rad+'px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
+              }
+              document.write('<div id="myDIV'+String(i)+'" style="display: none">');
+              document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+String(i)+' style="display: none"><label style="color: '+themecolor+'; font-size: 22px" for="username">Username:</label><input id="textbox" type="text" style=" color: white; background-color: black; border: 2px solid white" name="username" rows="2" cols="10"></input><label style="color: '+themecolor+'; font-size: 22px;" for="reply">Reply:</label><input id="textbox2" type="text" style=" color: white; background-color: black; border: 2px solid white" name="message" rows="2" cols="30"></input><input type="submit" value="Submit" id="submitbtn" style="color: white; background-color: black; height: 22px; border: 2px solid white"></form>');
+              document.getElementById('msgnum').style.display = "none";
+              document.write('</div>');
+            }
+
+            ij = 0;
+            bgcolor = bgcolor.replace('rgb(','');
+            bgcolor = bgcolor.replace(')','');
+            bgcolor = bgcolor.split(',');
+            bgcolor = 'rgb('+String(parseInt(bgcolor[0]-33))+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
+            document.write('<div id="replydisplay'+i+'"style="display: none">');
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                repliesfound += 1;
+                document.write(`<div style="width: 100%; float: center; height: 45px; border-radius: `+rad+`px; vertical-align: middle; text-align: center; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+              }
+              ij+=1;
+            }
+            document.write('</div>');
+
+            document.write('</div>');
+
+            document.body.style.backgroundColor = themecolor;
+
+            // based on what number post it is, decide the color.
+            i += increment;
+            console.log(i,iend,increment);
+            dispname = usernames[i].split('&c');
+            var bgcolor;
+            if (dispname.length == 1){
+              namedisp = dispname[0].split('&n')[0];
+              if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'}
+            } else {
+              splitname = dispname[1].split('&n');
+              namedisp = dispname[0];
+              bgcolor = splitname[0];
+              if (bgcolor == 'red'){bgcolor = 'rgb(225, 0, 0)'} else if (bgcolor == 'green'){bgcolor = 'rgb(0, 225, 0)'} else if (bgcolor == 'blue'){bgcolor = 'rgb(0, 200, 250)'} else if (bgcolor == 'yellow'){bgcolor = 'rgb(225, 225, 0)'} else if (bgcolor == 'aqua'){bgcolor = 'rgb(0, 225, 225)'} else if (bgcolor == 'pink'){bgcolor = 'rgb(255, 0, 255)'} else if (bgcolor == 'orange'){bgcolor = 'rgb(255, 180, 0)'} else if (bgcolor == 'purple'){bgcolor = 'rgb(180, 0, 255)'}
+              if (bgcolor == 'random'){ if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'} }
+            }
+
+            // second div generator
+            if (i-1 >= 0){
+              document.write('<div id="div'+String(i)+'" class="paper container" style="float: right; margin-bottom: 0.35em; margin-top: 0.35em; width: 49%; border-radius: '+rad+'px; height: 200px; background: '+bgcolor+'; ">');
+            }
+
+            var dispname = usernames[i].split('&n');
+            console.log(dispmessage);
+            var dispmessage = messages[i].split('&currenttime=');
+            var timeanddate = dispmessage[1].split(' at ');
+            var today = new Date();
+            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+            var lastdate = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+(today.getDate()-1);
+            if (date == timeanddate[0]){
+              timeanddate[0] = 'Today';
+            } else if (lastdate == timeanddate[0]){
+              timeanddate[0] = 'Yesterday';
+            } else {
+              timeanddate[0] = 'On '+timeanddate[0];
+            }
+
+            document.body.style.backgroundColor = themecolor;
+
+            document.write(`<h2 ${messageHeaderStyle}>`+convertchars(namedisp)+'&nbsp&nbsp&nbsp&nbsp&nbsp'+timeanddate[0]+' at '+timeanddate[1]+'&nbsp&nbsp<a href="https://skparab1.github.io/server/verifyedit.html?messageid='+String(i)+'"></a></h2>'); //edit would have been there <--
+            document.write(`<p ${descriptionStyle}">`+convertchars(dispmessage[0])+'</p>');
+
+
+            ij = 0;
+            console.log('thing',names.length-1);
+            repliesfound = 0;
+            bgcolor = bgcolor.replace('rgb(','');
+            bgcolor = bgcolor.replace(')','');
+            bgcolor = bgcolor.split(',');
+            bgcolor = 'rgb('+String(parseInt(bgcolor[0]-33))+','+String(parseInt(bgcolor[1])-33)+','+String(parseInt(bgcolor[1])-33)+')';
+            
+            let zvar1 = document.getElementById('div'+String(i));
+            //length per line for 50%
+            // 50%/4096 is one of the most commonly used display sizes
+            zvar1.style.height = 160+20*Math.floor(dispmessage[0].length/leneach);
+
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                repliesfound += 1;
+              }
+              ij+=1;
+            }
+
+            if (i == 35 || i == 36 || true){
+              if (repliesfound != 0){
+                document.write('<button onclick="togglerepliesright('+String(i)+');" id="replytoggle'+String(i)+'" style="background-color: '+themecolor+'; float: center; border: 2px solid '+themecolor+'; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; border-radius: '+rad+'px; width: 50%; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Show '+String(repliesfound)+' replies</button>');
+                document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; float: center; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 50%; border-radius: '+rad+'px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
+              } else {
+                document.write('<button onclick="myFunction('+String(i)+');" id="'+String(i)+'" style="background-color: '+themecolor+'; border: 2px solid '+themecolor+'; float: center; color: '+contrastcolor+'; height: 45px; padding: 0px 0px; text-align: center; width: 100%; border-radius: '+rad+'px; display: inline-block; font-size: 14px; transition: all 0.2s ease-in-out; cursor: pointer;">Reply</button>');
+              }
+              document.write('<div id="myDIV'+String(i)+'" style="display: none">');
+              document.write('<form id=lol action="https://skparab1.github.io/sendmsg/reply.html"><input hidden type="number" id="msgnum" name="msgnum" value='+String(i)+' style="display: none"><label style="color: '+themecolor+'; font-size: 22px" for="username">Username:</label><input id="textbox" type="text" style=" color: white; background-color: black; border: 2px solid white" name="username" rows="2" cols="10"></input><label style="color: '+themecolor+'; font-size: 22px;" for="reply">Reply:</label><input id="textbox2" type="text" style=" color: white; background-color: black; border: 2px solid white" name="message" rows="2" cols="30"></input><input type="submit" value="Submit" id="submitbtn" style="color: white; background-color: black; height: 22px; border: 2px solid white"></form>');
+              document.getElementById('msgnum').style.display = "none";
+              document.write('</div>');
+            }
+
+            ij = 0;
+            document.write('<div id="replydisplay'+i+'"style="display: none">');
+            while (ij <= names.length-1){
+              msgnum = names[ij].split('&m')[1];
+              if (String(msgnum) == String(i)){
+                repliesfound += 1;
+                document.write(`<div style="width: 100%; text-align: center; border-radius: `+rad+`; float: center; height: 45px; background: `+bgcolor+`; border: 1px solid black;"><h4 ${descriptionStyle}>` +names[ij].split('&m')[0] + ': ' +convertchars(replies[ij].split('&currenttime=')[0])+'</h4></div>');
+              }
+              ij+=1;
+            }
+            document.write('</div>');
+
+            console.log(dispmessage[0]);
+            document.write('</div>');
+            //document.write('</div>');
+            //document.write('<hr>');
+            i += increment;
+          }
+        })();
+
+        //document.getElementById("body").style.background-color = "black";
+        document.body.style.backgroundColor = themecolor;
+
+        setTimeout(function(){location.reload(true)},1*refreshtime);
+      })();
+    };
+
+    function myFunction(i) {
+      var x = document.getElementById('myDIV'+String(i)+'');
+      var y = document.getElementById(String(i));
+      var z = document.getElementById('div'+String(i));
+      var z1 = document.getElementById('div'+String(i+1));
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.textContent = "Hide"
+        z.style.height = String(z.offsetHeight+25)+"px";
+        //z1.style.height = "175px";
+      } else {
+        x.style.display = "none";
+        y.textContent = "Reply"
+        z.style.height = String(z.offsetHeight-25)+"px";
+        //z1.style.height = "150px";
+      }
+    }
+    function myFunctionadj(i) {
+      var x = document.getElementById('myDIV'+String(i)+'');
+      var y = document.getElementById(String(i));
+      var z = document.getElementById('div'+String(i));
+      var z1 = document.getElementById('div'+String(i+1));
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.textContent = "Hide"
+        z.style.height = String(z.offsetHeight+25-8)+"px";
+        //z1.style.height = "175px";
+      } else {
+        x.style.display = "none";
+        y.textContent = "Reply"
+        z.style.height = String(z.offsetHeight-25-8)+"px";
+        //z1.style.height = "150px";
+      }
+    }
+    function togglereplies(i) {
+      var x = document.getElementById('replydisplay'+String(i)+'');
+      var y = document.getElementById('replytoggle'+String(i));
+      var z = document.getElementById('div'+String(i));
+      var addheight;
+      if (y.textContent.includes('Show')){
+        addheight = y.textContent.replace('Show ','');
+      } else {
+        addheight = y.textContent.replace('Hide ','');
+      }
+      addheight = addheight.replace(' replies','');
+      addheight = parseInt(addheight);
+
+      addheight = addheight*45-8;
+      if (x.style.display == "none") {
+        refreshtime = 60000;
+        x.style.display = "block";
+        y.textContent = y.textContent.replace('Show','Hide');
+        console.log(addheight);
+        console.log(z.offsetHeight);
+        var thisthing = String(parseInt(z.offsetHeight)+addheight)+"px";
+        z.style.height = thisthing;
+        console.log(thisthing);
+        console.log(z.offsetHeight);
+        if (thisthing != z.offsetHeight){
+          z.style.height = z.offsetHeight-8;
+        }
+        console.log(z.offsetHeight);
+        //z1.style.height = "175px";
+      } else {
+        x.style.display = "none";
+        y.textContent = y.textContent.replace('Hide','Show');
+        console.log(addheight);  //2
+        console.log(z.offsetHeight);  //222
+        var thisthing = String(parseInt(z.offsetHeight)-addheight)+"px";  //282
+        z.style.height = thisthing;
+        console.log(thisthing);
+        console.log(z.offsetHeight);   //290
+        if (thisthing != z.offsetHeight){
+          z.style.height = z.offsetHeight-24;
+        }
+        console.log(z.offsetHeight);
+        //z1.style.height = "150px";
+      }
+    }
+    function togglerepliesright(i) {
+      var x = document.getElementById('replydisplay'+String(i)+'');
+      var y = document.getElementById('replytoggle'+String(i));
+      var z = document.getElementById('div'+String(i));
+      var addheight;
+      if (y.textContent.includes('Show')){
+        addheight = y.textContent.replace('Show ','');
+      } else {
+        addheight = y.textContent.replace('Hide ','');
+      }
+      addheight = addheight.replace(' replies','');
+      addheight = parseInt(addheight);
+      
+      addheight = addheight*45;
+      if (x.style.display == "none") {
+        refreshtime = 60000;
+        x.style.display = "block";
+        y.textContent = y.textContent.replace('Show','Hide');
+        console.log(addheight);
+        console.log(z.offsetHeight);
+        var thisthing = String(parseInt(z.offsetHeight)+addheight)+"px";
+        z.style.height = thisthing;
+        console.log(thisthing);
+        console.log(z.offsetHeight);
+        console.log(z.offsetHeight);
+        //z1.style.height = "175px";
+      } else {
+        x.style.display = "none";
+        y.textContent = y.textContent.replace('Hide','Show');
+        console.log(addheight);  //2
+        console.log(z.offsetHeight);  //222
+        var thisthing = String(parseInt(z.offsetHeight)-addheight)+"px";  //282
+        z.style.height = thisthing;
+        console.log(thisthing);
+        console.log(z.offsetHeight);   //290
+        console.log(z.offsetHeight);
+        //z1.style.height = "150px";
+      }
+    }
+  </script>    
+</head>
+
+<body>
+
+</body>
+
+<style>
+  body {
+      background-color: rgb(0, 0, 0);
+  }
+
+
+  .dank {
+    font-size: 30px !important; 
+  }
+  h1 {
+    color: aliceblue;
+  }
+  h2 {
+    color: aliceblue;
+  }
+  h3 {
+    color: aliceblue;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: lightgrey;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+  .button {
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 0px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 49%;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    border-color: white;
+    border-width: 1px;
+    border-style: dotted;
+  }
+
+  button:hover {
+      cursor: pointer;
+      background:#bbb;
+      color: black;
+      border-color: black;
+      border-width: 1px;
+      border-style: dotted;
+  }
+
+  form {
+    width: 50%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+</style>
+
+</html>
