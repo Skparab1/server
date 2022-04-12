@@ -400,7 +400,6 @@
               if (bgcolor == 'random'){ if ((i+1)%8 == 0){bgcolor = 'rgb(225, 0, 0)'} else if ((i+1)%8 == 1){bgcolor = 'rgb(0, 225, 0)'} else if ((i+1)%8 == 2){bgcolor = 'rgb(0, 200, 250)'} else if ((i+1)%8 == 3){bgcolor = 'rgb(225, 225, 0)'} else if ((i+1)%8 == 4){bgcolor = 'rgb(0, 225, 225)'} else if ((i+1)%8 == 5){bgcolor = 'rgb(255, 0, 255)'} else if ((i+1)%8 == 6){bgcolor = 'rgb(255, 180, 0)'} else if ((i+1)%8 == 7){bgcolor = 'rgb(180, 0, 255)'} }
             }
 
-            document.write('<div id="div'+String(i)+'" style="width: 50%; margin-bottom: 0.35em; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+bgcolor+'; background: '+bgcolor+'" class="center">');
             var dispmessage = messages[i].split('&currenttime=');
             var timeanddate = dispmessage[1].split(' at ');
             var today = new Date();
