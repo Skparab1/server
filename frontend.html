@@ -471,7 +471,7 @@
             bgcolor = bgcolor.replace('rgb(','');
             bgcolor = bgcolor.replace(')','');
             bgcolor = bgcolor.split(',');
-            bgcolor = 'rgb('+String(parseInt(bgcolor[0]+33))+','+String(parseInt(bgcolor[1])+33)+','+String(parseInt(bgcolor[1])+33)+')';
+            bgcolor = 'rgb('+String(parseInt(bgcolor[0]+55))+','+String(parseInt(bgcolor[1])+55)+','+String(parseInt(bgcolor[2])+55)+')';
             document.write('<div id="replydisplay'+i+'"style="display: none">');
             while (ij <= names.length-1){
               msgnum = names[ij].split('&m')[1];
@@ -539,7 +539,7 @@
             bgcolor = bgcolor.replace('rgb(','');
             bgcolor = bgcolor.replace(')','');
             bgcolor = bgcolor.split(',');
-            bgcolor = 'rgb('+String(parseInt(bgcolor[0]+33))+','+String(parseInt(bgcolor[1])+33)+','+String(parseInt(bgcolor[1])+33)+')';
+            bgcolor = 'rgb('+String(parseInt(bgcolor[0]+55))+','+String(parseInt(bgcolor[1])+55)+','+String(parseInt(bgcolor[2])+55)+')';
             
             let zvar1 = document.getElementById('div'+String(i));
             //length per line for 50%
