@@ -401,7 +401,7 @@
             }
 
             // generate first div
-            document.write('<div id="div'+String(i)+'" style="width: 49%; margin-bottom: 0.35em; position: absolute; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+themecolor+'; background: '+bgcolor+'" class="center">');
+            document.write('<div id="div'+String(i)+'" style="width: 49%; margin-bottom: 0.35em; position: relative; margin-top: 0.35em; border-radius: '+rad+'px; height: 200px; float: left; border: 4px solid '+themecolor+'; background: '+bgcolor+'" class="center">');
             var dispmessage = messages[i].split('&currenttime=');
             var timeanddate = dispmessage[1].split(' at ');
             var today = new Date();
