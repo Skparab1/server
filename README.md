@@ -1,10 +1,13 @@
 # Server
 [![pages-build-deployment](https://github.com/Skparab1/server/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Skparab1/server/actions/workflows/pages/pages-build-deployment)
+
 ## About
 This is a template and tutorial for using Github as a database and slow server. It works by using a json file for data storage, and writing back data using GitHub Issues and Actions. It usually processes writes requests in less than a minute. An example of using this method of data storage is [here](https://skparab1.github.io/server/frontend.html). I made this because despite lots of searches about using Github as a database, I didn't really find anything that seemed easy to use and implement. So I ended up yoinking lots of code snippents from different websites, and ended up with [this](https://skparab1.github.io/server/frontend.html) cool working product, which can function as an actual messaging system. It's able to process 5 requests in 2 seconds(tested).To be clear, this is not meant to be used to make any real large app, and the main point of this is a demo.
 
 ## How it works
 To load content from GitHub, the webpage will just load the json and parse its content. To write to back to the database, the webpage will use GitHub API for opening an Issue and Actions to stage a Commit and push changes. First, the webpage first uses Github API to open an issue with data to be commited in issue title and body. Then, the issue triggers a Github Actions workflow that extracts the title and body data of the issue and then commits the content into the json. The entire process takes an average of 30 seconds to complete, and usually completes in less than a minute. After that, a built in GitHub action will deploy the webpage. If the workflow has commited right before it attempts to commit again, it will cause an error since the files are not up to date. To solve this, it will just pull the files again, make changes and re-commit. This process is repeated 3 times, which allows up to processing of up to 3 requests sent per second.
+
+## Pros
 
 ## Applications
 This was intended to be used as a database, and can be used as a server too, although with some limitations. Using as a server may invoke overwrite problems. This can specifically be used for a message forum, which has [already been implemented](https://skparab1.github.io/server/frontend.html). Further uses can include short url generator, as well as to make user accounts. Another idea which i plan to implement soon is some sort of email shenanigan that can privately send and receive messages (with the same github database idea) with accounts, although, this would have to be a private repo ig.
