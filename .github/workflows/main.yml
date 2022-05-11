@@ -179,7 +179,15 @@ jobs:
           push: true
         continue-on-error: true
       
-      - name: Close Issue
+      - if: startsWith(github.event.issue.title, '&=') == true
+        name: Close Issue
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Issue data processed. Closing issue...
+            
+      - if: startsWith(github.event.issue.title, '&REPLY') == true
+        name: Close Issue
         uses: peter-evans/close-issue@v2
         with:
           comment: |
